@@ -1,0 +1,12 @@
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+/tests-examples
+projectStructure.cache.json
+.auth
+
+.idea
+.env
