@@ -12,21 +12,14 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "paths": {
-      "@config/*": ["./src/config/*"],
-      "@decorators/*": ["./src/decorators/*"],
-      "@fixtures/*": ["./src/fixtures/*"],
-      "@interfaces/*": ["./src/interfaces/*"],
-      "@interfaces": ["./src/interfaces"],
-      "@models/*": ["./src/models/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@test-data/*": ["./src/test-data/*"],
-      "@tests/*": ["./src/tests/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@configs/*": ["./src/configs/*"],
+      "@rules/*": ["./src/rules/*"],
+      "@tests/*": ["./tests/*"]
     },
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": ".",
     "isolatedModules": true
   },
   "include": [".eslint", "src", "tests", "scripts", "vitest.config.ts", "tsup.config.ts"]
