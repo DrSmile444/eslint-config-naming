@@ -39,7 +39,7 @@ export default [
       'simple-import-sort': simpleImportSort,
     },
     rules: {
-      'simple-import-sort/exports': 'error',
+      'simple-import-sort/exports': 'off',
       'simple-import-sort/imports': [
         'error',
         {
