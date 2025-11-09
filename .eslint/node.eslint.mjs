@@ -20,6 +20,7 @@ import sonarEslint from './node/sonar.eslint.mjs';
 import stylisticEslint from './node/stylistic.eslint.mjs';
 import typescriptProjectEslint from './node/typescript-project.eslint.mjs';
 import unicornEslint from './node/unicorn.eslint.mjs';
+import unusedImportsEslint from './node/unused-imports.eslint.mjs';
 import { __dirname, compat } from './eslint-compat.config.mjs';
 import { eslintLogger } from './logger.mjs';
 
@@ -76,6 +77,8 @@ export default [
   ...orderedImportsEslint,
   // Import alias support
   ...importAliasEslint,
+  // Unused imports detection and removal
+  ...unusedImportsEslint,
   // Secret detection rules
   ...noSecretsEslint,
   // Node.js security rules
