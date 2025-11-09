@@ -20,7 +20,6 @@ import {
   variableNamingDestructured,
 } from './variables';
 
-// This array preserves the exact rule ordering from the original legacy config.
 export const namingConventionRule = [
   'error',
   objectLiteralPropertyNaming,

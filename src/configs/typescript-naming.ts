@@ -1,3 +1,4 @@
+import type { RuleConfig } from '@eslint/core';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import parser from '@typescript-eslint/parser';
 import type { Linter } from 'eslint';
@@ -19,7 +20,7 @@ export const typescriptNamingConfig: Linter.Config[] = [
       '@typescript-eslint': tsPlugin as never,
     },
     rules: {
-      '@typescript-eslint/naming-convention': namingConventionRule as unknown as Linter.RuleEntry[],
+      '@typescript-eslint/naming-convention': namingConventionRule as unknown as RuleConfig,
     },
   },
 ];
