@@ -39,6 +39,8 @@ export default [
       'simple-import-sort': simpleImportSort,
     },
     rules: {
+      // Disable conflicting rules from other plugins.
+      // Stylistic plugin conflicts with import sorting.
       'simple-import-sort/exports': 'off',
       'simple-import-sort/imports': [
         'error',
