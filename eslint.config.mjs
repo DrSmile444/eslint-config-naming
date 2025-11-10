@@ -10,7 +10,7 @@ export default defineConfig([
     files: ['**/*.{js,mjs,cjs,ts}'],
   },
   {
-    ignores: ['node_modules', 'function-out.js'],
+    ignores: ['node_modules', 'function-out.js', 'tests/snippets/**'],
   },
   // Node config
   ...nodeConfigs,
