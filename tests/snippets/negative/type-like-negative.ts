@@ -1,0 +1,2 @@
+type IUserId = string;
+
