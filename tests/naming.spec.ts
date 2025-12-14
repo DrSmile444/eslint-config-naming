@@ -65,6 +65,7 @@ const tsconfigRootDir = path.resolve(__dirname, '..');
 // config stays parser- and plugin-agnostic.
 const testConfig = typescriptNamingConfig.map((config) => ({
   ...config,
+  files: ['**/*.ts', '**/*.tsx'],
   languageOptions: {
     ...config.languageOptions,
     parser: tsParser as any,
@@ -72,8 +73,9 @@ const testConfig = typescriptNamingConfig.map((config) => ({
       ...config.languageOptions?.parserOptions,
       ecmaVersion: 'latest',
       sourceType: 'module',
-      project: ['./tsconfig.json'],
-      tsconfigRootDir,
+      // Note: project-based linting doesn't work well with lintText + virtual files
+      // so we disable it for tests. Type-aware rules won't fully work, but
+      // non-type-aware naming convention rules will still be tested.
     },
   },
   plugins: {

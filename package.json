@@ -24,7 +24,7 @@
     "build": "tsup",
     "format:md": "npx prettier --write \"**/*.md\"",
     "typecheck": "npx tsc --noEmit",
-    "test": "npx vitest",
+    "test": "npx vitest run",
     "bump-version": "npx tsx ./scripts/bump-version.script.ts && npm audit fix",
     "parse-llm-response": "npx tsx ./scripts/split-plain-code.ts",
     "format": "npx prettier . --write"
