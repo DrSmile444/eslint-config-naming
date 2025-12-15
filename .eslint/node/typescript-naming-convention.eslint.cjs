@@ -9,9 +9,7 @@ module.exports = {
     {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
-      parserOptions: {
-        project: './tsconfig.json',
-      },
+      parserOptions: {},
       plugins: ['@typescript-eslint'],
       rules: {
         '@typescript-eslint/naming-convention': [
