@@ -90,8 +90,20 @@ const eslint = new ESLint({
   overrideConfig: testConfig,
 });
 
-async function lint(relativePath: string) {
-  const filePath = path.resolve(tsconfigRootDir, relativePath);
+async function lint(fileUrl: string) {
+  // Convert Vite's ?url import to an absolute file path
+  // Vite's ?url returns paths like "/tests/snippets/..." which are project-relative
+  let filePath: string;
+
+  if (fileUrl.startsWith('file://')) {
+    filePath = fileURLToPath(fileUrl);
+  } else {
+    // Remove leading slash if present (Vite returns paths like "/tests/...")
+    const relativePath = fileUrl.startsWith('/') ? fileUrl.slice(1) : fileUrl;
+
+    filePath = path.resolve(tsconfigRootDir, relativePath);
+  }
+
   // Use lintFiles instead of lintText to enable type-aware linting with projectService
   const [result] = await eslint.lintFiles([filePath]);
 
