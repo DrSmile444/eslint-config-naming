@@ -68,7 +68,7 @@ const testConfig = typescriptNamingConfig.map((config) => ({
   files: ['**/*.ts', '**/*.tsx'],
   languageOptions: {
     ...config.languageOptions,
-    parser: tsParser as any,
+    parser: tsParser,
     parserOptions: {
       ...config.languageOptions?.parserOptions,
       ecmaVersion: 'latest',
@@ -81,7 +81,7 @@ const testConfig = typescriptNamingConfig.map((config) => ({
   },
   plugins: {
     // test-local plugin wiring; not exported from the library config
-    '@typescript-eslint': tsPlugin as any,
+    '@typescript-eslint': tsPlugin,
   },
 }));
 
