@@ -59,7 +59,7 @@ import variableDestructuredPositive from './snippets/variables-destructured/posi
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const tsconfigRootDir = path.resolve(__dirname, '..');
+const tsconfigRootDirectory = path.resolve(__dirname, '..');
 
 // Build a test-only config that wires parser + plugin in, while the published
 // config stays parser- and plugin-agnostic.
@@ -79,7 +79,7 @@ const testConfig = typescriptNamingConfig.map((config) => {
         projectService: {
           allowDefaultProject: ['*.ts', '*.tsx'],
         },
-        tsconfigRootDir,
+        tsconfigRootDir: tsconfigRootDirectory,
       },
     },
     plugins: {
@@ -105,7 +105,7 @@ async function lint(fileUrl: string) {
     // Remove leading slash if present (Vite returns paths like "/tests/...")
     const relativePath = fileUrl.startsWith('/') ? fileUrl.slice(1) : fileUrl;
 
-    filePath = path.resolve(tsconfigRootDir, relativePath);
+    filePath = path.resolve(tsconfigRootDirectory, relativePath);
   }
 
   // Use lintFiles instead of lintText to enable type-aware linting with projectService
