@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
-import { ESLint } from 'eslint';
+import { ESLint, type Linter } from 'eslint';
 import { describe, expect, it } from 'vitest';
 
 import { typescriptNamingConfig } from '@configs/typescript-naming';
@@ -63,31 +63,35 @@ const tsconfigRootDir = path.resolve(__dirname, '..');
 
 // Build a test-only config that wires parser + plugin in, while the published
 // config stays parser- and plugin-agnostic.
-const testConfig = typescriptNamingConfig.map((config) => ({
-  ...config,
-  files: ['**/*.ts', '**/*.tsx'],
-  languageOptions: {
-    ...config.languageOptions,
-    parser: tsParser,
-    parserOptions: {
-      ...config.languageOptions?.parserOptions,
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-      projectService: {
-        allowDefaultProject: ['*.ts', '*.tsx'],
+const testConfig = typescriptNamingConfig.map((config) => {
+  const baseParserOptions = config.languageOptions?.parserOptions;
+
+  return {
+    ...config,
+    files: ['**/*.ts', '**/*.tsx'],
+    languageOptions: {
+      ...config.languageOptions,
+      parser: tsParser,
+      parserOptions: {
+        ...(baseParserOptions && typeof baseParserOptions === 'object' ? baseParserOptions : {}),
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        projectService: {
+          allowDefaultProject: ['*.ts', '*.tsx'],
+        },
+        tsconfigRootDir,
       },
-      tsconfigRootDir,
     },
-  },
-  plugins: {
-    // test-local plugin wiring; not exported from the library config
-    '@typescript-eslint': tsPlugin,
-  },
-}));
+    plugins: {
+      // test-local plugin wiring; not exported from the library config
+      '@typescript-eslint': tsPlugin,
+    },
+  };
+});
 
 const eslint = new ESLint({
   overrideConfigFile: true,
-  overrideConfig: testConfig,
+  overrideConfig: testConfig as unknown as Linter.Config[],
 });
 
 async function lint(fileUrl: string) {
