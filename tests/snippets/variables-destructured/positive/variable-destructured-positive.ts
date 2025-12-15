@@ -1,14 +1,14 @@
 interface ResponseData {
   userName: string;
-  user_age: number;
-  UserId: string;
+  userAge: number;
+  userId: string;
 }
 
 const responseData: ResponseData = {
   userName: 'John',
-  user_age: 30,
-  UserId: '1',
+  userAge: 30,
+  userId: '1',
 };
 
-const { userName, user_age, UserId } = responseData;
+const { userName, userAge, userId } = responseData;
 
