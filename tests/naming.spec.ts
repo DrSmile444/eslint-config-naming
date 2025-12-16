@@ -56,6 +56,8 @@ import variableDefaultNegative from './snippets/variables-default/negative/varia
 import variableDefaultPositive from './snippets/variables-default/positive/variable-default-positive.ts?url';
 import variableDestructuredNegative from './snippets/variables-destructured/negative/variable-destructured-negative.ts?url';
 import variableDestructuredPositive from './snippets/variables-destructured/positive/variable-destructured-positive.ts?url';
+import variableNodeCommonNegative from './snippets/variables-node-common/negative/variable-node-common-negative.ts?url';
+import variableNodeCommonPositive from './snippets/variables-node-common/positive/variable-node-common-positive.ts?url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -451,6 +453,24 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
     describe('negative', () => {
       it('disallows non-PascalCase *Component variables', async () => {
         const result = await lint(variableComponentNegative);
+
+        expect(result.errorCount).toBeGreaterThan(0);
+      });
+    });
+  });
+
+  describe('node common variables', () => {
+    describe('positive', () => {
+      it('allows __filename and __dirname variables', async () => {
+        const result = await lint(variableNodeCommonPositive);
+
+        expect(result.errorCount).toBe(0);
+      });
+    });
+
+    describe('negative', () => {
+      it('disallows other variables starting with double underscores', async () => {
+        const result = await lint(variableNodeCommonNegative);
 
         expect(result.errorCount).toBeGreaterThan(0);
       });

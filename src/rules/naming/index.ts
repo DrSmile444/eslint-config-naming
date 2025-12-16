@@ -15,6 +15,7 @@ import {
   booleanDestructuredVariableNaming,
   booleanVariableWithPrefixNaming,
   componentVariableNaming,
+  nodeCommonVariableNaming,
   variableNamingConstGlobal,
   variableNamingDefault,
   variableNamingDestructured,
@@ -40,6 +41,7 @@ export const namingConventionRule = [
   variableNamingDefault,
   booleanVariableWithPrefixNaming, // Requires type information - works when parserOptions.project or projectService is configured
   booleanDestructuredVariableNaming, // Requires type information - works when parserOptions.project or projectService is configured
+  nodeCommonVariableNaming,
   componentVariableNaming,
   parameterNamingDestructured,
   functionNamingExportedOrGlobal,

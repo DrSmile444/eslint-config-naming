@@ -41,3 +41,13 @@ export const componentVariableNaming = {
     regex: String.raw`^\w*Component$`,
   },
 } as const;
+
+// Allow common Node.js variables like __filename and __dirname
+export const nodeCommonVariableNaming = {
+  selector: 'variable',
+  format: null,
+  filter: {
+    match: true,
+    regex: String.raw`^__(filename|dirname)$`,
+  },
+} as const;

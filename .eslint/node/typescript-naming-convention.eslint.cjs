@@ -130,6 +130,15 @@ module.exports = {
             format: ['PascalCase'],
             selector: 'variable',
           },
+          // Allow common Node.js variables like __filename and __dirname
+          {
+            filter: {
+              match: true,
+              regex: String.raw`^__(filename|dirname)$`,
+            },
+            format: null,
+            selector: 'variable',
+          },
           {
             format: ['camelCase', 'snake_case'],
             leadingUnderscore: 'allow',
