@@ -21,7 +21,7 @@ export const booleanVariableWithPrefixNaming = {
   selector: 'variable',
   types: ['boolean'],
   format: ['PascalCase'],
-  prefix: ['is', 'should', 'has', 'can', 'did', 'will'],
+  prefix: ['is', 'are', 'has', 'can', 'should', 'will', 'did'],
 } as const;
 
 // Allow destructured without prefixes – suitable for lib props
