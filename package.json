@@ -1,6 +1,6 @@
 {
   "name": "@drsmile444/eslint-config-naming",
-  "version": "0.1.0",
+  "version": "1.3.0",
   "description": "Opinionated ESLint naming convention config for TypeScript projects",
   "type": "module",
   "main": "dist/index.cjs",

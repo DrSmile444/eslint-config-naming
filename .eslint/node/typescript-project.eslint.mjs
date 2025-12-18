@@ -10,7 +10,9 @@ const logger = eslintLogger('typescript-project');
 
 // Get the directory name in ES module scope
 const tsconfigRootDirectory = path.join(path.dirname(new URL(import.meta.url).pathname), '../..');
+
 const tsconfigPath = path.join(tsconfigRootDirectory, 'tsconfig.json');
+
 const tsconfigScriptsPath = path.join(tsconfigRootDirectory, 'tsconfig.scripts.json');
 
 if (!fs.existsSync(tsconfigPath)) {

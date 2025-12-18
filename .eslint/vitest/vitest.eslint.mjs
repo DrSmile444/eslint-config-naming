@@ -19,6 +19,7 @@ export default [
       'vitest/max-nested-describe': ['error', { max: 3 }],
       'vitest/valid-title': 'off',
       'vitest/prefer-describe-function-title': 'off',
+      'no-process-env': 'off', // Disable the rule for these specific files
     },
   },
 ];
