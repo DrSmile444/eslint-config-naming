@@ -1,4 +1,4 @@
-/* eslint-disable sonarjs/slow-regex,no-restricted-syntax,@typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment,no-continue,no-plusplus,no-use-before-define,no-undef,@typescript-eslint/no-require-imports,sonarjs/updated-loop-counter,global-require,@typescript-eslint/no-unsafe-call,unicorn/no-process-exit,sonarjs/no-alphabetical-sort,unicorn/no-array-sort,security/detect-non-literal-fs-filename,security/detect-object-injection,security/detect-unsafe-regex */
+/* eslint-disable sonarjs/slow-regex,@typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment,no-continue,no-plusplus,no-use-before-define,no-undef,@typescript-eslint/no-require-imports,sonarjs/updated-loop-counter,global-require,@typescript-eslint/no-unsafe-call,unicorn/no-process-exit,sonarjs/no-alphabetical-sort,unicorn/no-array-sort,security/detect-non-literal-fs-filename,security/detect-object-injection,security/detect-unsafe-regex */
 import { spawn } from 'node:child_process';
 import type { Dirent } from 'node:fs';
 import { promises as fs } from 'node:fs';

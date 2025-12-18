@@ -1,7 +1,7 @@
 /**
  * @author Dmytro Vakulenko
  * @description Best practices for naming in JS / TS
- * @version 1.1
+ * @version 1.3
  * @legacy This is a legacy config and must be used through Eslint compat.
  * */
 module.exports = {

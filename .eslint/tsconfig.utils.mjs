@@ -96,7 +96,6 @@ export function resolveTsconfigPaths(tsconfigPath, visited = new Set()) {
     if (Array.isArray(tsconfigContent?.references)) {
       const tsconfigDirectory = path.dirname(tsconfigPath);
 
-      // eslint-disable-next-line no-restricted-syntax
       for (const reference of tsconfigContent.references) {
         const referencePath = path.resolve(tsconfigDirectory, reference.path);
         const referencesPaths = resolveTsconfigPaths(referencePath, visited);

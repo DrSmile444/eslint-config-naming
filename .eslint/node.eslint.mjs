@@ -4,12 +4,12 @@ import { includeIgnoreFile } from '@eslint/compat';
 import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
 
+import airbnbBaseEslint from './node/airbnb-base.eslint.mjs';
 import customStyleEslint from './node/custom-style.eslint.mjs';
 import eslintRulesEslint from './node/eslint-rules.eslint.mjs';
 import importAliasEslint from './node/import-alias.eslint.mjs';
 import nConfig from './node/n.eslint.mjs';
 import noSecretsEslint from './node/no-secrets.eslint.mjs';
-import nodeEslint from './node/node.eslint.mjs';
 import orderedImportsEslint from './node/ordered-imports.eslint.mjs';
 import overridesEslint from './node/overrides.eslint.mjs';
 import perfectionistEslint from './node/perfectionist.eslint.mjs';
@@ -58,7 +58,7 @@ export default [
     ...tseslint.configs.strictTypeChecked[0],
   },
   // Airbnb base style for Node.js
-  ...nodeEslint,
+  ...airbnbBaseEslint,
   // Compatibility helpers for extending configs
   ...compat.extends(
     path.join(__dirname, './node/typescript.eslintrc.json'),
