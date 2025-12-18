@@ -1,0 +1,39 @@
+
+# Bring Your Own Parser
+
+This package intentionally does **not** ship:
+
+* `languageOptions.parser`
+* `plugins`
+* `files` globs
+
+Because projects differ (monorepos, project references, TS config paths, parserOptions).
+
+## Typical wiring
+
+```js
+import tsParser from "@typescript-eslint/parser";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
+import naming from "@drsmile444/eslint-config-naming";
+
+export default [
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        project: ["./tsconfig.json"],
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+    plugins: { "@typescript-eslint": tsPlugin },
+  },
+  ...naming,
+];
+```
+
+## Common parserOptions
+
+* `project`: enable type-aware rules (recommended)
+* `tsconfigRootDir`: monorepos / custom locations
+* `sourceType`: usually `module`
