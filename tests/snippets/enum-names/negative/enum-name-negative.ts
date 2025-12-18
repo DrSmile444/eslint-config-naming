@@ -1,0 +1,5 @@
+enum OrderStatuses {
+  PENDING,
+  SHIPPED,
+}
+

@@ -9,9 +9,7 @@ module.exports = {
     {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
-      parserOptions: {
-        project: './tsconfig.json',
-      },
+      parserOptions: {},
       plugins: ['@typescript-eslint'],
       rules: {
         '@typescript-eslint/naming-convention': [
@@ -111,7 +109,7 @@ module.exports = {
           },
           {
             format: ['PascalCase'],
-            prefix: ['is', 'should', 'has', 'can', 'did', 'will'],
+            prefix: ['is', 'are', 'has', 'can', 'should', 'will', 'did'],
             selector: 'variable',
             types: ['boolean'],
           },
@@ -130,6 +128,15 @@ module.exports = {
               regex: String.raw`^\w*Component$`,
             },
             format: ['PascalCase'],
+            selector: 'variable',
+          },
+          // Allow common Node.js variables like __filename and __dirname
+          {
+            filter: {
+              match: true,
+              regex: String.raw`^__(filename|dirname)$`,
+            },
+            format: null,
             selector: 'variable',
           },
           {

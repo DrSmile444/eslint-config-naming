@@ -1,4 +1,4 @@
-import { functionNamingCamelCase, functionNamingDefaultPascalOrCamel, functionNamingExportedOrGlobal } from './functions';
+import { functionNamingCamelCase, functionNamingExportedOrGlobal } from './functions';
 import {
   memberLikePrivateNaming,
   memberLikePrivateReadonlyNaming,
@@ -15,6 +15,7 @@ import {
   booleanDestructuredVariableNaming,
   booleanVariableWithPrefixNaming,
   componentVariableNaming,
+  nodeCommonVariableNaming,
   variableNamingConstGlobal,
   variableNamingDefault,
   variableNamingDestructured,
@@ -35,15 +36,15 @@ export const namingConventionRule = [
   classNaming,
   enumNaming,
   typeLikeNaming,
-  variableNamingDefault,
+  variableNamingDestructured, // Must come before default to properly match destructured variables
   variableNamingConstGlobal,
-  variableNamingDestructured,
-  booleanVariableWithPrefixNaming,
-  booleanDestructuredVariableNaming,
+  variableNamingDefault,
+  booleanVariableWithPrefixNaming, // Requires type information - works when parserOptions.project or projectService is configured
+  booleanDestructuredVariableNaming, // Requires type information - works when parserOptions.project or projectService is configured
+  nodeCommonVariableNaming,
   componentVariableNaming,
   parameterNamingDestructured,
-  functionNamingDefaultPascalOrCamel,
   functionNamingExportedOrGlobal,
-  quotedMemberNaming,
+  quotedMemberNaming, // Requires type information - works when parserOptions.project or projectService is configured
   functionNamingCamelCase,
 ] as const;

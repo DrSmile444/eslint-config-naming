@@ -1,0 +1,4 @@
+interface IUserProfile {
+  id: string;
+}
+

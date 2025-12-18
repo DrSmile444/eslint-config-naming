@@ -2,9 +2,7 @@
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
-      "parserOptions": {
-        "project": "./tsconfig.json"
-      },
+      "parserOptions": {},
       "parser": "@typescript-eslint/parser",
       "plugins": ["@typescript-eslint"],
       "extends": [

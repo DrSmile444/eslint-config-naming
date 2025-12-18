@@ -21,7 +21,7 @@ export const booleanVariableWithPrefixNaming = {
   selector: 'variable',
   types: ['boolean'],
   format: ['PascalCase'],
-  prefix: ['is', 'should', 'has', 'can', 'did', 'will'],
+  prefix: ['is', 'are', 'has', 'can', 'should', 'will', 'did'],
 } as const;
 
 // Allow destructured without prefixes – suitable for lib props
@@ -39,5 +39,15 @@ export const componentVariableNaming = {
   filter: {
     match: true,
     regex: String.raw`^\w*Component$`,
+  },
+} as const;
+
+// Allow common Node.js variables like __filename and __dirname
+export const nodeCommonVariableNaming = {
+  selector: 'variable',
+  format: null,
+  filter: {
+    match: true,
+    regex: String.raw`^__(filename|dirname)$`,
   },
 } as const;
