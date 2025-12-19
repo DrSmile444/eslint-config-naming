@@ -64,7 +64,7 @@ This config is ideal for:
 
 Ready to get started? Head to [Getting Started](/getting-started) to install and configure.
 
-Want to understand the philosophy? Read [Principles](/philosophy/principles) and [Decisions](/philosophy/decisions).
+Want to understand the philosophy? Read [Philosophy](/philosophy) to learn the principles and key decisions.
 
 Curious about the rules? Explore the [Rule Matrix](/rules/) to see every selector and format.
 

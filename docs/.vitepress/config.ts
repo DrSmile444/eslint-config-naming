@@ -24,19 +24,13 @@ export default defineConfig({
           { text: 'Home', link: '/' },
           { text: 'Introduction', link: '/introduction' },
           { text: 'Getting Started', link: '/getting-started' },
+          { text: 'Philosophy', link: '/philosophy' },
           {
             text: 'Usage',
             items: [
               { text: 'Flat Config (ESLint v9)', link: '/usage/flat-config' },
               { text: 'Bring Your Own Parser', link: '/usage/parser-setup' },
               { text: 'Compatibility', link: '/usage/compatibility' },
-            ],
-          },
-          {
-            text: 'Philosophy',
-            items: [
-              { text: 'Principles', link: '/philosophy/principles' },
-              { text: 'Decisions', link: '/philosophy/decisions' },
             ],
           },
         ],
