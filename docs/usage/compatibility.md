@@ -17,5 +17,3 @@ It works alongside:
 * Load your base config(s)
 * Load this naming config
 * Use file-based overrides for edge cases (generated code, legacy folders)
-
-See: [Migrating from Airbnb](/guides/migrating-from-airbnb)

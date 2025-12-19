@@ -102,7 +102,6 @@ export default defineConfig({
       {
         text: 'Guides',
         items: [
-          { text: 'Migrating from Airbnb', link: '/guides/migrating-from-airbnb' },
           { text: 'Naming Booleans', link: '/guides/naming-booleans' },
           { text: 'Enums that Read Well', link: '/guides/enums-that-read-well' },
           { text: 'Destructuring Strategy', link: '/guides/destructuring-strategy' },
