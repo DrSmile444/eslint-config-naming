@@ -12,7 +12,7 @@ export default defineConfig({
     nav: [
       { text: 'Get Started', link: '/getting-started' },
       { text: 'Rules', link: '/rules/' },
-      { text: 'Guides', link: '/guides/migrating-from-airbnb' },
+      { text: 'Guides', link: '/guides/naming-booleans' },
       { text: 'FAQ', link: '/faq' },
     ],
 
