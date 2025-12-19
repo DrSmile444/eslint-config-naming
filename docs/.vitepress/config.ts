@@ -12,7 +12,6 @@ export default defineConfig({
     nav: [
       { text: 'Get Started', link: '/getting-started' },
       { text: 'Rules', link: '/rules/' },
-      { text: 'Guides', link: '/guides/naming-booleans' },
       { text: 'FAQ', link: '/faq' },
     ],
 
@@ -97,15 +96,6 @@ export default defineConfig({
             ],
           },
           { text: 'Quoted Members', link: '/rules/quoted-members' },
-        ],
-      },
-      {
-        text: 'Guides',
-        items: [
-          { text: 'Naming Booleans', link: '/guides/naming-booleans' },
-          { text: 'Enums that Read Well', link: '/guides/enums-that-read-well' },
-          { text: 'Destructuring Strategy', link: '/guides/destructuring-strategy' },
-          { text: 'React & Components', link: '/guides/react-and-components' },
         ],
       },
       {

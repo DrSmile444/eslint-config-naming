@@ -246,5 +246,5 @@ These principles and decisions work together to create a coherent naming system:
 
 The result is code that's easier to read, review, and maintain—whether you're working solo or on a team of 100.
 
-For detailed rule specifications, see the [Rule Matrix](/rules/). To understand how to handle edge cases, check out the [Guides](/guides/) section.
+For detailed rule specifications, see the [Rule Matrix](/rules/).
 
