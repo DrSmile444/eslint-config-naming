@@ -9,6 +9,10 @@ This package intentionally does **not** ship:
 
 Because projects differ (monorepos, project references, TS config paths, parserOptions).
 
+::: tip Why?
+This design choice is core to our philosophy of composable, conflict-free tooling. Read more about the [Bring Your Own Parser principle](/philosophy#bring-your-own-parser) in our Philosophy page.
+:::
+
 ## Typical wiring
 
 ```js
