@@ -1,0 +1,18 @@
+:root {
+  /* Brand palette (used across buttons/links/accents) */
+  --vp-c-brand-1: #f5b301; /* main yellow */
+  --vp-c-brand-2: #eaa400; /* hover-ish */
+  --vp-c-brand-3: #c98700; /* active-ish */
+
+  /* Optional: hero title tweaks */
+  --vp-home-hero-name-color: var(--vp-c-brand-1);
+  /* Or a gradient hero title (optional) */
+  /* --vp-home-hero-name-background: linear-gradient(120deg, #f5b301, #ffcf3a); */
+}
+
+/* Dark mode tuning (optional, but recommended for yellow) */
+.dark {
+  --vp-c-brand-1: #ffcc33;
+  --vp-c-brand-2: #f5b301;
+  --vp-c-brand-3: #d18a00;
+}
