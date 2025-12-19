@@ -2,6 +2,9 @@
 layout: home
 title: '@drsmile444/eslint-config-naming'
 hero:
+  image:
+    src: /logo.svg
+    alt: '@drsmile444/eslint-config-naming logo'
   name: 'Naming that scales'
   text: 'Opinionated naming conventions for TypeScript'
   tagline: 'A focused ESLint config that enforces readable, predictable naming across your codebase.'

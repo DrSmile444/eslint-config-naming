@@ -7,7 +7,13 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
 
+  head: [
+    ['link', { rel: 'icon', href: '/logo.svg' }]
+  ],
+
   themeConfig: {
+    logo: '/logo.svg',
+
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Get Started', link: '/getting-started' },
