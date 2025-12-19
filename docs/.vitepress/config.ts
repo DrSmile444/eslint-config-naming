@@ -13,7 +13,6 @@ export default defineConfig({
       { text: 'Get Started', link: '/getting-started' },
       { text: 'Rules', link: '/rules/' },
       { text: 'Guides', link: '/guides/migrating-from-airbnb' },
-      { text: 'Examples', link: '/examples/quick-reference' },
       { text: 'FAQ', link: '/faq' },
     ],
 
@@ -108,16 +107,6 @@ export default defineConfig({
           { text: 'Enums that Read Well', link: '/guides/enums-that-read-well' },
           { text: 'Destructuring Strategy', link: '/guides/destructuring-strategy' },
           { text: 'React & Components', link: '/guides/react-and-components' },
-        ],
-      },
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Quick Reference', link: '/examples/quick-reference' },
-          { text: 'API & Services', link: '/examples/domain-samples/api-services' },
-          { text: 'React Frontend', link: '/examples/domain-samples/react-frontend' },
-          { text: 'Node Libraries', link: '/examples/domain-samples/node-libraries' },
-          { text: 'Playground', link: '/examples/playground' },
         ],
       },
       {
