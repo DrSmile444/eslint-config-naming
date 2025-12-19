@@ -1,4 +1,3 @@
-
 # FAQ
 
 ## Why doesn’t this package ship the parser?
@@ -19,9 +18,9 @@ Use a `files` override:
 export default [
   ...naming,
   {
-    files: ["**/external-dtos/**"],
+    files: ['**/external-dtos/**'],
     rules: {
-      "@typescript-eslint/naming-convention": "off",
+      '@typescript-eslint/naming-convention': 'off',
     },
   },
 ];

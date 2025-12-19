@@ -1,4 +1,3 @@
-
 # Exported / global functions
 
 **Selector:** `function` with modifiers `exported`, `global`
@@ -17,6 +16,7 @@ This flexibility acknowledges that exported functions serve different roles. A u
 **Note**: While this rule allows flexibility, the final camelCase enforcement rule may override this depending on your configuration. See [CamelCase enforcement](/rules/functions/camel-case-only).
 
 **References:**
+
 - [Airbnb JavaScript Style Guide - Naming Conventions](https://github.com/airbnb/javascript#naming--Acronyms-and-Initialisms)
 - [React TypeScript Cheatsheet - Function Components](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components/)
 

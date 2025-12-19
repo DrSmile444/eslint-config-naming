@@ -1,11 +1,10 @@
-
 # Bring Your Own Parser
 
 This package intentionally does **not** ship:
 
-* `languageOptions.parser`
-* `plugins`
-* `files` globs
+- `languageOptions.parser`
+- `plugins`
+- `files` globs
 
 Because projects differ (monorepos, project references, TS config paths, parserOptions).
 
@@ -16,21 +15,21 @@ This design choice is core to our philosophy of composable, conflict-free toolin
 ## Typical wiring
 
 ```js
-import tsParser from "@typescript-eslint/parser";
-import tsPlugin from "@typescript-eslint/eslint-plugin";
-import naming from "@drsmile444/eslint-config-naming";
+import tsParser from '@typescript-eslint/parser';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+import naming from '@drsmile444/eslint-config-naming';
 
 export default [
   {
-    files: ["**/*.ts", "**/*.tsx"],
+    files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
-        project: ["./tsconfig.json"],
+        project: ['./tsconfig.json'],
         tsconfigRootDir: import.meta.dirname,
       },
     },
-    plugins: { "@typescript-eslint": tsPlugin },
+    plugins: { '@typescript-eslint': tsPlugin },
   },
   ...naming,
 ];
@@ -38,6 +37,6 @@ export default [
 
 ## Common parserOptions
 
-* `project`: enable type-aware rules (recommended)
-* `tsconfigRootDir`: monorepos / custom locations
-* `sourceType`: usually `module`
+- `project`: enable type-aware rules (recommended)
+- `tsconfigRootDir`: monorepos / custom locations
+- `sourceType`: usually `module`

@@ -166,6 +166,7 @@ Required prefixes: `is`, `has`, `should`, `can`, `did`, `will`
 When you write `if (isActive)`, it reads like English. When you write `if (active)`, it's ambiguous—is this a boolean or a string status?
 
 Good boolean names answer yes/no questions:
+
 - `isLoading` → "Is it loading?" → Yes/No
 - `hasPermission` → "Has permission?" → Yes/No
 - `shouldRetry` → "Should retry?" → Yes/No
@@ -239,7 +240,7 @@ if (order.status === Status.PENDING) { ... }
 These principles and decisions work together to create a coherent naming system:
 
 1. **Types (PascalCase)** convey domain concepts clearly
-2. **Booleans (prefixed camelCase)** read naturally in conditions  
+2. **Booleans (prefixed camelCase)** read naturally in conditions
 3. **Enums (singular name, UPPER_CASE members)** organize related constants
 4. **Access modifiers (underscore for protected only)** signal inheritance contracts
 5. **Escape hatches (destructuring, quoted keys)** respect real-world constraints
@@ -247,4 +248,3 @@ These principles and decisions work together to create a coherent naming system:
 The result is code that's easier to read, review, and maintain—whether you're working solo or on a team of 100.
 
 For detailed rule specifications, see the [Rule Matrix](/rules/).
-

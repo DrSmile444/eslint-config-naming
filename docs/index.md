@@ -1,10 +1,10 @@
 ---
 layout: home
-title: "@drsmile444/eslint-config-naming"
+title: '@drsmile444/eslint-config-naming'
 hero:
-  name: "Naming that scales"
-  text: "Opinionated naming conventions for TypeScript"
-  tagline: "A focused ESLint config that enforces readable, predictable naming across your codebase."
+  name: 'Naming that scales'
+  text: 'Opinionated naming conventions for TypeScript'
+  tagline: 'A focused ESLint config that enforces readable, predictable naming across your codebase.'
   actions:
     - theme: brand
       text: Get Started
@@ -30,4 +30,3 @@ features:
 - Protected members require a **leading underscore** (signals inheritance surface)
 
 Next: start with [Getting Started](/getting-started) or jump to the [Rule Matrix](/rules/).
-

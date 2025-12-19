@@ -1,4 +1,3 @@
-
 # Variables (default)
 
 **Selector:** `variable`
@@ -19,6 +18,7 @@ Variables follow JavaScript's standard conventions:
 This dual-format approach is nearly universal in JavaScript/TypeScript. It provides a visual cue: UPPER_CASE screams "this value never changes and represents a configuration constant," while camelCase says "this is a normal variable."
 
 **References:**
+
 - [Airbnb JavaScript Style Guide - Naming Conventions](https://github.com/airbnb/javascript#naming-conventions)
 - [Google JavaScript Style Guide - Constant Names](https://google.github.io/styleguide/jsguide.html#naming-constant-names)
 - [MDN JavaScript Guide - Variables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variables)
@@ -26,12 +26,12 @@ This dual-format approach is nearly universal in JavaScript/TypeScript. It provi
 ## ✅ Good
 
 ```ts
-let userName = "Alice";
+let userName = 'Alice';
 const MAX_RETRIES = 3;
 ```
 
 ## ❌ Bad
 
 ```ts
-let UserName = "Alice";
+let UserName = 'Alice';
 ```

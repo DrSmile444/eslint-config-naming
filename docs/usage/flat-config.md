@@ -1,4 +1,3 @@
-
 # Using with ESLint v9 Flat Config
 
 This config exports an array of Flat Config objects. You spread it into your ESLint config.
@@ -10,7 +9,7 @@ This config exports an array of Flat Config objects. You spread it into your ESL
 3. Your local overrides
 
 ```js
-import naming from "@drsmile444/eslint-config-naming";
+import naming from '@drsmile444/eslint-config-naming';
 
 export default [
   // 1) your TS wiring
@@ -34,9 +33,9 @@ Prefer path-based overrides:
 export default [
   ...naming,
   {
-    files: ["**/legacy/**"],
+    files: ['**/legacy/**'],
     rules: {
-      "@typescript-eslint/naming-convention": "off",
+      '@typescript-eslint/naming-convention': 'off',
     },
   },
 ];

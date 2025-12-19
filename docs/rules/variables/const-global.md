@@ -1,4 +1,3 @@
-
 # Variables (const / global)
 
 **Selector:** `variable` with modifiers `const`, `global`
@@ -17,6 +16,7 @@ Global constants serve different purposes and benefit from naming flexibility:
 Global scope often contains objects that aren't simple values - they might be configured instances, singletons, or complex objects that deserve PascalCase treatment. This flexibility prevents forcing awkward names like `LOGGER_INSTANCE` when `Logger` is clearer.
 
 **Examples:**
+
 ```ts
 // Configuration
 export const MAX_RETRIES = 3;
@@ -29,6 +29,7 @@ export const apiClient = new ApiClient();
 ```
 
 **References:**
+
 - [Google TypeScript Style Guide - Exports](https://google.github.io/styleguide/tsguide.html#exports)
 - [Module Pattern in JavaScript](https://www.patterns.dev/posts/module-pattern/)
 
@@ -36,7 +37,7 @@ export const apiClient = new ApiClient();
 
 ```ts
 const MAX_RETRIES = 3;
-const ApiBaseUrl = "https://example.com";
+const ApiBaseUrl = 'https://example.com';
 ```
 
 ## ❌ Bad

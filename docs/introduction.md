@@ -67,4 +67,3 @@ Ready to get started? Head to [Getting Started](/getting-started) to install and
 Want to understand the philosophy? Read [Philosophy](/philosophy) to learn the principles and key decisions.
 
 Curious about the rules? Explore the [Rule Matrix](/rules/) to see every selector and format.
-

@@ -1,5 +1,4 @@
-
-# *Component variables
+# \*Component variables
 
 Filter: `^\w*Component$`
 Allowed: `PascalCase` for variables ending with `Component`.
@@ -9,6 +8,7 @@ Allowed: `PascalCase` for variables ending with `Component`.
 React and similar frameworks treat components as first-class values. When you store a component in a variable (common with HOCs or dynamic components), it should use PascalCase like other components:
 
 **React conventions:**
+
 ```ts
 // Component as variable - should be PascalCase
 const EditActionComponent = () => <button>Edit</button>;
@@ -26,11 +26,13 @@ const editActionComponent = () => <button>Edit</button>;
 ```
 
 The `*Component` suffix pattern is commonly used for:
+
 - Higher-order component results: `const EnhancedComponent = withAuth(BaseComponent)`
 - Dynamic component selection: `const ModalComponent = isLarge ? LargeModal : SmallModal`
 - Lazy-loaded components: `const LazyComponent = lazy(() => import('./Heavy'))`
 
 **References:**
+
 - [React Docs - Components and Props](https://react.dev/learn/your-first-component)
 - [React TypeScript Cheatsheet - Function Components](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components/)
 - [Airbnb React/JSX Style Guide - Naming](https://github.com/airbnb/javascript/tree/master/react#naming)

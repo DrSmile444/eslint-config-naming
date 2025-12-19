@@ -1,4 +1,3 @@
-
 # Public instance members
 
 **Modifiers:** `public`
@@ -19,8 +18,8 @@ Classes often represent data models mapped from databases or external APIs:
 
 ```ts
 class User {
-  public user_id: string;    // Matches database column
-  public created_at: Date;   // Matches API response
+  public user_id: string; // Matches database column
+  public created_at: Date; // Matches API response
   public first_name: string; // Matches external schema
 }
 ```
@@ -28,6 +27,7 @@ class User {
 Forcing camelCase would require mapping layers everywhere. By allowing both, we let the class naturally mirror its data source while still supporting standard JavaScript conventions.
 
 **References:**
+
 - [TypeScript Handbook - Classes](https://www.typescriptlang.org/docs/handbook/2/classes.html)
 - [Clean Architecture - Entity Layer](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 
@@ -35,8 +35,8 @@ Forcing camelCase would require mapping layers everywhere. By allowing both, we 
 
 ```ts
 class Example {
-  public userName = "Alice";
-  public user_name = "Alice";
+  public userName = 'Alice';
+  public user_name = 'Alice';
 }
 ```
 
@@ -44,6 +44,6 @@ class Example {
 
 ```ts
 class Example {
-  public UserName = "Alice";
+  public UserName = 'Alice';
 }
 ```

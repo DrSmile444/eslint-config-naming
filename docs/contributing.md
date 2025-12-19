@@ -1,13 +1,12 @@
-
 # Contributing
 
 ## Philosophy
 
 Changes should improve:
 
-* readability
-* consistency
-* practical interoperability
+- readability
+- consistency
+- practical interoperability
 
 ## Proposing a change
 
@@ -18,5 +17,5 @@ Changes should improve:
 
 ## What we avoid
 
-* Overfitting to a single repo
-* Breaking changes without a migration path
+- Overfitting to a single repo
+- Breaking changes without a migration path

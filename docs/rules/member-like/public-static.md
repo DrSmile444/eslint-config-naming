@@ -1,4 +1,3 @@
-
 # Public static members
 
 **Modifiers:** `public`, `static`
@@ -19,13 +18,13 @@ Static members often represent special values or factory patterns:
 ```ts
 class User {
   // Factory or special instance
-  public static Empty = new User("", "");
-  
+  public static Empty = new User('', '');
+
   // Singleton accessor
   public static get Instance() {
     return instance;
   }
-  
+
   // True constants
   public static readonly MAX_NAME_LENGTH = 100;
 }
@@ -36,11 +35,13 @@ This matches conventions from other languages (C#, Java) where static members us
 **Why allow underscore:**
 
 Rare, but useful for internal static helpers that are technically public but discouraged:
+
 ```ts
 public static _internalTestHelper() { } // Available for testing but marked as internal
 ```
 
 **References:**
+
 - [C# Naming Guidelines - Static Fields](https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-type-members#names-of-fields)
 - [Java Naming Conventions - Static Fields](https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html)
 - [TypeScript Handbook - Static Members](https://www.typescriptlang.org/docs/handbook/2/classes.html#static-members)

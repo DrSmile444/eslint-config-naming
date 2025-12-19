@@ -1,4 +1,3 @@
-
 # Private readonly members
 
 **Modifiers:** `private`, `readonly`
@@ -18,10 +17,10 @@ Private readonly members are immutable internals. They can represent either cons
 class ApiClient {
   // True constant - known at compile time
   private readonly MAX_RETRIES = 3;
-  
+
   // Configuration value - set in constructor
   private readonly apiKey: string;
-  
+
   constructor(apiKey: string) {
     this.apiKey = apiKey;
   }
@@ -35,6 +34,7 @@ class ApiClient {
 Not all readonly values are constants. Some are set once during initialization and never change, but they're instance-specific configuration rather than universal constants. Using camelCase for these feels more natural than SHOUTING_CASE.
 
 **References:**
+
 - [TypeScript Handbook - Readonly Properties](https://www.typescriptlang.org/docs/handbook/2/classes.html#readonly)
 - [Effective TypeScript - Item 19](https://effectivetypescript.com/) - discusses readonly
 - [Google TypeScript Style Guide - Constants](https://google.github.io/styleguide/tsguide.html#naming-style)

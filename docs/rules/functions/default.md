@@ -1,4 +1,3 @@
-
 # Local functions (default)
 
 **Selector:** `function`

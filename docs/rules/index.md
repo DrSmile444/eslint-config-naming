@@ -1,4 +1,3 @@
-
 # Rule Matrix
 
 This page maps each enforced selector to the naming format.
@@ -16,10 +15,10 @@ This page maps each enforced selector to the naming format.
 
 Jump to details:
 
-* [Object literal properties](/rules/object-literal-property)
-* [Member-like overview](/rules/member-like/)
-* [Parameters](/rules/parameters/)
-* [Types](/rules/types/)
-* [Variables](/rules/variables/)
-* [Functions](/rules/functions/)
-* [Quoted members](/rules/quoted-members)
+- [Object literal properties](/rules/object-literal-property)
+- [Member-like overview](/rules/member-like/)
+- [Parameters](/rules/parameters/)
+- [Types](/rules/types/)
+- [Variables](/rules/variables/)
+- [Functions](/rules/functions/)
+- [Quoted members](/rules/quoted-members)

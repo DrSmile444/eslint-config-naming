@@ -1,4 +1,3 @@
-
 # Variables (destructured)
 
 **Selector:** `variable` with modifier `destructured`
@@ -27,13 +26,14 @@ By allowing flexibility for destructured variables, we honor the "respect real-w
 **Important**: This only allows consistent naming conventions (no mixed-case like `Foo_bar`), maintaining some standards while enabling interoperability.
 
 **References:**
+
 - [MDN - Destructuring Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 - [TypeScript Deep Dive - Destructuring](https://basarat.gitbook.io/typescript/future-javascript/destructuring)
 
 ## ✅ Good
 
 ```ts
-const dto = { userName: "A", user_age: 10, UserId: "1" };
+const dto = { userName: 'A', user_age: 10, UserId: '1' };
 const { userName, user_age, UserId } = dto;
 ```
 

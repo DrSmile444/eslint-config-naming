@@ -1,4 +1,3 @@
-
 # Interfaces
 
 **Selector:** `interface`
@@ -10,6 +9,7 @@ Custom: forbids prefix `I*` / `T*` when `I`/`T` is followed by uppercase
 **PascalCase**: Consistent with all other types (classes, type aliases), making the codebase uniform.
 
 **No `I*` prefix**: The `I` prefix (inherited from C# and Java) is redundant in TypeScript:
+
 - **Your editor shows the type**: Hover reveals whether something is an interface, type, or class
 - **TypeScript is structurally typed**: The distinction between interface and type is often irrelevant
 - **Refactoring pain**: Changing from `interface` to `type` shouldn't require renaming everything
@@ -20,6 +20,7 @@ Modern TypeScript codebases overwhelmingly reject the `I` prefix. It's a holdove
 **Note**: Prefixes like `IFrame` or `Identifiable` are allowed because they're actual words, not type prefixes.
 
 **References:**
+
 - [TypeScript Deep Dive - Interfaces](https://basarat.gitbook.io/typescript/type-system/interfaces)
 - [Microsoft TypeScript Coding Guidelines](https://github.com/microsoft/TypeScript/wiki/Coding-guidelines#names) - explicitly avoids `I` prefix
 - [Google TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html#interfaces)

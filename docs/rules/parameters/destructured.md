@@ -1,4 +1,3 @@
-
 # Parameters (destructured)
 
 **Selector:** `parameter` with `destructured` modifier
@@ -18,6 +17,7 @@ By allowing flexibility, we honor the "respect real-world interoperability" prin
 This is consistent with our approach to destructured variables and object literal properties: when dealing with external shapes, flexibility beats forced consistency.
 
 **References:**
+
 - [MDN - Destructuring Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 - [TypeScript Handbook - Destructuring](https://www.typescriptlang.org/docs/handbook/variable-declarations.html#destructuring)
 

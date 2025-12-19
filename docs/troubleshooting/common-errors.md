@@ -1,4 +1,3 @@
-
 # Common errors
 
 ## “Name must match one of the following formats…”
@@ -15,5 +14,5 @@ Fix strategy:
 
 Rename:
 
-* `enabled` → `isEnabled`
-* `active` → `isActive`
+- `enabled` → `isEnabled`
+- `active` → `isActive`
