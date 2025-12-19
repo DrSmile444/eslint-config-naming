@@ -41,7 +41,7 @@ export default defineConfig({
           { text: 'Object Literal Properties', link: '/rules/object-literal-property' },
           {
             text: 'Member-like',
-            collapsed: true,
+            collapsed: false,
             items: [
               { text: 'Overview', link: '/rules/member-like/' },
               { text: 'Public Static', link: '/rules/member-like/public-static' },
@@ -54,7 +54,7 @@ export default defineConfig({
           },
           {
             text: 'Parameters',
-            collapsed: true,
+            collapsed: false,
             items: [
               { text: 'Overview', link: '/rules/parameters/' },
               { text: 'Base', link: '/rules/parameters/base' },
@@ -63,7 +63,7 @@ export default defineConfig({
           },
           {
             text: 'Types',
-            collapsed: true,
+            collapsed: false,
             items: [
               { text: 'Overview', link: '/rules/types/' },
               { text: 'Enum Members', link: '/rules/types/enum-member' },
@@ -75,7 +75,7 @@ export default defineConfig({
           },
           {
             text: 'Variables',
-            collapsed: true,
+            collapsed: false,
             items: [
               { text: 'Overview', link: '/rules/variables/' },
               { text: 'Default', link: '/rules/variables/default' },
@@ -88,7 +88,7 @@ export default defineConfig({
           },
           {
             text: 'Functions',
-            collapsed: true,
+            collapsed: false,
             items: [
               { text: 'Overview', link: '/rules/functions/' },
               { text: 'Local (Default)', link: '/rules/functions/default' },
