@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'eslint-config-naming',
+  title: 'ESLint Config Naming',
   description: 'Best-practice naming conventions for TypeScript via ESLint.',
   lastUpdated: true,
   cleanUrls: true,
@@ -130,7 +130,7 @@ export default defineConfig({
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://github.com/drsmile444',
+        link: 'https://github.com/DrSmile444/eslint-config-naming',
       },
     ],
   },
