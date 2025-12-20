@@ -19,10 +19,9 @@
 
 :root {
   /* --- Inline code (keep subtle on white pages) --- */
-  --vp-code-bg: rgb(24 24 22);
-  --vp-code-color: #ffe95e;
+  --vp-code-color: #003eff;
 }
 
 .dark {
-  --vp-code-bg: var(--vp-c-default-soft);
+  --vp-code-color: #7b99e5;
 }
