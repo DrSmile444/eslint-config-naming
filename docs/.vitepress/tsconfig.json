@@ -1,0 +1,7 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["./config.ts", "theme"],
+  "compilerOptions": {
+    "skipLibCheck": true
+  }
+}

@@ -14,6 +14,17 @@ export default defineConfig([
   },
   // Node config
   ...nodeConfigs,
+  // Specific config for VitePress config files
+  {
+    files: ['docs/.vitepress/**/*.ts'],
+    languageOptions: {
+      parserOptions: {
+        project: './docs/.vitepress/tsconfig.json',
+        projectService: false,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
   // Vitest rules for testing
   ...vitestEslint,
 ]);

@@ -1,6 +1,7 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { defineConfig } from 'vitepress';
 
-import { version } from '../../package.json'
+import { version } from '../../package.json';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -9,9 +10,7 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
 
-  head: [
-    ['link', { rel: 'icon', href: '/logo.svg' }]
-  ],
+  head: [['link', { rel: 'icon', href: '/logo.svg' }]],
 
   themeConfig: {
     logo: '/logo.svg',
@@ -25,7 +24,7 @@ export default defineConfig({
         text: `v${version}`,
         items: [
           { text: `v${version} (current)`, link: '/' },
-          { text: `Release Notes`, link: 'https://github.com/DrSmile444/eslint-config-naming/releases' },
+          { text: 'Release Notes', link: 'https://github.com/DrSmile444/eslint-config-naming/releases' },
         ],
       },
     ],
@@ -144,4 +143,3 @@ export default defineConfig({
     ],
   },
 });
-
