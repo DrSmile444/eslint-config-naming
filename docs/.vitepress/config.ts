@@ -52,38 +52,6 @@ export default defineConfig({
         text: 'Rules',
         items: [
           { text: 'Rule Matrix', link: '/rules/' },
-          { text: 'Object Literal Properties', link: '/rules/object-literal-property' },
-          {
-            text: 'Member-like',
-            items: [
-              { text: 'Overview', link: '/rules/member-like/' },
-              { text: 'Public', link: '/rules/member-like/public' },
-              { text: 'Private', link: '/rules/member-like/private' },
-              { text: 'Private Readonly', link: '/rules/member-like/private-readonly' },
-              { text: 'Public Static', link: '/rules/member-like/public-static' },
-              { text: 'Private Static', link: '/rules/member-like/private-static' },
-              { text: 'Protected', link: '/rules/member-like/protected' },
-            ],
-          },
-          {
-            text: 'Parameters',
-            items: [
-              { text: 'Overview', link: '/rules/parameters/' },
-              { text: 'Base', link: '/rules/parameters/base' },
-              { text: 'Destructured', link: '/rules/parameters/destructured' },
-            ],
-          },
-          {
-            text: 'Types',
-            items: [
-              { text: 'Overview', link: '/rules/types/' },
-              { text: 'Enum Names', link: '/rules/types/enum-name' },
-              { text: 'Enum Members', link: '/rules/types/enum-member' },
-              { text: 'Classes', link: '/rules/types/class' },
-              { text: 'Interfaces', link: '/rules/types/interface' },
-              { text: 'Type-like', link: '/rules/types/type-like' },
-            ],
-          },
           {
             text: 'Variables',
             items: [
@@ -98,6 +66,17 @@ export default defineConfig({
             ],
           },
           {
+            text: 'Types',
+            items: [
+              { text: 'Overview', link: '/rules/types/' },
+              { text: 'Enum Names', link: '/rules/types/enum-name' },
+              { text: 'Enum Members', link: '/rules/types/enum-member' },
+              { text: 'Classes', link: '/rules/types/class' },
+              { text: 'Interfaces', link: '/rules/types/interface' },
+              { text: 'Type-like', link: '/rules/types/type-like' },
+            ],
+          },
+          {
             text: 'Functions',
             items: [
               { text: 'Overview', link: '/rules/functions/' },
@@ -106,6 +85,27 @@ export default defineConfig({
               { text: 'CamelCase Enforcement', link: '/rules/functions/camel-case-only' },
             ],
           },
+          {
+            text: 'Parameters',
+            items: [
+              { text: 'Overview', link: '/rules/parameters/' },
+              { text: 'Base', link: '/rules/parameters/base' },
+              { text: 'Destructured', link: '/rules/parameters/destructured' },
+            ],
+          },
+          {
+            text: 'Member-like',
+            items: [
+              { text: 'Overview', link: '/rules/member-like/' },
+              { text: 'Public', link: '/rules/member-like/public' },
+              { text: 'Private', link: '/rules/member-like/private' },
+              { text: 'Private Readonly', link: '/rules/member-like/private-readonly' },
+              { text: 'Public Static', link: '/rules/member-like/public-static' },
+              { text: 'Private Static', link: '/rules/member-like/private-static' },
+              { text: 'Protected', link: '/rules/member-like/protected' },
+            ],
+          },
+          { text: 'Object Literal Properties', link: '/rules/object-literal-property' },
           { text: 'Quoted Members', link: '/rules/quoted-members' },
         ],
       },
