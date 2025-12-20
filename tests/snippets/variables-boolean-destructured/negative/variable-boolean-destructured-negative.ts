@@ -8,6 +8,7 @@ const flagsDirect: FlagsDirect = {
   visible: false,
 };
 
-const enabled: boolean = flagsDirect.enabled;
-const visible: boolean = flagsDirect.visible;
+// Not destructured, so prefix required
+const enabled: boolean = flagsDirect.enabled; // Missing boolean prefix
+const visible: boolean = flagsDirect.visible; // Missing boolean prefix
 

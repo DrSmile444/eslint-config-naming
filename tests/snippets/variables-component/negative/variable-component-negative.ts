@@ -1,4 +1,4 @@
 const editActionComponent = () => {
-  return null;
+  return null; // camelCase not allowed for *Component variables
 };
 

@@ -1,6 +1,12 @@
 class userService {
   getUser() {
-    return 'user';
+    return 'user'; // camelCase not allowed for classes
+  }
+}
+
+class user_service {
+  getUser() {
+    return 'user'; // snake_case not allowed for classes
   }
 }
 
