@@ -1,0 +1,21 @@
+:root {
+  /* Brand palette (used across buttons/links/accents) */
+  --vp-c-brand-1: #f5b301; /* main yellow */
+  --vp-c-brand-2: #eaa400; /* hover-ish */
+  --vp-c-brand-3: #c98700; /* active-ish */
+}
+
+/* Dark mode tuning */
+.dark {
+  --vp-c-brand-1: #ffcc33;
+  --vp-c-brand-2: #f5b301;
+  --vp-c-brand-3: #d18a00;
+}
+
+:root {
+  --vp-code-color: #003eff;
+}
+
+.dark {
+  --vp-code-color: #7b99e5;
+}

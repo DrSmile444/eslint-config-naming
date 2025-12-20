@@ -22,5 +22,6 @@
     "rootDir": ".",
     "isolatedModules": true
   },
-  "include": [".eslint", "src", "tests", "scripts", "vitest.config.ts", "tsup.config.ts"]
+  "include": [".eslint", "src", "tests", "scripts", "vitest.config.ts", "tsup.config.ts", "docs/.vitepress/**/*.ts"],
+  "files": ["docs/.vitepress/config.ts"]
 }

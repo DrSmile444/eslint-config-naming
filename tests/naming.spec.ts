@@ -116,7 +116,7 @@ async function lint(fileUrl: string) {
   return result;
 }
 
-describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
+describe('eslint-config-naming / TypeScript naming', () => {
   describe('object literal properties', () => {
     describe('positive', () => {
       it('allows camelCase, snake_case and PascalCase properties', async () => {
@@ -130,14 +130,14 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('reports invalid object literal property names', async () => {
         const result = await lint(objectLiteralPropertyNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(1);
       });
     });
   });
 
   describe('memberLike public static', () => {
     describe('positive', () => {
-      it('allows PascalCase and UPPER_CASE for public static members', async () => {
+      it('allows camelCase, PascalCase and UPPER_CASE for public static members', async () => {
         const result = await lint(memberLikePublicStaticPositive);
 
         expect(result.errorCount).toBe(0);
@@ -145,17 +145,17 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
     });
 
     describe('negative', () => {
-      it('disallows camelCase for public static members', async () => {
+      it('disallows invalid names (e.g., snake_case) for public static members', async () => {
         const result = await lint(memberLikePublicStaticNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
 
   describe('memberLike private static', () => {
     describe('positive', () => {
-      it('allows PascalCase and UPPER_CASE for private static members', async () => {
+      it('allows camelCase, PascalCase and UPPER_CASE for private static members', async () => {
         const result = await lint(memberLikePrivateStaticPositive);
 
         expect(result.errorCount).toBe(0);
@@ -166,7 +166,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('disallows invalid names for private static members', async () => {
         const result = await lint(memberLikePrivateStaticNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
@@ -184,7 +184,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('disallows PascalCase for public instance members', async () => {
         const result = await lint(memberLikePublicNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
@@ -202,7 +202,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('disallows leading underscores or PascalCase for private members', async () => {
         const result = await lint(memberLikePrivateNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(3);
       });
     });
   });
@@ -220,14 +220,14 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('disallows invalid private readonly member names', async () => {
         const result = await lint(memberLikePrivateReadonlyNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
 
   describe('memberLike protected', () => {
     describe('positive', () => {
-      it('requires a leading underscore for protected members', async () => {
+      it('forbids leading underscore for protected members', async () => {
         const result = await lint(memberLikeProtectedPositive);
 
         expect(result.errorCount).toBe(0);
@@ -238,14 +238,14 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('reports protected members without leading underscore', async () => {
         const result = await lint(memberLikeProtectedNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
 
   describe('parameters (base)', () => {
     describe('positive', () => {
-      it('allows camelCase and snake_case parameters', async () => {
+      it('allows camelCase parameters', async () => {
         const result = await lint(parameterBasePositive);
 
         expect(result.errorCount).toBe(0);
@@ -253,10 +253,10 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
     });
 
     describe('negative', () => {
-      it('disallows PascalCase parameters', async () => {
+      it('disallows PascalCase and snake_case parameters', async () => {
         const result = await lint(parameterBaseNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
@@ -274,7 +274,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('reports non-UPPER_CASE enum members', async () => {
         const result = await lint(enumMemberNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
@@ -292,7 +292,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('disallows interfaces starting with I or T', async () => {
         const result = await lint(interfaceNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
@@ -310,7 +310,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('disallows non-PascalCase class names', async () => {
         const result = await lint(classNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
@@ -328,7 +328,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('disallows pluralized enum names or those starting with I/T', async () => {
         const result = await lint(enumNameNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
@@ -346,7 +346,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('disallows type aliases starting with I or T', async () => {
         const result = await lint(typeLikeNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
@@ -364,7 +364,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('disallows PascalCase variables by default', async () => {
         const result = await lint(variableDefaultNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
@@ -382,7 +382,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('disallows invalid format for global consts', async () => {
         const result = await lint(variableConstGlobalNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
@@ -400,7 +400,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('disallows invalid destructured variable names', async () => {
         const result = await lint(variableDestructuredNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
@@ -418,7 +418,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('reports boolean variables without proper prefixes', async () => {
         const result = await lint(variableBooleanPrefixNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
@@ -436,7 +436,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('still enforces prefixes for non-destructured boolean variables', async () => {
         const result = await lint(variableBooleanDestructuredNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
@@ -454,7 +454,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('disallows non-PascalCase *Component variables', async () => {
         const result = await lint(variableComponentNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(1);
       });
     });
   });
@@ -472,7 +472,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('disallows other variables starting with double underscores', async () => {
         const result = await lint(variableNodeCommonNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(4);
       });
     });
   });
@@ -490,7 +490,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('disallows invalid destructured parameter names', async () => {
         const result = await lint(parameterDestructuredNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
@@ -508,7 +508,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('disallows PascalCase local function names', async () => {
         const result = await lint(functionDefaultNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
@@ -526,7 +526,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('disallows invalid exported/global function names', async () => {
         const result = await lint(functionExportedGlobalNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
@@ -544,7 +544,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('still reports invalid unquoted member names', async () => {
         const result = await lint(quotedMembersNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(1);
       });
     });
   });
@@ -562,7 +562,7 @@ describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
       it('disallows snake_case function names', async () => {
         const result = await lint(functionCamelCaseNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });

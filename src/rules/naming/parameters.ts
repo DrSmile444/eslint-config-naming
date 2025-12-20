@@ -1,6 +1,6 @@
 export const parameterNamingBase = {
   selector: 'parameter',
-  format: ['camelCase', 'snake_case'],
+  format: ['camelCase'],
   leadingUnderscore: 'allow',
 } as const;
 

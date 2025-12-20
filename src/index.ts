@@ -10,4 +10,6 @@ export { typescriptNamingConfig } from './configs/typescript-naming';
 
 export { namingConventionRule } from './rules/naming';
 
+export { legacyEslintrcConfig } from './legacy';
+
 export type { Linter } from 'eslint';

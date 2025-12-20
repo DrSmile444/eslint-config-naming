@@ -1,6 +1,6 @@
 {
-  "name": "@drsmile444/eslint-config-naming",
-  "version": "1.3.0",
+  "name": "eslint-config-naming",
+  "version": "1.3.1",
   "description": "Opinionated ESLint naming convention config for TypeScript projects",
   "type": "module",
   "main": "dist/index.cjs",
@@ -10,6 +10,11 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs",
       "default": "./dist/index.mjs"
+    },
+    "./legacy": {
+      "import": "./dist/legacy.mjs",
+      "require": "./dist/legacy.cjs",
+      "default": "./dist/legacy.mjs"
     }
   },
   "types": "dist/index.d.ts",
@@ -27,7 +32,10 @@
     "test": "npx vitest run",
     "bump-version": "npx tsx ./scripts/bump-version.script.ts && npm audit fix",
     "parse-llm-response": "npx tsx ./scripts/split-plain-code.ts",
-    "format": "npx prettier . --write"
+    "format": "npx prettier . --write",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "keywords": [
     "eslint",
@@ -40,7 +48,7 @@
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
-    "eslint": "^9.0.0",
+    "eslint": "^8.57.0 || ^9.0.0",
     "typescript": "^5.0.0"
   },
   "devDependencies": {
@@ -75,6 +83,7 @@
     "typescript-eslint": "^8.50.0",
     "unplugin-swc": "^1.5.9",
     "vite-tsconfig-paths": "^6.0.3",
+    "vitepress": "^2.0.0-alpha.15",
     "vitest": "^3.2.4"
   },
   "overrides": {

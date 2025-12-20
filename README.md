@@ -1,107 +1,198 @@
-# Typescript Boilerplate ✨
+<p align="center">
+  <img src="docs/logo.svg" alt="eslint-config-naming logo" width="160" />
+</p>
 
-## Introduction
+<h1 align="center">ESLint Config Naming</h1>
 
-This is a Typescript boilerplate project designed to streamline modern TypeScript practices. It includes robust configurations, reusable decorators, and interfaces to ensure scalability and maintainability. The project is modular, making it easy to integrate into existing workflows or use as a standalone solution.
+<p align="center">
+  Best-practice naming conventions for TypeScript via ESLint.
+</p>
+
+<p align="center">
+  <a href="https://drsmile444.github.io/eslint-config-naming/">Documentation</a> •
+  <a href="#why">Why</a> •
+  <a href="#what-you-get">What you get</a> •
+  <a href="#installation">Install</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#rule-overview">Rule overview</a>
+</p>
 
 ---
 
-## Table of Contents
+## Why
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Folder Structure](#folder-structure)
-- [Dependencies](#dependencies)
-- [Contributing](#contributing)
-- [License](#license)
+Naming conventions in software development offer numerous benefits:
+
+- **Readability**: Consistent naming makes code easier to read and understand, reducing cognitive load when scanning files.
+- **Maintainability**: Enforces best practices, improving code quality and consistency across the codebase.
+- **Code Review and Collaboration**: Eliminates debates on naming styles, allowing reviewers to focus on logic and speeding up the process.
+- **Code Uniformity**: Uniform naming promotes collective code ownership, as code looks the same regardless of who wrote it.
+- **Aesthetics**: Provides functional benefits and aesthetic appeal, with a visually pleasing and harmonious structure.
+
+This config makes naming **predictable** and **review-friendly** by enforcing a coherent set of rules that scale well across:
+
+- Apps and Libraries
+- Frontend and Backend
+- Monorepos and Multi-team codebases
+
+It is intentionally **BYO parser setup** — it ships rules only and does not assume your repo layout or `parserOptions.project`.
 
 ---
 
-## Features
+## Documentation
 
-- **TypeScript Support**: Strongly typed with TypeScript for enhanced development experience.
+Full rule explanations (with good/bad examples) live in the documentation site:
+
+[**Documentation**](https://drsmile444.github.io/eslint-config-naming/)
+
+---
+
+## What you get
+
+### ✅ Two supported config formats
+
+This package supports both:
+
+- **Flat Config** (modern): `eslint.config.js`
+- **Legacy `.eslintrc.*`** (older projects): `.eslintrc.js`, `.eslintrc.cjs`, etc.
+
+### ✅ Rules only (BYO parser)
+
+This package **does not** export:
+
+- `files` globs
+- `plugins`
+- `@typescript-eslint/parser` configuration
+
+Because projects differ (monorepos, TS project references, different `tsconfig` paths).  
+You configure the parser on your side and keep full control.
 
 ---
 
 ## Installation
 
-1. Clone the repository:
+First, install required peer deps packages:
 
-   ```bash
-   git clone <repository-url>
-   cd typescript-boilerplate
-   ```
+```bash
+npm i -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript
+```
 
-2. Install dependencies:
+Then, install the config itself:
 
-   ```bash
-   npm install
-   ```
-
----
-
-## Folder Structure
-
-### Root Level
-
-- **`package.json`**: Lists dependencies and scripts.
-- **`tsconfig.json`**: TypeScript compiler configuration.
-
-### `src` Folder
-
-The `src` folder is organized into a modular structure with the following subfolders:
-
-1. **`config/`**
-
-- Centralized configuration for the project, such as environment-specific settings.
-- Example: `environment.config.ts`.
-
-2. **`decorators/`**
-
-- Reusable decorators.
-- Example: `field-step.decorator.ts`, `step.decorator.ts`.
-
-3. **`interfaces/`**
-
-- TypeScript interfaces that define the structure of configurations, settings, and more.
-- Example: `environment.interface.ts`, `playwright-config.interface.ts`.
-
-4. **`utils/`**
-
-- Utility functions and helpers for common tasks, such as data manipulation, API calls, etc.
+```bash
+npm i -D eslint-config-naming
+```
 
 ---
 
-## Dependencies
+## Usage
 
-- **TypeScript**: Type safety and enhanced developer experience.
-- **ESLint**: Linter for maintaining code quality.
-- **Prettier**: Code formatter for consistent style.
+### Option A: Flat Config (ESLint v9+)
 
-Full list of dependencies is available in `package.json`.
+```js
+// eslint.config.js
+import tsParser from '@typescript-eslint/parser';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+import naming from 'eslint-config-naming';
+
+export default [
+  // Your TS wiring (BYO parserOptions)
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        project: ['./tsconfig.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+    plugins: {
+      '@typescript-eslint': tsPlugin,
+    },
+  },
+
+  // Naming rules
+  ...naming,
+];
+```
+
+### Option B: Legacy `.eslintrc.*`
+
+Use the legacy shareable entry:
+
+- `eslint-config-naming/legacy`
+
+```js
+// .eslintrc.cjs
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  extends: ['eslint-config-naming/legacy'],
+  parserOptions: {
+    project: './tsconfig.json',
+  },
+};
+```
 
 ---
 
-## Contributing
+## How it’s structured
 
-1. Fork the repository.
-2. Create a new feature branch:
-   ```bash
-   git checkout -b feature-name
-   ```
-3. Commit your changes:
-   ```bash
-   git commit -m "Description of feature"
-   ```
-4. Push to your branch:
-   ```bash
-   git push origin feature-name
-   ```
-5. Open a pull request.
+Internally, the config is built as a set of **small rule fragments** grouped by selector:
+
+- `memberLike` rules (public/private/protected/static/readonly)
+- `variables` rules (default, const/global, destructured, boolean prefixes, \*Component)
+- `types` rules (class, interface, enum, typeLike, enumMember)
+- `parameters` rules (base, destructured)
+- `functions` rules (including final camelCase enforcement)
+- quoted-key escape hatch (`requiresQuotes` → ignored)
+
+They are combined in a single `@typescript-eslint/naming-convention` rule entry list, preserving precedence.
+
+---
+
+## Rule overview
+
+This is a quick “what it enforces” list.
+For full details (and good/bad examples), see the docs site.
+
+### Types
+
+- `class`: **PascalCase**
+- `interface`: **PascalCase** and forbids `I*` / `T*` prefixes
+- `typeLike`: **PascalCase** and forbids `I*` / `T*` prefixes
+- `enum`: **PascalCase**, forbids plural-ish names (like `Statuses`) and `I*`/`T*`
+- `enumMember`: **UPPER_CASE**
+
+### Members (`memberLike`)
+
+- `public static`: **camelCase**, **PascalCase** or **UPPER_CASE**
+- `private static`: **camelCase**, **PascalCase** or **UPPER_CASE**, no leading `_`
+- `public`: **camelCase** or **snake_case**
+- `private`: **camelCase**, no leading `_`
+- `private readonly`: **camelCase** or **UPPER_CASE**, no leading `_`
+- `protected`: **camelCase** with **required leading `_`**
+
+### Variables
+
+- default: **camelCase** or **UPPER_CASE**
+- `const` + `global`: allows **PascalCase** (in addition to camelCase/UPPER_CASE)
+- destructured: allows **PascalCase**, **camelCase**, **snake_case**
+- booleans: **PascalCase** and must start with `is|should|has|can|did|will`
+- destructured booleans: no prefix requirement (interop friendly)
+- `*Component`: allows PascalCase if variable name ends with `Component`
+
+### Functions
+
+- exported/global: **camelCase** or **PascalCase**
+- final enforcement: functions must be **camelCase**
+
+### Quoted members
+
+If a name **requires quotes** (e.g. HTTP headers, data contracts), it’s ignored.
 
 ---
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+MIT © 2025-Present [Dmytro Vakulenko](https://github.com/DrSmile444) 🇺🇦

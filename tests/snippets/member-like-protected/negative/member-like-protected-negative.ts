@@ -1,4 +1,4 @@
 class ProtectedMemberBad {
-  protected fooBar = 1;
+  protected _fooBar = 1; // Leading underscore forbidden
+  protected Logger = 2; // PascalCase not allowed
 }
-

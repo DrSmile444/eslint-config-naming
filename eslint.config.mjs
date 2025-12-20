@@ -10,10 +10,21 @@ export default defineConfig([
     files: ['**/*.{js,mjs,cjs,ts}'],
   },
   {
-    ignores: ['node_modules', 'function-out.js', 'tests/snippets/**'],
+    ignores: ['node_modules', 'function-out.js', 'tests/snippets/**', 'docs/.vitepress/cache/**'],
   },
   // Node config
   ...nodeConfigs,
+  // Specific config for VitePress config files
+  {
+    files: ['docs/.vitepress/**/*.ts'],
+    languageOptions: {
+      parserOptions: {
+        project: './docs/.vitepress/tsconfig.json',
+        projectService: false,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
   // Vitest rules for testing
   ...vitestEslint,
 ]);
