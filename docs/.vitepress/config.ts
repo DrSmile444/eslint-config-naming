@@ -98,6 +98,7 @@ export default defineConfig({
               { text: 'Boolean Prefix', link: '/rules/variables/boolean-prefix' },
               { text: 'Boolean Destructured', link: '/rules/variables/boolean-destructured' },
               { text: '*Component Filter', link: '/rules/variables/component' },
+              { text: 'Node.js Common Variables', link: '/rules/variables/node-common' },
             ],
           },
           {
