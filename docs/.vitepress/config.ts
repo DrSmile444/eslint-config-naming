@@ -3,8 +3,25 @@ import { defineConfig } from 'vitepress';
 
 import { version } from '../../package.json';
 
+function resolveBase(): string {
+  // For GitHub Pages, the site is served from /<repo>/ unless you use a custom domain.
+  // This keeps local dev as "/" and CI builds as "/<repo>/" automatically.
+  if (!process.env.GITHUB_ACTIONS) {
+    return '/';
+  }
+
+  const repo = process.env.GITHUB_REPOSITORY?.split('/')[1];
+
+  if (!repo) {
+    return '/';
+  }
+
+  return `/${repo}/`;
+}
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: resolveBase(),
   title: 'ESLint Config Naming',
   description: 'Best-practice naming conventions for TypeScript via ESLint.',
   lastUpdated: true,
