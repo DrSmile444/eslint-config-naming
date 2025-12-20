@@ -1,8 +1,8 @@
 # Parameters (destructured)
 
-**Selector:** `parameter` with `destructured` modifier
-Allowed: `camelCase`, `snake_case`
-Leading underscore: allowed
+- **Selector:** `parameter` with `destructured` modifier
+- Allowed: `camelCase`, `snake_case`
+- Leading underscore: allowed
 
 ## Why This Rule
 

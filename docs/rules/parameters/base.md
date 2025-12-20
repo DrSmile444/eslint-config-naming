@@ -1,8 +1,9 @@
 # Parameters (base)
 
-**Selector:** `parameter`
-Allowed: `camelCase`, `snake_case`
-Leading underscore: allowed
+- **Selector:** `parameter`
+- Allowed: `camelCase`, `snake_case`
+- Leading underscore: allowed
+- **Debatable:** Yes, we might need to remove `snake_case` in the future
 
 ## Why This Rule
 
@@ -22,9 +23,8 @@ The leading underscore is especially valuable in TypeScript where the `noUnusedL
 
 **References:**
 
-- [TypeScript Handbook - Unused Parameters](https://www.typescriptlang.org/docs/handbook/compiler-options.html#handbook-content)
 - [ESLint no-unused-vars - Ignoring with underscore](https://eslint.org/docs/latest/rules/no-unused-vars#argsignorepattern)
-- [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript#naming-conventions)
+- [TypeScript Handbook - Unused Parameters](https://www.typescriptlang.org/docs/handbook/compiler-options.html#handbook-content)
 
 ## ✅ Good
 
