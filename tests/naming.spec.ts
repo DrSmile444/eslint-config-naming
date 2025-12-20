@@ -274,7 +274,7 @@ describe('eslint-config-naming / TypeScript naming', () => {
       it('reports non-UPPER_CASE enum members', async () => {
         const result = await lint(enumMemberNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
@@ -310,7 +310,7 @@ describe('eslint-config-naming / TypeScript naming', () => {
       it('disallows non-PascalCase class names', async () => {
         const result = await lint(classNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(1);
       });
     });
   });
@@ -328,7 +328,7 @@ describe('eslint-config-naming / TypeScript naming', () => {
       it('disallows pluralized enum names or those starting with I/T', async () => {
         const result = await lint(enumNameNegative);
 
-        expect(result.errorCount).toBeGreaterThan(0);
+        expect(result.errorCount).toBe(2);
       });
     });
   });
