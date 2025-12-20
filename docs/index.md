@@ -1,6 +1,5 @@
 ---
 layout: home
-title: 'eslint-config-naming'
 hero:
   image:
     src: /logo.svg
@@ -10,18 +9,21 @@ hero:
   tagline: 'A focused ESLint config that enforces readable, predictable naming across your codebase.'
   actions:
     - theme: brand
-      text: Get Started
-      link: /getting-started
+      text: Introduction
+      link: /introduction/
     - theme: alt
       text: Rule Matrix
       link: /rules/
 features:
   - title: Consistent
     details: One shared naming language across teams and repos.
+    icon: 👥
   - title: Practical
     details: Allows real-world constraints (destructuring, quoted keys, components).
+    icon: 🔧
   - title: BYO Parser
     details: You decide parserOptions; this package ships rules only.
+    icon: 📦
 ---
 
 ## What this config enforces (at a glance)
