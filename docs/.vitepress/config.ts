@@ -1,5 +1,7 @@
 import { defineConfig } from 'vitepress';
 
+import { version } from '../../package.json'
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'ESLint Config Naming',
@@ -19,6 +21,13 @@ export default defineConfig({
       { text: 'Get Started', link: '/getting-started' },
       { text: 'Rules', link: '/rules/' },
       { text: 'FAQ', link: '/faq' },
+      {
+        text: `v${version}`,
+        items: [
+          { text: `v${version} (current)`, link: '/' },
+          { text: `Release Notes`, link: 'https://github.com/DrSmile444/eslint-config-naming/releases' },
+        ],
+      },
     ],
 
     sidebar: [
