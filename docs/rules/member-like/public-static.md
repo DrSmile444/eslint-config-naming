@@ -25,13 +25,24 @@ class User {
   public static get Instance() {
     return instance;
   }
-
-  // True constants
-  public static readonly MAX_NAME_LENGTH = 100;
 }
 ```
 
-This matches conventions from other languages (C#, Java) where static members use PascalCase unless they're constants.
+- This matches conventions from other languages (C#, Java) where static members use `PascalCase` unless they're constants.
+- This aligns with conventions for class names and modules, which are effectively "static classes" in some cases.
+
+**Why UPPER_CASE for constants:**
+
+```ts
+class User {
+  // True constants, the same as Number.MAX_VALUE
+  public static readonly MAX_NAME_LENGTH = 100;
+}
+
+console.log(User.MAX_NAME_LENGTH);
+```
+
+Constants are static and immutable across the application. Use `UPPER_CASE_WITH_UNDERSCORES` (e.g., `API_BASE_URL`). This clearly indicates an immutable value determined at compile time.
 
 **Why allow underscore:**
 
