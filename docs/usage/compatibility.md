@@ -1,5 +1,12 @@
 # Compatibility
 
+## Flat Config vs legacy config
+
+This package supports both:
+
+- Flat Config: import default from `@drsmile444/eslint-config-naming`
+- Legacy eslintrc: extend `@drsmile444/eslint-config-naming/legacy`
+
 ## With other configs
 
 This config is focused: it only sets `@typescript-eslint/naming-convention`.

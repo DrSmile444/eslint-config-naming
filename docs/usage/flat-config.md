@@ -40,3 +40,7 @@ export default [
   },
 ];
 ```
+
+## Need legacy `.eslintrc.*`?
+
+Use the legacy entry: [Legacy .eslintrc](/usage/eslintrc)

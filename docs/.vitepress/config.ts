@@ -33,6 +33,7 @@ export default defineConfig({
             text: 'Usage',
             items: [
               { text: 'Flat Config (ESLint v9)', link: '/usage/flat-config' },
+              { text: 'Legacy .eslintrc', link: '/usage/eslintrc' },
               { text: 'Bring Your Own Parser', link: '/usage/parser-setup' },
               { text: 'Compatibility', link: '/usage/compatibility' },
             ],
