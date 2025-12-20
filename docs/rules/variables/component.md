@@ -2,7 +2,7 @@
 
 - Filter: `^\w*Component$`
 - Allowed: `PascalCase` for variables ending with `Component`.
-- **Debatable:** Now all component are named with `Component` suffix
+- **Debatable:** Not all component are named with `Component` suffix
 
 ## Why This Rule
 
