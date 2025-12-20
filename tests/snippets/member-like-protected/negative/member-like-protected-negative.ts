@@ -1,4 +1,3 @@
 class ProtectedMemberBad {
-  protected fooBar = 1;
+  protected _fooBar = 1;
 }
-

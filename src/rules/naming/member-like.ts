@@ -37,5 +37,5 @@ export const memberLikeProtectedNaming = {
   selector: 'memberLike',
   modifiers: ['protected'],
   format: ['camelCase'],
-  leadingUnderscore: 'require',
+  leadingUnderscore: 'forbid',
 } as const;

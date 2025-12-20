@@ -227,7 +227,7 @@ describe('eslint-config-naming / TypeScript naming', () => {
 
   describe('memberLike protected', () => {
     describe('positive', () => {
-      it('requires a leading underscore for protected members', async () => {
+      it('forbids leading underscore for protected members', async () => {
         const result = await lint(memberLikeProtectedPositive);
 
         expect(result.errorCount).toBe(0);

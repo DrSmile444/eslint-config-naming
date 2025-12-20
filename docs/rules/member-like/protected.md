@@ -2,26 +2,25 @@
 
 - **Modifiers:** `protected`
 - Format: `camelCase`
-- Leading underscore: required
-- **Debatable**: yes, typescript docs uses it without underscore, but many popular style guides recommend it
+- Leading underscore: forbidden
 
 ## Why This Rule
 
 Protected members are special: they're neither fully private nor fully public. They form the **inheritance contract** between a base class and its subclasses.
 
-**Why require the underscore:**
+**Why forbid the underscore:**
 
-The underscore provides a visual signal: "This is for inheritance. Think carefully before using it."
+The TypeScript `protected` keyword already signals restricted visibility. Adding an underscore is redundant and uncommon in modern TypeScript codebases.
 
 ```ts
 class BaseService {
   // Public API - for everyone
   public fetchData() {
-    return this._loadFromCache();
+    return this.loadFromCache();
   }
 
   // Protected - for subclasses only
-  protected _loadFromCache() {
+  protected loadFromCache() {
     return this.cache.get();
   }
 
@@ -32,11 +31,9 @@ class BaseService {
 
 **Benefits:**
 
-- **Quick visual scan**: Easily identify the inheritance surface area
-- **Prevents confusion**: Clear distinction from public and private members
-- **Convention signal**: Matches patterns from other languages (Python uses `_` for "protected")
-
-Unlike private members where the keyword is enough, protected members benefit from the extra signal because they're intentionally designed for extension, which is more dangerous than simple encapsulation.
+- **Consistency with TS/JS ecosystem**: Most TypeScript codebases don't use `_` for protected members
+- **No redundancy**: The visibility modifier already communicates intent
+- **Cleaner API surface**: Member names read naturally without an underscore prefix
 
 **References:**
 
@@ -46,7 +43,7 @@ Unlike private members where the keyword is enough, protected members benefit fr
 
 ```ts
 class Base {
-  protected _logger = console;
+  protected logger = console;
 }
 ```
 
@@ -54,6 +51,6 @@ class Base {
 
 ```ts
 class Base {
-  protected logger = console;
+  protected _logger = console;
 }
 ```

@@ -48,7 +48,7 @@ The rules are based on years of community consensus and production experience:
 
 - **No `I*` or `T*` prefixes** for types (TypeScript makes them redundant)
 - **No leading underscores** for private members (use `private` keyword instead)
-- **Leading underscore for `protected`** (signals inheritance surface area)
+- **No leading underscores** for protected members (use `protected` keyword instead)
 - **Meaningful boolean prefixes** (makes conditionals readable)
 
 ## Who is this for?

@@ -107,15 +107,11 @@ type Callback<T> = (value: T) => void;
 
 **Exception**: If you're working in a legacy codebase that already uses these prefixes, you can disable this rule for incremental migration.
 
-### Protected members require leading underscore
+### Protected members
 
-**Protected methods and properties signal inheritance surface area. The underscore makes this visible.**
+**Protected members should not use leading underscores** — the `protected` keyword already communicates the inheritance contract. Leading underscores were previously used as a visual cue, but modern TypeScript and community conventions prefer natural names without redundant prefixes.
 
-Unlike `private` (which is truly encapsulated), `protected` members are part of the class's contract with subclasses. They're semi-public API.
-
-The leading underscore serves as a visual cue: "This is for inheritance. Think twice before using it elsewhere."
-
-**Why this matters**: In a class hierarchy, it's helpful to quickly distinguish what's public API, what's internal (`private`), and what's for subclasses (`protected`).
+**Why this matters**: In a class hierarchy, clarity is still important: differentiate public API, protected (for subclasses), and private. However, the `protected` keyword and editor tooling are sufficient; adding underscores creates visual noise and encourages inconsistent naming.
 
 **Example**
 
@@ -123,16 +119,16 @@ The leading underscore serves as a visual cue: "This is for inheritance. Think t
 class BaseService {
   // Public API - anyone can call this
   public async fetchData() {
-    const data = await this._loadFromCache();
-    return this._transform(data);
+    const data = await this.loadFromCache();
+    return this.transform(data);
   }
 
   // For subclasses to override - inheritance surface
-  protected _loadFromCache() {
+  protected loadFromCache() {
     return this.cache.get();
   }
 
-  protected _transform(data: unknown) {
+  protected transform(data: unknown) {
     return data;
   }
 
@@ -242,7 +238,7 @@ These principles and decisions work together to create a coherent naming system:
 1. **Types (PascalCase)** convey domain concepts clearly
 2. **Booleans (prefixed camelCase)** read naturally in conditions
 3. **Enums (singular name, UPPER_CASE members)** organize related constants
-4. **Access modifiers (underscore for protected only)** signal inheritance contracts
+4. **Access modifiers (no leading underscore for protected or private)** signal inheritance contracts
 5. **Escape hatches (destructuring, quoted keys)** respect real-world constraints
 
 The result is code that's easier to read, review, and maintain—whether you're working solo or on a team of 100.

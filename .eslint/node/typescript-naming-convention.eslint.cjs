@@ -50,7 +50,7 @@ module.exports = {
           },
           {
             format: ['camelCase'],
-            leadingUnderscore: 'require',
+            leadingUnderscore: 'forbid',
             modifiers: ['protected'],
             selector: 'memberLike',
           },

@@ -32,6 +32,6 @@ features:
 - Enum members are **UPPER_CASE**
 - Booleans use **meaningful prefixes** (`is/should/has/can/did/will`)
 - Private members are **camelCase** (no leading underscore)
-- Protected members require a **leading underscore** (signals inheritance surface)
+- Protected members are **camelCase** (no leading underscore)
 
 Next: start with [Getting Started](/getting-started) or jump to the [Rule Matrix](/rules/).
