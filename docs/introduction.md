@@ -1,6 +1,6 @@
 # Introduction
 
-**@drsmile444/eslint-config-naming** is a focused ESLint configuration that enforces consistent, readable naming conventions for TypeScript projects. It's built on the principle that naming is one of the hardest—and most important—aspects of software development.
+**eslint-config-naming** is a focused ESLint configuration that enforces consistent, readable naming conventions for TypeScript projects. It's built on the principle that naming is one of the hardest—and most important—aspects of software development.
 
 ## Why naming matters
 

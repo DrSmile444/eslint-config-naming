@@ -5,7 +5,7 @@ import { namingConventionRule } from '@rules/naming';
 
 export const typescriptNamingConfig: Linter.Config[] = [
   {
-    name: '@drsmile444/eslint-config-naming/typescript',
+    name: 'eslint-config-naming/typescript',
     rules: {
       '@typescript-eslint/naming-convention': namingConventionRule as unknown as RuleConfig,
     },

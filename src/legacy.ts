@@ -12,7 +12,7 @@ import { namingConventionRule } from './rules/naming';
  *   module.exports = {
  *     parser: '@typescript-eslint/parser',
  *     plugins: ['@typescript-eslint'],
- *     extends: ['@drsmile444/eslint-config-naming/legacy'],
+ *     extends: ['eslint-config-naming/legacy'],
  *     parserOptions: { project: './tsconfig.json' },
  *   };
  */

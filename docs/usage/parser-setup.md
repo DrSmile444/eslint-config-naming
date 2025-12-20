@@ -17,7 +17,7 @@ This design choice is core to our philosophy of composable, conflict-free toolin
 ```js
 import tsParser from '@typescript-eslint/parser';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
-import naming from '@drsmile444/eslint-config-naming';
+import naming from 'eslint-config-naming';
 
 export default [
   {

@@ -16,7 +16,7 @@ Install peer dependencies (example):
 
 ```bash
 npm i -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript
-npm i -D @drsmile444/eslint-config-naming
+npm i -D eslint-config-naming
 ```
 
 ---
@@ -27,7 +27,7 @@ npm i -D @drsmile444/eslint-config-naming
 // eslint.config.js
 import tsParser from '@typescript-eslint/parser';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
-import naming from '@drsmile444/eslint-config-naming';
+import naming from 'eslint-config-naming';
 
 export default [
   {
@@ -54,14 +54,14 @@ export default [
 
 Use the legacy shareable config entry:
 
-- `@drsmile444/eslint-config-naming/legacy`
+- `eslint-config-naming/legacy`
 
 ```js
 // .eslintrc.cjs
 module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
-  extends: ['@drsmile444/eslint-config-naming/legacy'],
+  extends: ['eslint-config-naming/legacy'],
   parserOptions: {
     project: './tsconfig.json',
   },

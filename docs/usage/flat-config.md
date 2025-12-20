@@ -9,7 +9,7 @@ This config exports an array of Flat Config objects. You spread it into your ESL
 3. Your local overrides
 
 ```js
-import naming from '@drsmile444/eslint-config-naming';
+import naming from 'eslint-config-naming';
 
 export default [
   // 1) your TS wiring

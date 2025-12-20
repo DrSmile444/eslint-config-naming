@@ -8,7 +8,7 @@ Some projects still use legacy config files:
 
 This package provides a dedicated legacy shareable config:
 
-- `@drsmile444/eslint-config-naming/legacy`
+- `eslint-config-naming/legacy`
 
 ## Minimal setup
 
@@ -17,7 +17,7 @@ This package provides a dedicated legacy shareable config:
 module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
-  extends: ['@drsmile444/eslint-config-naming/legacy'],
+  extends: ['eslint-config-naming/legacy'],
   parserOptions: {
     project: './tsconfig.json',
   },
@@ -38,7 +38,7 @@ It **does not** set `parser` or `parserOptions` — you own those, because repos
 module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
-  extends: ['@drsmile444/eslint-config-naming/legacy'],
+  extends: ['eslint-config-naming/legacy'],
   parserOptions: {
     project: ['./packages/*/tsconfig.json'],
     tsconfigRootDir: __dirname,

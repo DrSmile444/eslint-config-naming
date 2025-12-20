@@ -4,8 +4,8 @@
 
 This package supports both:
 
-- Flat Config: import default from `@drsmile444/eslint-config-naming`
-- Legacy eslintrc: extend `@drsmile444/eslint-config-naming/legacy`
+- Flat Config: import default from `eslint-config-naming`
+- Legacy eslintrc: extend `eslint-config-naming/legacy`
 
 ## With other configs
 

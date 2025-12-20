@@ -116,7 +116,7 @@ async function lint(fileUrl: string) {
   return result;
 }
 
-describe('@drsmile444/eslint-config-naming / TypeScript naming', () => {
+describe('eslint-config-naming / TypeScript naming', () => {
   describe('object literal properties', () => {
     describe('positive', () => {
       it('allows camelCase, snake_case and PascalCase properties', async () => {
