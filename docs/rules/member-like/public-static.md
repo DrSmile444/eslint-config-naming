@@ -20,15 +20,15 @@ Static members often represent special values or factory patterns:
 ```ts
 class User {
   // Factory or special instance
-  public static Empty = new User('', '');
+  public static Empty = new User('', ''); // WHY: PascalCase used for a static value representing a special instance
 
   // Singleton accessor
-  public static get Instance() {
+  public static get Instance() { // WHY: PascalCase getter for singleton accessor reads like a property
     return instance;
   }
 
   // Native-like static method naming, the same as Array.from
-  public static fromPayload(payload: any) {
+  public static fromPayload(payload: any) { // WHY: camelCase for static method similar to built-in APIs
     return new User(payload.name, payload.email);
   }
 }
@@ -42,7 +42,7 @@ class User {
 ```ts
 class User {
   // True constants, the same as Number.MAX_VALUE
-  public static readonly MAX_NAME_LENGTH = 100;
+  public static readonly MAX_NAME_LENGTH = 100; // WHY: UPPER_CASE indicates an unchanging constant value
 }
 
 console.log(User.MAX_NAME_LENGTH);
@@ -55,7 +55,9 @@ Constants are static and immutable across the application. Use `UPPER_CASE_WITH_
 Rare, but useful for internal static helpers that are technically public but discouraged:
 
 ```ts
-public static _internalTestHelper() { } // Available for testing but marked as internal
+class ExampleInternal {
+  public static _internalTestHelper() { } // WHY: leading underscore signals internal-use despite being public
+}
 ```
 
 **References:**
@@ -66,9 +68,9 @@ public static _internalTestHelper() { } // Available for testing but marked as i
 
 ```ts
 class Example {
-  public static fooBar = 1; // camelCase is allowed
-  public static FooBar = 2; // PascalCase is allowed
-  public static FOO_BAR = 3; // UPPER_CASE for constants
+  public static fooBar = 1; // WHY: camelCase is allowed for static properties/methods
+  public static FooBar = 2; // WHY: PascalCase allowed for static values or factory-like members
+  public static FOO_BAR = 3; // WHY: UPPER_CASE for constants communicates immutability
 }
 ```
 
@@ -76,6 +78,7 @@ class Example {
 
 ```ts
 class Example {
-  public static foo_bar = 1; // snake_case is not allowed for public static
+  public static foo_bar = 1; // WHY: snake_case is discouraged for public static members
+  public static Foo_bar = 2; // WHY: Mixed conventions reduce clarity
 }
 ```

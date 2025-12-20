@@ -18,9 +18,9 @@ Classes often represent data models mapped from databases or external APIs:
 
 ```ts
 class User {
-  public user_id: string; // Matches database column
-  public created_at: Date; // Matches API response
-  public first_name: string; // Matches external schema
+  public user_id: string; // WHY: snake_case to mirror database/API column naming
+  public created_at: Date; // WHY: preserved to avoid mapping layers when receiving external data
+  public first_name: string; // WHY: matches external schema
 }
 ```
 
@@ -34,15 +34,18 @@ Forcing camelCase would require mapping layers everywhere. By allowing both, we 
 
 ```ts
 class Example {
-  public userName = 'Alice';
-  public user_name = 'Alice';
+  public userName = 'Alice'; // WHY: camelCase — common and idiomatic
+  public user_name = 'Alice'; // WHY: snake_case — acceptable for mapping to external sources or databases
 }
+
+// Using a consistent convention per model keeps code readable
 ```
 
 ## ❌ Bad
 
 ```ts
 class Example {
-  public UserName = 'Alice';
+  public UserName = 'Alice'; // WHY: PascalCase for instance member is inconsistent with conventions
+  public userNameAnd_id = 'x'; // WHY: Mixed naming in a single property is confusing
 }
 ```

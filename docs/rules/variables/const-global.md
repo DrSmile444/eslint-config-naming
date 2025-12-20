@@ -19,13 +19,13 @@ Global scope often contains objects that aren't simple values - they might be co
 
 ```ts
 // Configuration
-export const MAX_RETRIES = 3;
+export const MAX_RETRIES = 3; // WHY: UPPER_CASE shows a configuration constant
 
 // Singleton instance
-export const DatabaseConnection = createConnection();
+export const DatabaseConnection = createConnection(); // WHY: PascalCase indicates a named exported instance
 
 // Utility instance
-export const apiClient = new ApiClient();
+export const apiClient = new ApiClient(); // WHY: camelCase for runtime value
 ```
 
 **References:**
@@ -35,12 +35,12 @@ export const apiClient = new ApiClient();
 ## ✅ Good
 
 ```ts
-const MAX_RETRIES = 3;
-const ApiBaseUrl = 'https://example.com';
+const MAX_RETRIES = 3; // WHY: UPPER_CASE for a true constant
+const ApiBaseUrl = 'https://example.com'; // WHY: PascalCase used for exported namespace-like object
 ```
 
 ## ❌ Bad
 
 ```ts
-const max_retries = 3;
+const max_retries = 3; // WHY: snake_case global const is discouraged
 ```

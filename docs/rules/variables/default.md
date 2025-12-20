@@ -25,12 +25,12 @@ This dual-format approach is nearly universal in JavaScript/TypeScript. It provi
 ## ✅ Good
 
 ```ts
-let userName = 'Alice';
-const MAX_RETRIES = 3;
+let userName = 'Alice'; // WHY: camelCase for runtime variables
+const MAX_RETRIES = 3; // WHY: UPPER_CASE for constants
 ```
 
 ## ❌ Bad
 
 ```ts
-let UserName = 'Alice';
+let UserName = 'Alice'; // WHY: PascalCase suggests a type or class, not a runtime variable
 ```

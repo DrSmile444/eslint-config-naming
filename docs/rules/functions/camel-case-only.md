@@ -25,19 +25,23 @@ This is a "last word" rule: it keeps function names predictable.
 ## ✅ Good
 
 ```ts
-function doWork() {
+function doWork() { // WHY: camelCase — follows the enforced final rule and matches JS conventions
   return 1;
+}
+
+function handleClickEvent() { // WHY: camelCase — descriptive and idiomatic for event handlers
+  return;
 }
 ```
 
 ## ❌ Bad
 
 ```ts
-function DoWork() {
+function DoWork() { // WHY: PascalCase looks like a constructor/class and is disallowed by the final rule
   return 1;
 }
 
-function do_work() {
+function do_work() { // WHY: snake_case is inconsistent with JavaScript naming conventions for functions
   return 1;
 }
 ```

@@ -22,16 +22,16 @@ Private static members are class-level internals - shared across all instances b
 ```ts
 class DatabaseService {
   // Singleton instance (private static)
-  private static Instance: DatabaseService;
+  private static Instance: DatabaseService; // WHY: PascalCase used for private static instance object
 
   // Shared cache (private static)
-  private static QueryCache = new Map();
+  private static QueryCache = new Map(); // WHY: PascalCase acceptable for caches or shared resources
 
   // Internal helper (private static)
-  private static computeKey(value: string) { return value.trim(); }
+  private static computeKey(value: string) { return value.trim(); } // WHY: camelCase for helper method
 
   // Internal constant (private static)
-  private static readonly MAX_POOL_SIZE = 10;
+  private static readonly MAX_POOL_SIZE = 10; // WHY: UPPER_CASE for internal constant
 }
 ```
 
@@ -45,9 +45,9 @@ Private statics often manage class-level state or configuration. camelCase works
 
 ```ts
 class Example {
-  private static fooBar = 1; // camelCase allowed for internal helpers/caches
-  private static FooBar = 2; // PascalCase allowed for instances
-  private static FOO_BAR = 3; // UPPER_CASE for constants
+  private static fooBar = 1; // WHY: camelCase allowed for internal helpers/caches
+  private static FooBar = 2; // WHY: PascalCase allowed for instances
+  private static FOO_BAR = 3; // WHY: UPPER_CASE for constants
 }
 ```
 
@@ -55,6 +55,6 @@ class Example {
 
 ```ts
 class Example {
-  private static _FooBar = 1; // leading underscore forbidden
+  private static _FooBar = 1; // WHY: leading underscore forbidden — redundant with `private`
 }
 ```

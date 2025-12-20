@@ -22,17 +22,24 @@ By allowing all three common conventions, we respect real-world constraints whil
 
 ```ts
 const obj = {
-  fooBar: 1,
-  foo_bar: 2,
-  FooBar: 3,
+  fooBar: 1, // WHY: camelCase — standard JS style for object properties
+  foo_bar: 2, // WHY: snake_case — allowed for interop with external APIs
+  FooBar: 3, // WHY: PascalCase — allowed when mirroring .NET/other external schemas
 };
+
+// Choosing a single convention per object is recommended for readability
 ```
 
 ## ❌ Bad
 
 ```ts
 const obj = {
-  Foo_bar: 1,
+  Foo_bar: 1, // WHY: Mixed casing within a single property name is confusing and inconsistent
+};
+
+const mixed = {
+  userName: 'Alice', // WHY: camelCase
+  user_id: 42, // WHY: snake_case in same object - mixing conventions reduces readability
 };
 ```
 

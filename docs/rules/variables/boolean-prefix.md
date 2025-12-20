@@ -44,14 +44,14 @@ This convention is nearly universal in professional codebases and recommended by
 ## ✅ Good
 
 ```ts
-const isActive: boolean = true;
-const hasPermission: boolean = false;
-const shouldRetry: boolean = true;
+const isActive: boolean = true; // WHY: 'is' prefix makes intention clear and reads like a boolean
+const hasPermission: boolean = false; // WHY: 'has' prefix shows possession/presence
+const shouldRetry: boolean = true; // WHY: 'should' prefix indicates conditional behavior
 ```
 
 ## ❌ Bad
 
 ```ts
-const active: boolean = true;
-const enabled: boolean = false;
+const active: boolean = true; // WHY: missing prefix — unclear if boolean
+const enabled: boolean = false; // WHY: ambiguous name without a boolean prefix
 ```

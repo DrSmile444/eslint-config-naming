@@ -12,10 +12,10 @@
 
 ```ts
 // Redundant - the keyword already says "private"
-private _userName: string;
+private _userName: string; // WHY: Redundant underscore adds noise; private already enforces visibility
 
 // Clear and concise
-private userName: string;
+private userName: string; // WHY: Preferred form: clear and follows camelCase
 ```
 
 **Historical context**: The underscore prefix comes from languages without access modifiers (JavaScript pre-ES6, Python). Developers used `_` to signal "don't touch this." TypeScript has real `private` modifiers - the compiler enforces privacy, so the visual signal is unnecessary.
@@ -36,15 +36,24 @@ private userName: string;
 
 ```ts
 class Example {
-  private cacheKey = 'x';
+  private cacheKey = 'x'; // WHY: camelCase without underscore; private keyword expresses intent
+  private userName: string; // WHY: clear camelCase name for a private instance field
 }
 ```
+
+Both examples show private members using camelCase without leading underscores, following modern TypeScript style.
 
 ## ❌ Bad
 
 ```ts
 class Example {
-  private _cacheKey = 'x';
-  private CacheKey = 'y';
+  private _cacheKey = 'x'; // WHY: leading underscore is redundant and discouraged
+  private CacheKey = 'y'; // WHY: PascalCase for instance members is inconsistent with conventions
+}
+
+class Bad2 {
+  private MAX_RETRIES = 5; // WHY: UPPER_CASE implies global constant, not an instance field
 }
 ```
+
+These bad examples either use redundant underscores, the wrong case for instance members, or UPPER_CASE which implies a different semantic meaning.

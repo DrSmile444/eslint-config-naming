@@ -23,19 +23,29 @@ This flexibility acknowledges that exported functions serve different roles. A u
 ## ✅ Good
 
 ```ts
-export function ExportedFunction() {
+export function ExportedFunction() { // WHY: PascalCase allowed for factory-like exported functions
   return 1;
 }
 
-export function exportedFunction() {
+export function exportedFunction() { // WHY: camelCase allowed for regular exported functions
   return 1;
 }
+
+export const _internalHelper = () => 42; // WHY: leading underscore allowed for intentionally internal exports
 ```
+
+These examples show allowed exported names: PascalCase for factory-style functions, camelCase for normal functions, and an underscore-prefixed export for internal helpers.
 
 ## ❌ Bad
 
 ```ts
-export function exported_function_bad() {
+export function exported_function_bad() { // WHY: snake_case is not allowed for exported functions in this rule set
+  return 1;
+}
+
+export function Exported_Function() { // WHY: Mixed underscores and PascalCase are disallowed — inconsistent with conventions
   return 1;
 }
 ```
+
+The 'Bad' examples use underscores in function names which goes against the permitted patterns and reduces consistency in the public API surface.

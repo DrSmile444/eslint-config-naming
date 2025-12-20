@@ -26,11 +26,13 @@ The `T*` prefix was common in older codebases (`TUserId`, `TCallback`) but adds 
 ## ✅ Good
 
 ```ts
-type UserId = string;
+type UserId = string; // WHY: PascalCase type alias without prefix reads naturally
 ```
 
 ## ❌ Bad
 
 ```ts
-type IUserId = string;
+type IUserId = string; // WHY: `I` prefix is redundant and noisy
+
+type TUser = { id: string }; // WHY: `T` prefix is unnecessary and inconsistent
 ```

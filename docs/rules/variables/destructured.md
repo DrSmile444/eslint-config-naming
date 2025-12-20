@@ -15,10 +15,10 @@ Forcing a rename defeats the purpose of destructuring. Compare:
 
 ```ts
 // Forced rename - verbose and noisy
-const { user_id: userId, created_at: createdAt } = apiResponse;
+const { user_id: userId, created_at: createdAt } = apiResponse; // WHY: verbose renaming loses the benefit of destructuring
 
 // Natural destructuring - clean and honest
-const { user_id, created_at } = apiResponse;
+const { user_id, created_at } = apiResponse; // WHY: preserves external schema and keeps code concise
 ```
 
 By allowing flexibility for destructured variables, we honor the "respect real-world interoperability" principle. You can destructure external shapes as-is, then use standard naming for variables you create.
@@ -34,12 +34,12 @@ By allowing flexibility for destructured variables, we honor the "respect real-w
 
 ```ts
 const dto = { userName: 'A', user_age: 10, UserId: '1' };
-const { userName, user_age, UserId } = dto;
+const { userName, user_age, UserId } = dto; // WHY: each name mirrors the source shape, which is intentional
 ```
 
 ## ❌ Bad
 
 ```ts
 const dto = { Foo_bar: 1 };
-const { Foo_bar } = dto;
+const { Foo_bar } = dto; // WHY: mixed-inconsistent casing inside tokens (capital + underscore) is poor style
 ```

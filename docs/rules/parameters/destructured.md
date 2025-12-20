@@ -24,7 +24,7 @@ This is consistent with our approach to destructured variables and object litera
 ## ✅ Good
 
 ```ts
-function greet({ firstName, last_name }: { firstName: string; last_name: string }) {
+function greet({ firstName, last_name }: { firstName: string; last_name: string }) { // WHY: Mixed allowed — preserves external naming while permitting camelCase
   return `${firstName} ${last_name}`;
 }
 ```
@@ -32,7 +32,7 @@ function greet({ firstName, last_name }: { firstName: string; last_name: string 
 ## ❌ Bad
 
 ```ts
-function greet({ Foo_bar }: { Foo_bar: string }) {
+function greet({ Foo_bar }: { Foo_bar: string }) { // WHY: Mixed-internally inconsistent casing (capitalized + underscore) is confusing
   return Foo_bar;
 }
 ```

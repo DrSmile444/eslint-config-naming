@@ -18,3 +18,16 @@ Pages:
 - [Boolean Destructured](/rules/variables/boolean-destructured)
 - [Node.js Common Variables](/rules/variables/node-common)
 - [\*Component](/rules/variables/component)
+
+## ✅ Good
+
+```ts
+const MAX_RETRIES = 3; // WHY: UPPER_CASE for configuration constant
+let userName = 'Alice'; // WHY: camelCase runtime variable
+```
+
+## ❌ Bad
+
+```ts
+const max_retries = 3; // WHY: snake_case discouraged for global/const variables
+```

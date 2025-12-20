@@ -20,7 +20,25 @@ But note: a later rule enforces **camelCase** for all functions. See [CamelCase 
 ## ✅ Good
 
 ```ts
-function localFunction() {
+function localFunction() { // WHY: camelCase is the standard and widely accepted for local functions
   return 1;
 }
+
+function LocalFactory() { // WHY: PascalCase can be acceptable for constructor-like or factory functions (but later rules may override)
+  return {};
+}
 ```
+
+## ❌ Bad
+
+```ts
+function local_function() { // WHY: snake_case is not a preferred convention for functions here
+  return 1;
+}
+
+function Local_Function() { // WHY: mixed PascalCase and underscores are inconsistent and discouraged
+  return {};
+}
+```
+
+These bad examples illustrate alternative styles the default rule originally allowed but which should be avoided in favor of consistent camelCase once the final enforcement applies.

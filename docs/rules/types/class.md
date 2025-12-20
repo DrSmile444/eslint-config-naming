@@ -26,11 +26,14 @@ This visual distinction reduces cognitive load and prevents naming conflicts.
 ## ✅ Good
 
 ```ts
-class UserService {}
+class UserService {} // WHY: PascalCase - clearly a class/type
+class HTTPClient {} // WHY: PascalCase with acronym – keeps class semantics clear
 ```
 
 ## ❌ Bad
 
 ```ts
-class userService {}
+class userService {} // WHY: camelCase for a class confuses instances with types
+class user_service {} // WHY: snake_case is not appropriate for class names
+class HTTPclient {} // WHY: Incorrect casing – should be PascalCase
 ```

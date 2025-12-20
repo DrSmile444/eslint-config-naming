@@ -16,10 +16,10 @@ Private readonly members are immutable internals. They can represent either cons
 ```ts
 class ApiClient {
   // True constant - known at compile time
-  private readonly MAX_RETRIES = 3;
+  private readonly MAX_RETRIES = 3; // WHY: UPPER_CASE for a true compile-time constant
 
   // Configuration value - set in constructor
-  private readonly apiKey: string;
+  private readonly apiKey: string; // WHY: camelCase for constructor-provided readonly value
 
   constructor(apiKey: string) {
     this.apiKey = apiKey;
@@ -41,8 +41,8 @@ Not all readonly values are constants. Some are set once during initialization a
 
 ```ts
 class Example {
-  private readonly MAX_RETRIES = 3;
-  private readonly maxRetries = 3;
+  private readonly MAX_RETRIES = 3; // WHY: UPPER_CASE for compile-time constant
+  private readonly maxRetries = 3; // WHY: camelCase for instance-specific readonly value
 }
 ```
 
@@ -50,7 +50,7 @@ class Example {
 
 ```ts
 class Example {
-  private readonly _maxRetries = 3;
-  private readonly MaxRetries = 3;
+  private readonly _maxRetries = 3; // WHY: leading underscore forbidden
+  private readonly MaxRetries = 3; // WHY: PascalCase misleading for a property
 }
 ```

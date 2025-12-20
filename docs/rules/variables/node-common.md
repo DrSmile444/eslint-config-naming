@@ -11,8 +11,8 @@ Node.js provides special global variables `__filename` and `__dirname` that don'
 
 ```ts
 // These are built-in Node.js variables
-console.log(__filename); // '/Users/project/src/index.js'
-console.log(__dirname);  // '/Users/project/src'
+console.log(__filename); // WHY: Node.js runtime global — allowed despite underscores
+console.log(__dirname);  // WHY: Node.js runtime global — allowed despite underscores
 ```
 
 Without this exception, ESLint would flag these standard Node.js variables as violations since they use double leading underscores and don't match typical camelCase or UPPER_CASE patterns.
@@ -35,17 +35,16 @@ This rule specifically allows these two well-known Node.js variables while maint
 ## ✅ Good
 
 ```ts
-const configPath = path.join(__dirname, 'config.json');
-const currentFile = __filename;
+const configPath = path.join(__dirname, 'config.json'); // WHY: using __dirname to build paths is common in Node.js
+const currentFile = __filename; // WHY: accessing the current filename is valid and allowed by this rule
 ```
 
-## ❌ Not affected
+## ✅ Not affected
 
 These variables are specifically exempted, so there are no "bad" examples - they're always allowed:
 
 ```ts
 // These are always valid
-__dirname
-__filename
+__dirname // WHY: exempted by rule
+__filename // WHY: exempted by rule
 ```
-

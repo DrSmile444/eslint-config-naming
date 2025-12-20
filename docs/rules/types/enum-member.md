@@ -38,8 +38,8 @@ Alternatives like PascalCase (`Status.Pending`) or camelCase (`Status.pending`) 
 
 ```ts
 enum Status {
-  IN_PROGRESS,
-  DONE,
+  IN_PROGRESS, // WHY: UPPER_CASE signals a constant enum member
+  DONE, // WHY: short, uppercase tokens make intent clear
 }
 ```
 
@@ -47,6 +47,10 @@ enum Status {
 
 ```ts
 enum Status {
-  InProgress,
+  InProgress, // WHY: PascalCase blurs the line between types and values
+}
+
+enum Other {
+  inProgress, // WHY: camelCase is not appropriate for enum members
 }
 ```

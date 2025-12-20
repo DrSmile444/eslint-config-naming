@@ -40,7 +40,11 @@ The singular form makes usage read like natural language: "the order's status is
 
 ```ts
 enum OrderStatus {
-  PENDING,
+  PENDING, // WHY: singular enum name with UPPER_CASE members
+}
+
+enum Direction {
+  NORTH, // WHY: singular, reads naturally in comparisons
 }
 ```
 
@@ -48,6 +52,10 @@ enum OrderStatus {
 
 ```ts
 enum OrderStatuses {
-  PENDING,
+  PENDING, // WHY: plural enum type name is awkward when used in comparisons
+}
+
+enum BadPlural {
+  ITEM, // WHY: enum named like a collection can be confusing for callers
 }
 ```

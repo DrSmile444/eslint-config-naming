@@ -20,7 +20,7 @@ class BaseService {
   }
 
   // Protected - for subclasses only
-  protected loadFromCache() {
+  protected loadFromCache() { // WHY: camelCase protected method, no underscore
     return this.cache.get();
   }
 
@@ -43,7 +43,7 @@ class BaseService {
 
 ```ts
 class Base {
-  protected logger = console;
+  protected logger = console; // WHY: camelCase, no underscore, clear for subclasses
 }
 ```
 
@@ -51,6 +51,7 @@ class Base {
 
 ```ts
 class Base {
-  protected _logger = console;
+  protected _logger = console; // WHY: leading underscore redundant and forbidden for protected members
+  protected Logger = console; // WHY: PascalCase for instance member is inconsistent
 }
 ```

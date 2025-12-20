@@ -30,18 +30,36 @@ This allows external contracts where names cannot be valid identifiers.
 
 ```ts
 const headers = {
-  'Content-Type': 'application/json',
-  'X-Custom-Header': 'x',
+  'Content-Type': 'application/json', // WHY: Must be quoted because of the hyphen; external HTTP header name
+  'X-Custom-Header': 'x', // WHY: Exact external contract key preserved
 };
 
 class X {
-  'custom-method'() {}
+  'custom-method'() {} // WHY: Method name contains a dash; quoting preserves the external API surface
 }
 
 enum HttpHeaders {
-  'content-type' = 'content-type',
+  'content-type' = 'content-type', // WHY: Enum member mirrors external key, quoting required
 }
 ```
+
+Each example above shows a case where quoting is required to represent an external contract or an identifier containing characters (like '-') that are not valid unquoted identifiers.
+
+## ❌ Bad
+
+```text
+const headers = {
+  Content-Type: 'application/json', // WHY: Syntax error — unquoted identifier with '-' is invalid in JS
+};
+```
+
+```text
+class X {
+  custom-method() {} // WHY: Syntax error — '-' is not allowed in unquoted identifier names
+}
+```
+
+These "Bad" examples are syntactically invalid and demonstrate why quoted members must be permitted and excluded from naming enforcement: they represent keys that cannot otherwise be expressed in JavaScript without quotes.
 
 ## Notes
 
