@@ -1,7 +1,7 @@
 export const memberLikePublicStaticNaming = {
   selector: 'memberLike',
   modifiers: ['public', 'static'],
-  format: ['PascalCase', 'UPPER_CASE'],
+  format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
   leadingUnderscore: 'allow',
 } as const;
 

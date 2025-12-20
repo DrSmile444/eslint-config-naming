@@ -137,7 +137,7 @@ describe('eslint-config-naming / TypeScript naming', () => {
 
   describe('memberLike public static', () => {
     describe('positive', () => {
-      it('allows PascalCase and UPPER_CASE for public static members', async () => {
+      it('allows camelCase, PascalCase and UPPER_CASE for public static members', async () => {
         const result = await lint(memberLikePublicStaticPositive);
 
         expect(result.errorCount).toBe(0);
@@ -145,7 +145,7 @@ describe('eslint-config-naming / TypeScript naming', () => {
     });
 
     describe('negative', () => {
-      it('disallows camelCase for public static members', async () => {
+      it('disallows invalid names (e.g., snake_case) for public static members', async () => {
         const result = await lint(memberLikePublicStaticNegative);
 
         expect(result.errorCount).toBeGreaterThan(0);

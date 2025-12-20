@@ -1,4 +1,4 @@
 class PublicStaticBad {
-  public static fooBar = 1;
+  public static foo_bar = 1;
 }
 

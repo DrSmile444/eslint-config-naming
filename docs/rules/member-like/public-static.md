@@ -1,7 +1,7 @@
 # Public static members
 
 - **Modifiers:** `public`, `static`
-- Allowed: `PascalCase`, `UPPER_CASE`
+- Allowed: `camelCase`, `PascalCase`, `UPPER_CASE`
 - Leading underscore: allowed
 - **Debatable**: yes, typescript docs specifies `camelCase` for everything, but many popular style guides recommend PascalCase for statics
 
@@ -9,10 +9,11 @@
 
 Public static members serve as class-level API - they're accessible without instantiation. The naming reflects their role:
 
+- **camelCase**: For static methods and native-like static helpers (`Array.from`, `Promise.allSettled`) and general JS/TS static APIs
 - **PascalCase**: For factory methods, singleton accessors, or class-level values (`User.Empty`, `Config.Default`)
 - **UPPER_CASE**: For true constants (`Math.PI`, `Number.MAX_VALUE`)
 
-**Why PascalCase for statics:**
+**Why allow camelCase or PascalCase for statics:**
 
 Static members often represent special values or factory patterns:
 
@@ -25,11 +26,16 @@ class User {
   public static get Instance() {
     return instance;
   }
+
+  // Native-like static method naming, the same as Array.from
+  public static fromPayload(payload: any) {
+    return new User(payload.name, payload.email);
+  }
 }
 ```
 
-- This matches conventions from other languages (C#, Java) where static members use `PascalCase` unless they're constants.
-- This aligns with conventions for class names and modules, which are effectively "static classes" in some cases.
+- JavaScript and TypeScript built-in APIs commonly use `camelCase` for static methods (e.g. `Array.from`, `Promise.resolve`).
+- `PascalCase` remains useful for static factory values or singleton properties and mirrors conventions from languages like C# and Java.
 
 **Why UPPER_CASE for constants:**
 
@@ -60,8 +66,9 @@ public static _internalTestHelper() { } // Available for testing but marked as i
 
 ```ts
 class Example {
-  public static FooBar = 1;
-  public static FOO_BAR = 2;
+  public static fooBar = 1; // camelCase is allowed
+  public static FooBar = 2; // PascalCase is allowed
+  public static FOO_BAR = 3; // UPPER_CASE for constants
 }
 ```
 
@@ -69,6 +76,6 @@ class Example {
 
 ```ts
 class Example {
-  public static fooBar = 1;
+  public static foo_bar = 1; // snake_case is not allowed for public static
 }
 ```
