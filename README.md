@@ -21,19 +21,19 @@
 
 ## Why
 
-Naming conventions are one of the biggest sources of “small but constant” friction in TypeScript projects:
+Naming conventions in software development offer numerous benefits:
 
-- inconsistent styles across files/teams
-- unreadable booleans (`enabled`, `active`, `ready` — *what are these?*)
-- legacy prefixes for types (`IUser`, `TUserId`)
-- messy member naming (private/public/protected mixed styles)
-- external DTOs and headers that don’t match your preferred style
+- **Readability**: Consistent naming makes code easier to read and understand, reducing cognitive load when scanning files.
+- **Maintainability**: Enforces best practices, improving code quality and consistency across the codebase.
+- **Code Review and Collaboration**: Eliminates debates on naming styles, allowing reviewers to focus on logic and speeding up the process.
+- **Code Uniformity**: Uniform naming promotes collective code ownership, as code looks the same regardless of who wrote it.
+- **Aesthetics**: Provides functional benefits and aesthetic appeal, with a visually pleasing and harmonious structure.
 
 This config makes naming **predictable** and **review-friendly** by enforcing a coherent set of rules that scale well across:
 
-- apps and libraries
-- frontend and backend
-- monorepos and multi-team codebases
+- Apps and Libraries
+- Frontend and Backend
+- Monorepos and Multi-team codebases
 
 It is intentionally **BYO parser setup** — it ships rules only and does not assume your repo layout or `parserOptions.project`.
 
