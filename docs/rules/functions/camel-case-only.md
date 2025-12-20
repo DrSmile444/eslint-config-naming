@@ -18,8 +18,7 @@ This "last rule wins" approach is intentional: it allows the configuration to de
 **References:**
 
 - [JavaScript Naming Conventions - MDN](https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/JavaScript#function_names)
-- [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html#naming-camel-case-defined)
-- [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript#naming-conventions)
+- [Google JavaScript Style Guide](https://google.github.io/styleguide/tsguide.html#naming-rules-by-identifier-type)
 
 This is a "last word" rule: it keeps function names predictable.
 
