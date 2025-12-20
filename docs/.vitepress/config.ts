@@ -57,11 +57,11 @@ export default defineConfig({
             text: 'Member-like',
             items: [
               { text: 'Overview', link: '/rules/member-like/' },
-              { text: 'Public Static', link: '/rules/member-like/public-static' },
-              { text: 'Private Static', link: '/rules/member-like/private-static' },
               { text: 'Public', link: '/rules/member-like/public' },
               { text: 'Private', link: '/rules/member-like/private' },
               { text: 'Private Readonly', link: '/rules/member-like/private-readonly' },
+              { text: 'Public Static', link: '/rules/member-like/public-static' },
+              { text: 'Private Static', link: '/rules/member-like/private-static' },
               { text: 'Protected', link: '/rules/member-like/protected' },
             ],
           },
@@ -93,8 +93,8 @@ export default defineConfig({
               { text: 'Destructured', link: '/rules/variables/destructured' },
               { text: 'Boolean Prefix', link: '/rules/variables/boolean-prefix' },
               { text: 'Boolean Destructured', link: '/rules/variables/boolean-destructured' },
-              { text: '*Component Filter', link: '/rules/variables/component' },
               { text: 'Node.js Common Variables', link: '/rules/variables/node-common' },
+              { text: '*Component Filter', link: '/rules/variables/component' },
             ],
           },
           {

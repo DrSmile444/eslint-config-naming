@@ -16,5 +16,5 @@ Pages:
 - [Destructured](/rules/variables/destructured)
 - [Boolean Prefix](/rules/variables/boolean-prefix)
 - [Boolean Destructured](/rules/variables/boolean-destructured)
-- [\*Component](/rules/variables/component)
 - [Node.js Common Variables](/rules/variables/node-common)
+- [\*Component](/rules/variables/component)

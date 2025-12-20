@@ -10,11 +10,11 @@ Member-like covers class fields, methods, accessors, etc. Rules depend on modifi
 
 ## Pages
 
-- [Public static](/rules/member-like/public-static)
-- [Private static](/rules/member-like/private-static)
 - [Public](/rules/member-like/public)
 - [Private](/rules/member-like/private)
 - [Private readonly](/rules/member-like/private-readonly)
+- [Public static](/rules/member-like/public-static)
+- [Private static](/rules/member-like/private-static)
 - [Protected](/rules/member-like/protected)
 
 ## Why this matters
