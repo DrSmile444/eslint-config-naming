@@ -21,6 +21,7 @@ Modern TypeScript codebases overwhelmingly reject the `I` prefix. It's a holdove
 
 **References:**
 
+- [TypeScript ESLint - Naming Convention for Interfaces](https://typescript-eslint.io/rules/naming-convention/#enforce-that-interface-names-do-not-begin-with-an-i)
 - [TypeScript Deep Dive - Interfaces](https://basarat.gitbook.io/typescript/type-system/interfaces)
 - [Avoid the `I` prefix for interfaces - Mário S. Camargo](https://dev.to/mscamargo/why-you-should-avoid-using-the-i-prefix-for-interfaces-in-typescript-43gd) - detailed explanation
 - [Microsoft TypeScript Coding Guidelines](https://github.com/microsoft/TypeScript/wiki/Coding-guidelines#names) - explicitly avoids `I` prefix
