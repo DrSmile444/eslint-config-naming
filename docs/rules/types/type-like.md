@@ -19,6 +19,7 @@ The `T*` prefix was common in older codebases (`TUserId`, `TCallback`) but adds 
 
 **References:**
 
+- [This TS naming convention is weird - Matt Pocock](https://www.youtube.com/watch?v=qA65QjWCl60) - section about unions, I and T prefixes
 - [TypeScript Handbook - Type Aliases](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases)
 - [Avoid the `I` prefix for interfaces - Mário S. Camargo](https://dev.to/mscamargo/why-you-should-avoid-using-the-i-prefix-for-interfaces-in-typescript-43gd) - detailed explanation applicable to type-like constructs
 
