@@ -1,8 +1,7 @@
 # Object literal properties
 
-**Selector:** `objectLiteralProperty`
-
-Allows: `camelCase`, `snake_case`, `PascalCase`.
+- **Selector:** `objectLiteralProperty`
+- Allows: `camelCase`, `snake_case`, `PascalCase`.
 
 ## Why This Rule
 
@@ -17,7 +16,7 @@ By allowing all three common conventions, we respect real-world constraints whil
 **References:**
 
 - [Airbnb JavaScript Style Guide - Naming Conventions](https://github.com/airbnb/javascript#naming-conventions)
-- [Google TypeScript Style Guide - Identifiers](https://google.github.io/styleguide/tsguide.html#identifiers)
+- [TypeScript Handbook - Object Types](https://www.typescriptlang.org/docs/handbook/2/objects.html)
 
 ## ✅ Good
 

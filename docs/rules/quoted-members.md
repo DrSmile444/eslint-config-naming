@@ -1,7 +1,7 @@
 # Quoted members are ignored
 
-**Modifier:** `requiresQuotes`
-Format: `null`
+- **Modifier:** `requiresQuotes`
+- Format: `null`
 
 ## Why This Rule
 
