@@ -155,7 +155,7 @@ describe('eslint-config-naming / TypeScript naming', () => {
 
   describe('memberLike private static', () => {
     describe('positive', () => {
-      it('allows PascalCase and UPPER_CASE for private static members', async () => {
+      it('allows camelCase, PascalCase and UPPER_CASE for private static members', async () => {
         const result = await lint(memberLikePrivateStaticPositive);
 
         expect(result.errorCount).toBe(0);

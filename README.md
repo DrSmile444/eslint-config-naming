@@ -167,7 +167,7 @@ For full details (and good/bad examples), see the docs site.
 ### Members (`memberLike`)
 
 * `public static`: **camelCase**, **PascalCase** or **UPPER_CASE**
-* `private static`: **PascalCase** or **UPPER_CASE**, no leading `_`
+* `private static`: **camelCase**, **PascalCase** or **UPPER_CASE**, no leading `_`
 * `public`: **camelCase** or **snake_case**
 * `private`: **camelCase**, no leading `_`
 * `private readonly`: **camelCase** or **UPPER_CASE**, no leading `_`
