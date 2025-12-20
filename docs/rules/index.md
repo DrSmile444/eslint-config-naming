@@ -27,7 +27,8 @@ Jump to details:
 
 ```ts
 const MAX_RETRIES = 3; // WHY: UPPER_CASE for a configuration constant, matches the matrix
-function doWork() { // WHY: camelCase function — final enforced pattern
+function doWork() {
+  // WHY: camelCase function — final enforced pattern
   return;
 }
 ```
@@ -35,7 +36,8 @@ function doWork() { // WHY: camelCase function — final enforced pattern
 ## ❌ Bad
 
 ```ts
-function Do_Work() { // WHY: Mixed case/underscore violates function camelCase enforcement
+function Do_Work() {
+  // WHY: Mixed case/underscore violates function camelCase enforcement
   return;
 }
 ```

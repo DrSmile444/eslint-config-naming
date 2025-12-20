@@ -20,11 +20,13 @@ But note: a later rule enforces **camelCase** for all functions. See [CamelCase 
 ## ✅ Good
 
 ```ts
-function localFunction() { // WHY: camelCase is the standard and widely accepted for local functions
+function localFunction() {
+  // WHY: camelCase is the standard and widely accepted for local functions
   return 1;
 }
 
-function LocalFactory() { // WHY: PascalCase can be acceptable for constructor-like or factory functions (but later rules may override)
+function LocalFactory() {
+  // WHY: PascalCase can be acceptable for constructor-like or factory functions (but later rules may override)
   return {};
 }
 ```
@@ -32,11 +34,13 @@ function LocalFactory() { // WHY: PascalCase can be acceptable for constructor-l
 ## ❌ Bad
 
 ```ts
-function local_function() { // WHY: snake_case is not a preferred convention for functions here
+function local_function() {
+  // WHY: snake_case is not a preferred convention for functions here
   return 1;
 }
 
-function Local_Function() { // WHY: mixed PascalCase and underscores are inconsistent and discouraged
+function Local_Function() {
+  // WHY: mixed PascalCase and underscores are inconsistent and discouraged
   return {};
 }
 ```

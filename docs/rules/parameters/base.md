@@ -17,12 +17,14 @@ Unlike destructured parameters (which preserve external naming), regular paramet
 
 ```ts
 // ❌ Bad - snake_case isn't idiomatic for JS/TS parameters
-function processUser(user_id: string, first_name: string) { // WHY: snake_case parameters are non-idiomatic and inconsistent
+function processUser(user_id: string, first_name: string) {
+  // WHY: snake_case parameters are non-idiomatic and inconsistent
   return `${first_name} (${user_id})`;
 }
 
 // ✅ Good - camelCase is the JavaScript standard
-function processUser(userId: string, firstName: string) { // WHY: camelCase parameters are idiomatic and readable
+function processUser(userId: string, firstName: string) {
+  // WHY: camelCase parameters are idiomatic and readable
   return `${firstName} (${userId})`;
 }
 ```
@@ -33,7 +35,8 @@ Use destructured parameters instead - they preserve the original naming from ext
 
 ```ts
 // ✅ Good - destructuring preserves API shape
-function processUser({ user_id, first_name }: ApiUser) { // WHY: destructured names preserve external contract and avoid noisy renaming
+function processUser({ user_id, first_name }: ApiUser) {
+  // WHY: destructured names preserve external contract and avoid noisy renaming
   return `${first_name} (${user_id})`;
 }
 ```
@@ -48,7 +51,8 @@ The leading underscore is especially valuable in TypeScript where the `noUnusedL
 ## ✅ Good
 
 ```ts
-function fn(userId: string, _unused: number, firstName: string) { // WHY: underscores allowed for intentionally unused params
+function fn(userId: string, _unused: number, firstName: string) {
+  // WHY: underscores allowed for intentionally unused params
   return userId + firstName;
 }
 ```
@@ -57,12 +61,14 @@ function fn(userId: string, _unused: number, firstName: string) { // WHY: unders
 
 ```ts
 // PascalCase not allowed
-function fn(UserId: string) { // WHY: PascalCase for parameter looks like a type/class, not a value
+function fn(UserId: string) {
+  // WHY: PascalCase for parameter looks like a type/class, not a value
   return UserId;
 }
 
 // snake_case not allowed for base parameters
-function fn(user_id: string) { // WHY: snake_case breaks JS/TS convention for parameter names
+function fn(user_id: string) {
+  // WHY: snake_case breaks JS/TS convention for parameter names
   return user_id;
 }
 ```

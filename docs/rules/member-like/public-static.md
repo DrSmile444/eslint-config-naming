@@ -23,12 +23,14 @@ class User {
   public static Empty = new User('', ''); // WHY: PascalCase used for a static value representing a special instance
 
   // Singleton accessor
-  public static get Instance() { // WHY: PascalCase getter for singleton accessor reads like a property
+  public static get Instance() {
+    // WHY: PascalCase getter for singleton accessor reads like a property
     return instance;
   }
 
   // Native-like static method naming, the same as Array.from
-  public static fromPayload(payload: any) { // WHY: camelCase for static method similar to built-in APIs
+  public static fromPayload(payload: any) {
+    // WHY: camelCase for static method similar to built-in APIs
     return new User(payload.name, payload.email);
   }
 }
@@ -56,7 +58,7 @@ Rare, but useful for internal static helpers that are technically public but dis
 
 ```ts
 class ExampleInternal {
-  public static _internalTestHelper() { } // WHY: leading underscore signals internal-use despite being public
+  public static _internalTestHelper() {} // WHY: leading underscore signals internal-use despite being public
 }
 ```
 

@@ -10,7 +10,8 @@ Pages:
 ## ✅ Good
 
 ```ts
-function fn(userId: string, _unused: any) { // WHY: camelCase and leading underscore for unused param
+function fn(userId: string, _unused: any) {
+  // WHY: camelCase and leading underscore for unused param
   return userId;
 }
 ```
@@ -18,7 +19,8 @@ function fn(userId: string, _unused: any) { // WHY: camelCase and leading unders
 ## ❌ Bad
 
 ```ts
-function fn(user_id: string) { // WHY: snake_case not allowed for base parameters
+function fn(user_id: string) {
+  // WHY: snake_case not allowed for base parameters
   return user_id;
 }
 ```

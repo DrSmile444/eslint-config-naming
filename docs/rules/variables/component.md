@@ -15,7 +15,7 @@ React and similar frameworks treat components as first-class values. When you st
 const EditActionComponent = () => <button>Edit</button>; // WHY: PascalCase required so JSX recognizes it as a component
 
 // Component usage - reads naturally
-<EditActionComponent />
+<EditActionComponent />;
 ```
 
 This aligns with React's convention that components use PascalCase. Without this rule, you'd be forced to use camelCase for component variables, creating inconsistency:
@@ -23,7 +23,7 @@ This aligns with React's convention that components use PascalCase. Without this
 ```tsx
 // Awkward without this rule
 const editActionComponent = () => <button>Edit</button>; // WHY: camelCase would break JSX element detection and is invalid in JSX
-<editActionComponent /> // Invalid JSX!
+<editActionComponent />; // Invalid JSX!
 ```
 
 The `*Component` suffix pattern is commonly used for:

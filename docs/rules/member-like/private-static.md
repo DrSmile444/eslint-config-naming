@@ -28,7 +28,9 @@ class DatabaseService {
   private static QueryCache = new Map(); // WHY: PascalCase acceptable for caches or shared resources
 
   // Internal helper (private static)
-  private static computeKey(value: string) { return value.trim(); } // WHY: camelCase for helper method
+  private static computeKey(value: string) {
+    return value.trim();
+  } // WHY: camelCase for helper method
 
   // Internal constant (private static)
   private static readonly MAX_POOL_SIZE = 10; // WHY: UPPER_CASE for internal constant

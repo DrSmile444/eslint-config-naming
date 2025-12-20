@@ -91,23 +91,23 @@ npm i -D eslint-config-naming
 
 ```js
 // eslint.config.js
-import tsParser from "@typescript-eslint/parser";
-import tsPlugin from "@typescript-eslint/eslint-plugin";
-import naming from "eslint-config-naming";
+import tsParser from '@typescript-eslint/parser';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+import naming from 'eslint-config-naming';
 
 export default [
   // Your TS wiring (BYO parserOptions)
   {
-    files: ["**/*.ts", "**/*.tsx"],
+    files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
-        project: ["./tsconfig.json"],
+        project: ['./tsconfig.json'],
         tsconfigRootDir: import.meta.dirname,
       },
     },
     plugins: {
-      "@typescript-eslint": tsPlugin,
+      '@typescript-eslint': tsPlugin,
     },
   },
 
@@ -120,16 +120,16 @@ export default [
 
 Use the legacy shareable entry:
 
-* `eslint-config-naming/legacy`
+- `eslint-config-naming/legacy`
 
 ```js
 // .eslintrc.cjs
 module.exports = {
-  parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint"],
-  extends: ["eslint-config-naming/legacy"],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  extends: ['eslint-config-naming/legacy'],
   parserOptions: {
-    project: "./tsconfig.json",
+    project: './tsconfig.json',
   },
 };
 ```
@@ -140,12 +140,12 @@ module.exports = {
 
 Internally, the config is built as a set of **small rule fragments** grouped by selector:
 
-* `memberLike` rules (public/private/protected/static/readonly)
-* `variables` rules (default, const/global, destructured, boolean prefixes, *Component)
-* `types` rules (class, interface, enum, typeLike, enumMember)
-* `parameters` rules (base, destructured)
-* `functions` rules (including final camelCase enforcement)
-* quoted-key escape hatch (`requiresQuotes` → ignored)
+- `memberLike` rules (public/private/protected/static/readonly)
+- `variables` rules (default, const/global, destructured, boolean prefixes, \*Component)
+- `types` rules (class, interface, enum, typeLike, enumMember)
+- `parameters` rules (base, destructured)
+- `functions` rules (including final camelCase enforcement)
+- quoted-key escape hatch (`requiresQuotes` → ignored)
 
 They are combined in a single `@typescript-eslint/naming-convention` rule entry list, preserving precedence.
 
@@ -158,34 +158,34 @@ For full details (and good/bad examples), see the docs site.
 
 ### Types
 
-* `class`: **PascalCase**
-* `interface`: **PascalCase** and forbids `I*` / `T*` prefixes
-* `typeLike`: **PascalCase** and forbids `I*` / `T*` prefixes
-* `enum`: **PascalCase**, forbids plural-ish names (like `Statuses`) and `I*`/`T*`
-* `enumMember`: **UPPER_CASE**
+- `class`: **PascalCase**
+- `interface`: **PascalCase** and forbids `I*` / `T*` prefixes
+- `typeLike`: **PascalCase** and forbids `I*` / `T*` prefixes
+- `enum`: **PascalCase**, forbids plural-ish names (like `Statuses`) and `I*`/`T*`
+- `enumMember`: **UPPER_CASE**
 
 ### Members (`memberLike`)
 
-* `public static`: **camelCase**, **PascalCase** or **UPPER_CASE**
-* `private static`: **camelCase**, **PascalCase** or **UPPER_CASE**, no leading `_`
-* `public`: **camelCase** or **snake_case**
-* `private`: **camelCase**, no leading `_`
-* `private readonly`: **camelCase** or **UPPER_CASE**, no leading `_`
-* `protected`: **camelCase** with **required leading `_`**
+- `public static`: **camelCase**, **PascalCase** or **UPPER_CASE**
+- `private static`: **camelCase**, **PascalCase** or **UPPER_CASE**, no leading `_`
+- `public`: **camelCase** or **snake_case**
+- `private`: **camelCase**, no leading `_`
+- `private readonly`: **camelCase** or **UPPER_CASE**, no leading `_`
+- `protected`: **camelCase** with **required leading `_`**
 
 ### Variables
 
-* default: **camelCase** or **UPPER_CASE**
-* `const` + `global`: allows **PascalCase** (in addition to camelCase/UPPER_CASE)
-* destructured: allows **PascalCase**, **camelCase**, **snake_case**
-* booleans: **PascalCase** and must start with `is|should|has|can|did|will`
-* destructured booleans: no prefix requirement (interop friendly)
-* `*Component`: allows PascalCase if variable name ends with `Component`
+- default: **camelCase** or **UPPER_CASE**
+- `const` + `global`: allows **PascalCase** (in addition to camelCase/UPPER_CASE)
+- destructured: allows **PascalCase**, **camelCase**, **snake_case**
+- booleans: **PascalCase** and must start with `is|should|has|can|did|will`
+- destructured booleans: no prefix requirement (interop friendly)
+- `*Component`: allows PascalCase if variable name ends with `Component`
 
 ### Functions
 
-* exported/global: **camelCase** or **PascalCase**
-* final enforcement: functions must be **camelCase**
+- exported/global: **camelCase** or **PascalCase**
+- final enforcement: functions must be **camelCase**
 
 ### Quoted members
 

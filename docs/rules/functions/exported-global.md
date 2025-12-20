@@ -23,11 +23,13 @@ This flexibility acknowledges that exported functions serve different roles. A u
 ## ✅ Good
 
 ```ts
-export function ExportedFunction() { // WHY: PascalCase allowed for factory-like exported functions
+export function ExportedFunction() {
+  // WHY: PascalCase allowed for factory-like exported functions
   return 1;
 }
 
-export function exportedFunction() { // WHY: camelCase allowed for regular exported functions
+export function exportedFunction() {
+  // WHY: camelCase allowed for regular exported functions
   return 1;
 }
 
@@ -39,11 +41,13 @@ These examples show allowed exported names: PascalCase for factory-style functio
 ## ❌ Bad
 
 ```ts
-export function exported_function_bad() { // WHY: snake_case is not allowed for exported functions in this rule set
+export function exported_function_bad() {
+  // WHY: snake_case is not allowed for exported functions in this rule set
   return 1;
 }
 
-export function Exported_Function() { // WHY: Mixed underscores and PascalCase are disallowed — inconsistent with conventions
+export function Exported_Function() {
+  // WHY: Mixed underscores and PascalCase are disallowed — inconsistent with conventions
   return 1;
 }
 ```

@@ -18,7 +18,8 @@ Pages:
 ## ✅ Good
 
 ```ts
-interface User { // WHY: PascalCase for interface/type names
+interface User {
+  // WHY: PascalCase for interface/type names
   id: string;
 }
 
@@ -28,7 +29,8 @@ class UserService {} // WHY: PascalCase for classes
 ## ❌ Bad
 
 ```ts
-interface IUser { // WHY: leading 'I' prefix is discouraged
+interface IUser {
+  // WHY: leading 'I' prefix is discouraged
   id: string;
 }
 

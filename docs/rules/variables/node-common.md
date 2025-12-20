@@ -12,7 +12,7 @@ Node.js provides special global variables `__filename` and `__dirname` that don'
 ```ts
 // These are built-in Node.js variables
 console.log(__filename); // WHY: Node.js runtime global — allowed despite underscores
-console.log(__dirname);  // WHY: Node.js runtime global — allowed despite underscores
+console.log(__dirname); // WHY: Node.js runtime global — allowed despite underscores
 ```
 
 Without this exception, ESLint would flag these standard Node.js variables as violations since they use double leading underscores and don't match typical camelCase or UPPER_CASE patterns.
@@ -28,8 +28,8 @@ This rule specifically allows these two well-known Node.js variables while maint
 
 **References:**
 
-- [Node.js Docs - __dirname](https://nodejs.org/api/modules.html#__dirname)
-- [Node.js Docs - __filename](https://nodejs.org/api/modules.html#__filename)
+- [Node.js Docs - \_\_dirname](https://nodejs.org/api/modules.html#__dirname)
+- [Node.js Docs - \_\_filename](https://nodejs.org/api/modules.html#__filename)
 - [Node.js Modules Documentation](https://nodejs.org/docs/latest/api/modules.html)
 
 ## ✅ Good
@@ -45,6 +45,6 @@ These variables are specifically exempted, so there are no "bad" examples - they
 
 ```ts
 // These are always valid
-__dirname // WHY: exempted by rule
-__filename // WHY: exempted by rule
+__dirname; // WHY: exempted by rule
+__filename; // WHY: exempted by rule
 ```

@@ -20,7 +20,8 @@ class BaseService {
   }
 
   // Protected - for subclasses only
-  protected loadFromCache() { // WHY: camelCase protected method, no underscore
+  protected loadFromCache() {
+    // WHY: camelCase protected method, no underscore
     return this.cache.get();
   }
 

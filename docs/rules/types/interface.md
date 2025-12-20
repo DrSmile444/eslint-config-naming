@@ -30,11 +30,13 @@ Modern TypeScript codebases overwhelmingly reject the `I` prefix. It's a holdove
 ## ✅ Good
 
 ```ts
-interface UserProfile { // WHY: PascalCase interface with no `I` prefix
+interface UserProfile {
+  // WHY: PascalCase interface with no `I` prefix
   id: string;
 }
 
-interface Identifiable { // WHY: A real word starting with I is allowed; it's not a type-prefix
+interface Identifiable {
+  // WHY: A real word starting with I is allowed; it's not a type-prefix
   id: string;
 }
 ```
@@ -42,11 +44,13 @@ interface Identifiable { // WHY: A real word starting with I is allowed; it's no
 ## ❌ Bad
 
 ```ts
-interface IUserProfile { // WHY: `I` prefix is redundant and discouraged
+interface IUserProfile {
+  // WHY: `I` prefix is redundant and discouraged
   id: string;
 }
 
-interface I_Trailing { // WHY: odd prefixing with underscores and I makes names noisy
+interface I_Trailing {
+  // WHY: odd prefixing with underscores and I makes names noisy
   id: string;
 }
 ```
