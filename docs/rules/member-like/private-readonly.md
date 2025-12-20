@@ -1,8 +1,8 @@
 # Private readonly members
 
-**Modifiers:** `private`, `readonly`
-Allowed: `UPPER_CASE`, `camelCase`
-Leading underscore: forbidden
+- **Modifiers:** `private`, `readonly`
+- Allowed: `UPPER_CASE`, `camelCase`
+- Leading underscore: forbidden
 
 ## Why This Rule
 
@@ -36,8 +36,6 @@ Not all readonly values are constants. Some are set once during initialization a
 **References:**
 
 - [TypeScript Handbook - Readonly Properties](https://www.typescriptlang.org/docs/handbook/2/classes.html#readonly)
-- [Effective TypeScript - Item 19](https://effectivetypescript.com/) - discusses readonly
-- [Google TypeScript Style Guide - Constants](https://google.github.io/styleguide/tsguide.html#naming-style)
 
 ## ✅ Good
 

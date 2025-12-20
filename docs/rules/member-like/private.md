@@ -1,8 +1,8 @@
 # Private instance members
 
-**Modifiers:** `private`
-Allowed: `camelCase`
-Leading underscore: forbidden
+- **Modifiers:** `private`
+- Allowed: `camelCase`
+- Leading underscore: forbidden
 
 ## Why This Rule
 
@@ -30,7 +30,6 @@ private userName: string;
 **References:**
 
 - [Microsoft TypeScript Coding Guidelines](https://github.com/microsoft/TypeScript/wiki/Coding-guidelines#names) - explicitly avoids underscore for private
-- [Google TypeScript Style Guide - Private Fields](https://google.github.io/styleguide/tsguide.html#properties-used-outside-of-class-lexical-scope)
 - [TypeScript Handbook - Member Visibility](https://www.typescriptlang.org/docs/handbook/2/classes.html#member-visibility)
 
 ## ✅ Good

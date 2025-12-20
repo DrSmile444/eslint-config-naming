@@ -1,8 +1,9 @@
 # Protected members
 
-**Modifiers:** `protected`
-Format: `camelCase`
-Leading underscore: required
+- **Modifiers:** `protected`
+- Format: `camelCase`
+- Leading underscore: required
+- **Debatable**: yes, typescript docs uses it without underscore, but many popular style guides recommend it
 
 ## Why This Rule
 
@@ -39,9 +40,7 @@ Unlike private members where the keyword is enough, protected members benefit fr
 
 **References:**
 
-- [Python PEP 8 - Naming Conventions](https://pep8.org/#descriptive-naming-styles) - uses `_` for internal/protected
 - [TypeScript Handbook - Protected](https://www.typescriptlang.org/docs/handbook/2/classes.html#protected)
-- [Effective TypeScript - Item 14](https://effectivetypescript.com/) - discusses visibility modifiers
 
 ## ✅ Good
 

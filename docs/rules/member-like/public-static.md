@@ -1,8 +1,9 @@
 # Public static members
 
-**Modifiers:** `public`, `static`
-Allowed: `PascalCase`, `UPPER_CASE`
-Leading underscore: allowed
+- **Modifiers:** `public`, `static`
+- Allowed: `PascalCase`, `UPPER_CASE`
+- Leading underscore: allowed
+- **Debatable**: yes, typescript docs specifies `camelCase` for everything, but many popular style guides recommend PascalCase for statics
 
 ## Why This Rule
 
@@ -42,8 +43,6 @@ public static _internalTestHelper() { } // Available for testing but marked as i
 
 **References:**
 
-- [C# Naming Guidelines - Static Fields](https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-type-members#names-of-fields)
-- [Java Naming Conventions - Static Fields](https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html)
 - [TypeScript Handbook - Static Members](https://www.typescriptlang.org/docs/handbook/2/classes.html#static-members)
 
 ## ✅ Good

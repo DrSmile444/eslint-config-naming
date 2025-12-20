@@ -1,8 +1,9 @@
 # Private static members
 
-**Modifiers:** `private`, `static`
-Allowed: `PascalCase`, `UPPER_CASE`
-Leading underscore: forbidden
+- **Modifiers:** `private`, `static`
+- Allowed: `PascalCase`, `UPPER_CASE`
+- Leading underscore: forbidden
+- **Debatable**: yes, we don't have docs online for this one yet
 
 ## Why This Rule
 
@@ -35,8 +36,6 @@ Private statics often manage class-level state or configuration. PascalCase work
 **References:**
 
 - [TypeScript Handbook - Static Members](https://www.typescriptlang.org/docs/handbook/2/classes.html#static-members)
-- [Singleton Pattern](https://www.patterns.dev/posts/singleton-pattern/)
-- [Microsoft TypeScript Coding Guidelines](https://github.com/microsoft/TypeScript/wiki/Coding-guidelines#names)
 
 ## ✅ Good
 

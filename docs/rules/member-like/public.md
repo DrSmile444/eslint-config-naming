@@ -1,8 +1,8 @@
 # Public instance members
 
-**Modifiers:** `public`
-Allowed: `camelCase`, `snake_case`
-Leading underscore: allowed
+- **Modifiers:** `public`
+- Allowed: `camelCase`, `snake_case`
+- Leading underscore: allowed
 
 ## Why This Rule
 
@@ -28,8 +28,7 @@ Forcing camelCase would require mapping layers everywhere. By allowing both, we 
 
 **References:**
 
-- [TypeScript Handbook - Classes](https://www.typescriptlang.org/docs/handbook/2/classes.html)
-- [Clean Architecture - Entity Layer](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+- [TypeScript Handbook - Classes](https://www.typescriptlang.org/docs/handbook/2/classes.html#public)
 
 ## ✅ Good
 
