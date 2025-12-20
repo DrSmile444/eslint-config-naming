@@ -12,10 +12,15 @@ It supports:
 
 ## Install
 
-Install peer dependencies (example):
+First, install required peer deps packages:
 
 ```bash
 npm i -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript
+```
+
+Then, install the config itself:
+
+```bash
 npm i -D eslint-config-naming
 ```
 
