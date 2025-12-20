@@ -1,6 +1,6 @@
 # Parameters
 
-Parameters allow `camelCase` or `snake_case`, and can start with `_` when intentionally unused.
+Base parameters allow `camelCase` only. Destructured parameters allow `camelCase` or `snake_case` to preserve external API naming. All parameters can start with `_` when intentionally unused.
 
 Pages:
 

@@ -245,7 +245,7 @@ describe('eslint-config-naming / TypeScript naming', () => {
 
   describe('parameters (base)', () => {
     describe('positive', () => {
-      it('allows camelCase and snake_case parameters', async () => {
+      it('allows camelCase parameters', async () => {
         const result = await lint(parameterBasePositive);
 
         expect(result.errorCount).toBe(0);
@@ -253,7 +253,7 @@ describe('eslint-config-naming / TypeScript naming', () => {
     });
 
     describe('negative', () => {
-      it('disallows PascalCase parameters', async () => {
+      it('disallows PascalCase and snake_case parameters', async () => {
         const result = await lint(parameterBaseNegative);
 
         expect(result.errorCount).toBeGreaterThan(0);

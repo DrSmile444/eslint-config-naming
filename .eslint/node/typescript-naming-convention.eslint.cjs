@@ -55,7 +55,7 @@ module.exports = {
             selector: 'memberLike',
           },
           {
-            format: ['camelCase', 'snake_case'],
+            format: ['camelCase'],
             leadingUnderscore: 'allow',
             selector: 'parameter',
           },
