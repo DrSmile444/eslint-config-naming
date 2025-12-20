@@ -1,7 +1,7 @@
 # Variables (destructured)
 
-**Selector:** `variable` with modifier `destructured`
-Allowed: `PascalCase`, `camelCase`, `snake_case`
+- **Selector:** `variable` with modifier `destructured`
+- Allowed: `PascalCase`, `camelCase`, `snake_case`
 
 ## Why This Rule
 

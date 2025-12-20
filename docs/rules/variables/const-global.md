@@ -1,8 +1,8 @@
 # Variables (const / global)
 
-**Selector:** `variable` with modifiers `const`, `global`
-Allowed: `camelCase`, `UPPER_CASE`, `PascalCase`
-Leading underscore: allowed
+- **Selector:** `variable` with modifiers `const`, `global`
+- Allowed: `camelCase`, `UPPER_CASE`, `PascalCase`
+- Leading underscore: allowed
 
 ## Why This Rule
 
@@ -31,7 +31,6 @@ export const apiClient = new ApiClient();
 **References:**
 
 - [Google TypeScript Style Guide - Exports](https://google.github.io/styleguide/tsguide.html#exports)
-- [Module Pattern in JavaScript](https://www.patterns.dev/posts/module-pattern/)
 
 ## ✅ Good
 

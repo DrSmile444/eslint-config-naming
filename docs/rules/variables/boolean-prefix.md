@@ -1,8 +1,8 @@
 # Boolean variables (prefix required)
 
-**Selector:** `variable` with `types: ["boolean"]`
-Format: `PascalCase`
-Required prefixes: `is`, `should`, `has`, `can`, `did`, `will`
+- **Selector:** `variable` with `types: ["boolean"]`
+- Format: `PascalCase`
+- Required prefixes: `is`, `are`, `should`, `has`, `can`, `did`, `will`
 
 ## Why This Rule
 
@@ -28,6 +28,7 @@ if (isLoading && hasPermission && shouldRetry) {
 **Why these specific prefixes:**
 
 - `is`: State or condition (`isActive`, `isVisible`)
+- `are`: Plural state (`areItemsSelected`, `areUsersOnline`)
 - `has`: Possession or presence (`hasAccess`, `hasError`)
 - `should`: Conditional logic (`shouldRetry`, `shouldValidate`)
 - `can`: Capability or permission (`canEdit`, `canDelete`)
@@ -38,9 +39,7 @@ This convention is nearly universal in professional codebases and recommended by
 
 **References:**
 
-- [Clean Code by Robert C. Martin - Chapter 2: Meaningful Names](https://www.goodreads.com/book/show/3735293-clean-code)
-- [Airbnb JavaScript Style Guide - Boolean Prefixes](https://github.com/airbnb/javascript#naming--boolean-prefix)
-- [Google Java Style Guide - Boolean Names](https://google.github.io/styleguide/javaguide.html#s5.2.3-method-names)
+- [TypeScript ESLint - Naming Convention for Boolean Variables](https://typescript-eslint.io/rules/naming-convention/#enforce-that-boolean-variables-are-prefixed-with-an-allowed-verb)
 
 ## ✅ Good
 

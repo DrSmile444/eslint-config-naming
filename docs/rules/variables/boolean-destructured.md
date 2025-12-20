@@ -1,7 +1,7 @@
 # Boolean variables (destructured)
 
-**Selector:** `variable` with `types: ["boolean"]` + modifier `destructured`
-Format: `null` (no constraint)
+- **Selector:** `variable` with `types: ["boolean"]` + modifier `destructured`
+- Format: `null` (no constraint)
 
 ## Why This Rule
 

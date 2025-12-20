@@ -1,7 +1,7 @@
 # Node.js Common Variables
 
-Filter: `^__(filename|dirname)$`
-Allowed: Any format (format checking disabled)
+- Filter: `^__(filename|dirname)$`
+- Allowed: Any format (format checking disabled)
 
 ## Why This Rule
 

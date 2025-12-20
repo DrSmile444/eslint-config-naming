@@ -1,7 +1,7 @@
 # Variables (default)
 
-**Selector:** `variable`
-Allowed: `camelCase`, `UPPER_CASE`
+- **Selector:** `variable`
+- Allowed: `camelCase`, `UPPER_CASE`
 
 ## Why This Rule
 
@@ -20,7 +20,6 @@ This dual-format approach is nearly universal in JavaScript/TypeScript. It provi
 **References:**
 
 - [Airbnb JavaScript Style Guide - Naming Conventions](https://github.com/airbnb/javascript#naming-conventions)
-- [Google JavaScript Style Guide - Constant Names](https://google.github.io/styleguide/jsguide.html#naming-constant-names)
 - [MDN JavaScript Guide - Variables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variables)
 
 ## ✅ Good
