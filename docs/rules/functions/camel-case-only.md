@@ -1,7 +1,7 @@
 # CamelCase enforcement (final)
 
-**Selector:** `function`
-Final rule: `camelCase` only
+- **Selector:** `function`
+- Final rule: `camelCase` only
 
 ## Why This Rule
 

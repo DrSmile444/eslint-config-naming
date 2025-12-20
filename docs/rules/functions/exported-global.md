@@ -1,7 +1,7 @@
 # Exported / global functions
 
-**Selector:** `function` with modifiers `exported`, `global`
-Allowed: `PascalCase`, `camelCase`, leading `_` allowed
+- **Selector:** `function` with modifiers `exported`, `global`
+- Allowed: `PascalCase`, `camelCase`, leading `_` allowed
 
 ## Why This Rule
 

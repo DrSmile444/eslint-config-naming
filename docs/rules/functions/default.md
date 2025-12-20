@@ -1,7 +1,7 @@
 # Local functions (default)
 
-**Selector:** `function`
-Earlier allowance: `PascalCase` / `camelCase` with leading `_` allowed
+- **Selector:** `function`
+- Earlier allowance: `PascalCase` / `camelCase` with leading `_` allowed
 
 ## Why This Rule
 
