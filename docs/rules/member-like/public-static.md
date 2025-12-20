@@ -3,7 +3,7 @@
 - **Modifiers:** `public`, `static`
 - Allowed: `camelCase`, `PascalCase`, `UPPER_CASE`
 - Leading underscore: allowed
-- **Debatable**: yes, typescript docs specifies `camelCase` for everything, but many popular style guides recommend PascalCase for statics
+- **Debatable**: yes, typescript docs specifies `camelCase` for everything, but many popular style guides recommend `PascalCase` for statics
 
 ## Why This Rule
 
