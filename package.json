@@ -10,6 +10,11 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs",
       "default": "./dist/index.mjs"
+    },
+    "./legacy": {
+      "import": "./dist/legacy.mjs",
+      "require": "./dist/legacy.cjs",
+      "default": "./dist/legacy.mjs"
     }
   },
   "types": "dist/index.d.ts",
@@ -43,7 +48,7 @@
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
-    "eslint": "^9.0.0",
+    "eslint": "^8.57.0 || ^9.0.0",
     "typescript": "^5.0.0"
   },
   "devDependencies": {
