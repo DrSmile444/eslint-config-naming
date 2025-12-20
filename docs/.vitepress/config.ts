@@ -77,10 +77,10 @@ export default defineConfig({
             text: 'Types',
             items: [
               { text: 'Overview', link: '/rules/types/' },
-              { text: 'Enum Members', link: '/rules/types/enum-member' },
-              { text: 'Interfaces', link: '/rules/types/interface' },
-              { text: 'Classes', link: '/rules/types/class' },
               { text: 'Enum Names', link: '/rules/types/enum-name' },
+              { text: 'Enum Members', link: '/rules/types/enum-member' },
+              { text: 'Classes', link: '/rules/types/class' },
+              { text: 'Interfaces', link: '/rules/types/interface' },
               { text: 'Type-like', link: '/rules/types/type-like' },
             ],
           },

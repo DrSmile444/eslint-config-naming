@@ -1,8 +1,8 @@
 # Type-like
 
-**Selector:** `typeLike`
-Required: `PascalCase`
-Custom: forbids prefix `I*` / `T*`
+- **Selector:** `typeLike`
+- Required: `PascalCase`
+- Custom: forbids prefix `I*` / `T*`
 
 ## Why This Rule
 
@@ -20,8 +20,7 @@ The `T*` prefix was common in older codebases (`TUserId`, `TCallback`) but adds 
 **References:**
 
 - [TypeScript Handbook - Type Aliases](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases)
-- [Google TypeScript Style Guide - Type Aliases](https://google.github.io/styleguide/tsguide.html#type-aliases)
-- [Effective TypeScript - Item 7](https://effectivetypescript.com/) - discusses avoiding Hungarian notation
+- [Avoid the `I` prefix for interfaces - Mário S. Camargo](https://dev.to/mscamargo/why-you-should-avoid-using-the-i-prefix-for-interfaces-in-typescript-43gd) - detailed explanation applicable to type-like constructs
 
 ## ✅ Good
 

@@ -9,8 +9,8 @@ This section covers naming for:
 
 Pages:
 
-- [Enum members](/rules/types/enum-member)
-- [Interfaces](/rules/types/interface)
-- [Classes](/rules/types/class)
 - [Enum names](/rules/types/enum-name)
+- [Enum members](/rules/types/enum-member)
+- [Classes](/rules/types/class)
+- [Interfaces](/rules/types/interface)
 - [Type-like](/rules/types/type-like)

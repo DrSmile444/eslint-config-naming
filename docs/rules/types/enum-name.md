@@ -1,8 +1,8 @@
 # Enum names
 
-**Selector:** `enum`
-Required: `PascalCase`
-Custom: forbids `I*`/`T*` prefix and some plural-ish forms (`*es`, `*s` but not `*us`)
+- **Selector:** `enum`
+- Required: `PascalCase`
+- Custom: forbids `I*`/`T*` prefix and some plural-ish forms (`*es`, `*s` but not `*us`)
 
 ## Why This Rule
 
@@ -32,9 +32,9 @@ The singular form makes usage read like natural language: "the order's status is
 
 **References:**
 
+- [Singular vs. Plural Naming for Enumerations - Stack Overflow](https://stackoverflow.com/questions/1335959/what-are-the-arguments-for-using-singular-vs-plural-for-enumerations)
+- [Enums considered harmful - Matt Pocock](https://www.youtube.com/watch?v=jjMbPt_H3RQ)
 - [TypeScript Handbook - Enums](https://www.typescriptlang.org/docs/handbook/enums.html)
-- [Microsoft TypeScript Coding Guidelines](https://github.com/microsoft/TypeScript/wiki/Coding-guidelines#names)
-- [Airbnb JavaScript Style Guide - Naming](https://github.com/airbnb/javascript#naming-conventions)
 
 ## ✅ Good
 

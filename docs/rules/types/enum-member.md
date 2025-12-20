@@ -1,7 +1,7 @@
 # Enum members
 
-**Selector:** `enumMember`
-Required: `UPPER_CASE`
+- **Selector:** `enumMember`
+- Required: `UPPER_CASE`
 
 ## Why This Rule
 
@@ -31,9 +31,8 @@ Alternatives like PascalCase (`Status.Pending`) or camelCase (`Status.pending`) 
 
 **References:**
 
-- [Google Java Style Guide - Constant Names](https://google.github.io/styleguide/javaguide.html#s5.2.4-constant-names)
-- [MDN JavaScript Guide - Constants](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#constants)
-- [Airbnb JavaScript Style Guide - Constants](https://github.com/airbnb/javascript#naming--uppercase)
+- [Enums considered harmful - Matt Pocock](https://www.youtube.com/watch?v=jjMbPt_H3RQ)
+- [Java Enums - Oracle](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)
 
 ## ✅ Good
 
