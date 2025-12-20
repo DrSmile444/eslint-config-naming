@@ -16,3 +16,13 @@
   --vp-c-brand-2: #f5b301;
   --vp-c-brand-3: #d18a00;
 }
+
+:root {
+  /* --- Inline code (keep subtle on white pages) --- */
+  --vp-code-bg: rgb(24 24 22);
+  --vp-code-color: #ffe95e;
+}
+
+.dark {
+  --vp-code-bg: var(--vp-c-default-soft);
+}
