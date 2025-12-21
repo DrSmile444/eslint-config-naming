@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/logo.svg" alt="eslint-config-naming logo" width="160" />
+  <img src="docs/public/logo.svg" alt="eslint-config-naming logo" width="160" />
 </p>
 
 <h1 align="center">ESLint Config Naming</h1>

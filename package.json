@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-naming",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Opinionated ESLint naming convention config for TypeScript projects",
   "type": "module",
   "main": "dist/index.cjs",
@@ -19,7 +19,8 @@
   },
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "docs/public"
   ],
   "scripts": {
     "start": "npx tsx ./src/main.ts",
@@ -27,6 +28,7 @@
     "lint:fix": "npm run lint -- --fix",
     "lint:debug": "npm run lint -- --debug",
     "build": "tsup",
+    "prepack": "npm run build",
     "format:md": "npx prettier --write \"**/*.md\"",
     "typecheck": "npx tsc --noEmit",
     "test": "npx vitest run",
@@ -96,6 +98,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github-personal:DrSmile444/typescript-boilerplate.git"
+    "url": "git+https://github.com/DrSmile444/eslint-config-naming.git"
+  },
+  "homepage": "https://drsmile444.github.io/eslint-config-naming/",
+  "bugs": {
+    "url": "https://github.com/DrSmile444/eslint-config-naming/issues"
+  },
+  "engines": {
+    "node": ">=18",
+    "npm": ">=9"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
