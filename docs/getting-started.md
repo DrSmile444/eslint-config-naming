@@ -12,13 +12,25 @@ It supports:
 
 ## Install
 
-First, install required peer deps packages:
+### 1. Install peer dependencies
+
+**Option A (recommended - modern):**
 
 ```bash
-npm i -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript
+npm i -D eslint typescript typescript-eslint
 ```
 
-Then, install the config itself:
+The `typescript-eslint` package is a convenient meta-package that re-exports both the parser and plugin.
+
+**Option B (explicit packages):**
+
+```bash
+npm i -D eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin
+```
+
+Both options work identically — choose whichever fits your project style.
+
+### 2. Install this config
 
 ```bash
 npm i -D eslint-config-naming
@@ -52,6 +64,15 @@ export default [
   ...naming,
 ];
 ```
+
+::: tip Using typescript-eslint meta-package?
+If you installed `typescript-eslint`, import from there:
+```js
+import tseslint from 'typescript-eslint';
+const tsParser = tseslint.parser;
+const tsPlugin = tseslint.plugin;
+```
+:::
 
 ---
 
