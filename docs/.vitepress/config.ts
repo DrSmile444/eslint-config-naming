@@ -30,7 +30,7 @@ export default defineConfig({
   head: [['link', { rel: 'icon', href: `${resolveBase()}logo.svg` }]],
 
   themeConfig: {
-    logo: `${resolveBase()}logo.svg`,
+    logo: '/logo.svg',
 
     // https://vitepress.dev/reference/default-theme-config
     nav: [
