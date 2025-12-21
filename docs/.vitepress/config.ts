@@ -127,6 +127,10 @@ export default defineConfig({
         ],
       },
       {
+        text: 'Policies',
+        items: [{ text: 'Update Policy', link: '/policies/update-policy' }],
+      },
+      {
         text: 'Troubleshooting',
         items: [
           { text: 'Common Errors', link: '/troubleshooting/common-errors' },
