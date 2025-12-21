@@ -27,10 +27,10 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
 
-  head: [['link', { rel: 'icon', href: '/logo.svg' }]],
+  head: [['link', { rel: 'icon', href: `${resolveBase()}logo.svg` }]],
 
   themeConfig: {
-    logo: '/logo.svg',
+    logo: `${resolveBase()}logo.svg`,
 
     // https://vitepress.dev/reference/default-theme-config
     nav: [
