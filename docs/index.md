@@ -35,3 +35,11 @@ features:
 - Protected members are **camelCase** (no leading underscore)
 
 Next: start with [Getting Started](/getting-started) or jump to the [Rule Matrix](/rules/).
+
+Project rules evolve over time — see the [Update Policy](/policies/update-policy) to keep changes consistent and reviewable.
+
+---
+
+## License
+
+MIT © 2025-Present [Dmytro Vakulenko](https://github.com/DrSmile444) 🇺🇦

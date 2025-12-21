@@ -1,20 +1,20 @@
 {
   "name": "eslint-config-naming",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "Opinionated ESLint naming convention config for TypeScript projects",
   "type": "module",
   "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
+  "module": "dist/index.js",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "require": "./dist/index.cjs",
-      "default": "./dist/index.mjs"
+      "default": "./dist/index.js"
     },
     "./legacy": {
-      "import": "./dist/legacy.mjs",
+      "import": "./dist/legacy.js",
       "require": "./dist/legacy.cjs",
-      "default": "./dist/legacy.mjs"
+      "default": "./dist/legacy.js"
     }
   },
   "types": "dist/index.d.ts",
