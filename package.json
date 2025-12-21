@@ -19,7 +19,8 @@
   },
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "docs/public"
   ],
   "scripts": {
     "start": "npx tsx ./src/main.ts",
