@@ -98,6 +98,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github-personal:DrSmile444/typescript-boilerplate.git"
+    "url": "git+https://github.com/DrSmile444/eslint-config-naming.git"
+  },
+  "homepage": "https://drsmile444.github.io/eslint-config-naming/",
+  "bugs": {
+    "url": "https://github.com/DrSmile444/eslint-config-naming/issues"
+  },
+  "engines": {
+    "node": ">=18",
+    "npm": ">=9"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
