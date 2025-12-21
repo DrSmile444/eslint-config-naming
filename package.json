@@ -28,6 +28,7 @@
     "lint:fix": "npm run lint -- --fix",
     "lint:debug": "npm run lint -- --debug",
     "build": "tsup",
+    "prepack": "npm run build",
     "format:md": "npx prettier --write \"**/*.md\"",
     "typecheck": "npx tsc --noEmit",
     "test": "npx vitest run",
