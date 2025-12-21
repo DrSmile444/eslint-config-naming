@@ -193,6 +193,21 @@ If a name **requires quotes** (e.g. HTTP headers, data contracts), it’s ignore
 
 ---
 
+## Update policy
+
+This project treats rule and packaging changes as user-facing. Before submitting a change that affects rules, exports, or packaging, please follow the project's update policy (full text in [Update Policy Docs](https://drsmile444.github.io/eslint-config-naming/policies/update-policy)). In short, every rule-related change must include:
+
+- Source changes (`src/`) implementing the rule or selector.
+- Tests (`tests/`) covering both accepted and rejected examples.
+- Snippets (`tests/snippets/...`) for positive/negative cases where applicable.
+- Documentation updates in `docs/` explaining the rule and examples.
+- README updates if usage or exports change.
+- Package metadata changes (`package.json`) such as version bump and export adjustments.
+
+See `docs/policies/update-policy.md` for the complete checklist, versioning rules, and CI expectations.
+
+---
+
 ## License
 
 MIT © 2025-Present [Dmytro Vakulenko](https://github.com/DrSmile444) 🇺🇦
