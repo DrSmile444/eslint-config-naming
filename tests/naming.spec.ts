@@ -119,7 +119,7 @@ async function lint(fileUrl: string) {
 describe('eslint-config-naming / TypeScript naming', () => {
   describe('object literal properties', () => {
     describe('positive', () => {
-      it('allows camelCase, snake_case and PascalCase properties', async () => {
+      it('allows camelCase, snake_case, PascalCase and UPPER_CASE properties', async () => {
         const result = await lint(objectLiteralPropertyPositive);
 
         expect(result.errorCount).toBe(0);

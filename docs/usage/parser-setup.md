@@ -14,6 +14,30 @@ This design choice is core to our philosophy of composable, conflict-free toolin
 
 ## Typical wiring
 
+**Using the typescript-eslint meta-package:**
+
+```js
+import tseslint from 'typescript-eslint';
+import naming from 'eslint-config-naming';
+
+export default [
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        project: ['./tsconfig.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+    plugins: { '@typescript-eslint': tseslint.plugin },
+  },
+  ...naming,
+];
+```
+
+**Using explicit packages** (`@typescript-eslint/parser` and `@typescript-eslint/eslint-plugin`):
+
 ```js
 import tsParser from '@typescript-eslint/parser';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
@@ -34,6 +58,8 @@ export default [
   ...naming,
 ];
 ```
+
+Both approaches work identically — `typescript-eslint` simply re-exports the parser and plugin.
 
 ## Common parserOptions
 

@@ -71,13 +71,25 @@ You configure the parser on your side and keep full control.
 
 ## Installation
 
-First, install required peer deps packages:
+### 1. Install peer dependencies
+
+**Option A (recommended - modern):**
 
 ```bash
-npm i -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript
+npm i -D eslint typescript typescript-eslint
 ```
 
-Then, install the config itself:
+The `typescript-eslint` package is a convenient meta-package that re-exports both the parser and plugin.
+
+**Option B (explicit packages):**
+
+```bash
+npm i -D eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin
+```
+
+Both options work identically — choose whichever fits your project style.
+
+### 2. Install this config
 
 ```bash
 npm i -D eslint-config-naming
@@ -115,6 +127,15 @@ export default [
   ...naming,
 ];
 ```
+
+::: tip Using typescript-eslint meta-package?
+If you installed `typescript-eslint`, import from there:
+```js
+import tseslint from 'typescript-eslint';
+const tsParser = tseslint.parser;
+const tsPlugin = tseslint.plugin;
+```
+:::
 
 ### Option B: Legacy `.eslintrc.*`
 
@@ -186,6 +207,10 @@ For full details (and good/bad examples), see the docs site.
 
 - exported/global: **camelCase** or **PascalCase**
 - final enforcement: functions must be **camelCase**
+
+### Object Literals
+
+- `objectLiteralProperty`: **camelCase**, **snake_case**, **PascalCase**, or **UPPER_CASE** (flexible to support various use cases including constant objects)
 
 ### Quoted members
 
