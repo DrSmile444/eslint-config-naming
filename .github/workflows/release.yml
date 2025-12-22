@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write   # Required for NPM OIDC
 
 jobs:
   publish:
@@ -22,7 +23,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24 # minimum required for OIDC
           cache: npm
           registry-url: https://registry.npmjs.org
 
@@ -52,10 +53,9 @@ jobs:
             exit 1
           fi
 
-      - name: Build
-        run: npm run build
-
-      - name: Publish
+      - name: Publish (with prepack build step)
         run: npm publish --access public
         env:
+          # NPM Token stored in GitHub Secrets, required only for the first publish
+          # For further publishes, the OIDC token will be used
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
