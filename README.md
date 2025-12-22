@@ -208,6 +208,10 @@ For full details (and good/bad examples), see the docs site.
 - exported/global: **camelCase** or **PascalCase**
 - final enforcement: functions must be **camelCase**
 
+### Object Literals
+
+- `objectLiteralProperty`: **camelCase**, **snake_case**, **PascalCase**, or **UPPER_CASE** (flexible to support various use cases including constant objects)
+
 ### Quoted members
 
 If a name **requires quotes** (e.g. HTTP headers, data contracts), it’s ignored.

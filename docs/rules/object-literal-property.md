@@ -1,7 +1,7 @@
 # Object literal properties
 
 - **Selector:** `objectLiteralProperty`
-- Allows: `camelCase`, `snake_case`, `PascalCase`.
+- Allows: `camelCase`, `snake_case`, `PascalCase`, `UPPER_CASE`.
 
 ## Why This Rule
 
@@ -10,8 +10,9 @@ Object literal properties need flexibility to handle diverse use cases:
 - **Interoperability**: External APIs often use different conventions (snake_case from Python/Ruby APIs, PascalCase from .NET)
 - **Data transformation**: When mapping between different systems, forcing a single convention creates unnecessary friction
 - **Domain modeling**: Sometimes property names represent external concepts that have established conventions
+- **Constant objects**: Global constant objects often use UPPER_CASE for their properties (e.g., `HTTP_STATUS.OK`, `ERROR_CODES.NOT_FOUND`)
 
-By allowing all three common conventions, we respect real-world constraints while maintaining internal consistency within each object. Mixed naming in the same object is still bad (see examples below), but you can choose the convention that matches your context.
+By allowing all four common conventions, we respect real-world constraints while maintaining internal consistency within each object. Mixed naming in the same object is still bad (see examples below), but you can choose the convention that matches your context.
 
 **References:**
 
@@ -26,6 +27,13 @@ const obj = {
   foo_bar: 2, // WHY: snake_case — allowed for interop with external APIs
   FooBar: 3, // WHY: PascalCase — allowed when mirroring .NET/other external schemas
 };
+
+// Global constant objects with UPPER_CASE properties
+export const HTTP_STATUS = {
+  OK: 200, // WHY: UPPER_CASE for constant values
+  NOT_FOUND: 404,
+  INTERNAL_SERVER_ERROR: 500,
+} as const;
 
 // Choosing a single convention per object is recommended for readability
 ```
