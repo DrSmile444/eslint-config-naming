@@ -1,1 +1,0 @@
-export const OVERALL_PROJECT_RELEASE_VERSION = '1.3.13';
