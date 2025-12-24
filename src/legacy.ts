@@ -27,5 +27,3 @@ export const legacyEslintrcConfig = {
     },
   ],
 } as const;
-
-export default legacyEslintrcConfig;
