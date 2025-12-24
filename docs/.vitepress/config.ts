@@ -41,6 +41,7 @@ export default defineConfig({
         text: `v${version}`,
         items: [
           { text: `v${version} (current)`, link: '/' },
+          { text: 'Changelog', link: '/reference/changelog' },
           { text: 'Release Notes', link: 'https://github.com/DrSmile444/eslint-config-naming/releases' },
         ],
       },
