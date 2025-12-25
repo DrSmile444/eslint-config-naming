@@ -2,7 +2,7 @@
 
 - **Selector:** `enum`
 - Required: `PascalCase`
-- Custom: forbids `I*`/`T*` prefix and some plural-ish forms (`*es`, `*s` but not `*us`)
+- Custom: forbids `I*`/`T*` prefix and some plural-ish forms (`*es`, `*s` but not `*us` or `*ss`)
 
 ## Why This Rule
 
@@ -45,6 +45,10 @@ enum OrderStatus {
 
 enum Direction {
   NORTH, // WHY: singular, reads naturally in comparisons
+}
+
+enum RoomFacilityAccess {
+  PRIVATE, // WHY: singular, even if ends with 'ss'
 }
 ```
 

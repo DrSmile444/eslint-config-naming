@@ -21,7 +21,7 @@ export const enumNaming = {
   selector: 'enum',
   format: ['PascalCase'],
   custom: {
-    regex: '(^[IT][A-Z])|(.*es$)|(.*[^u]s$)',
+    regex: '(^[IT][A-Z])|(.*es$)|(.*[^us]s$)',
     match: false,
   },
 } as const;
