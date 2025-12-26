@@ -214,7 +214,20 @@ For full details (and good/bad examples), see the docs site.
 
 ### Quoted members
 
-If a name **requires quotes** (e.g. HTTP headers, data contracts), it’s ignored.
+If a name **requires quotes** (e.g. HTTP headers, data contracts), it's ignored.
+
+### Abbreviation Restrictions
+
+Automatically bans common abbreviations and anti-patterns:
+
+- Single-letter names: `i`, `j`, `k`, `e` → use `index`, `itemIndex`, `error`
+- Vague abbreviations: `str`, `num`, `arr`, `obj` → use `string`, `number`, `array`, `object`
+- Intent-hiding names: `data`, `info`, `tmp` → use `payload`, `metadata`, `temporary`
+- Ambiguous abbreviations: `res`, `req`, `dir`, `cfg` → use `response`, `request`, `directory`, `config`
+
+Well-known technical terms like `id`, `url`, `api`, `json`, `html`, `uuid` are allowed.
+
+See [Abbreviation Restrictions docs](https://drsmile444.github.io/eslint-config-naming/rules/abbreviations) for the complete list and customization options.
 
 ---
 

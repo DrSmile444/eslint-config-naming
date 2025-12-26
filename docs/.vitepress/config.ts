@@ -125,6 +125,7 @@ export default defineConfig({
           },
           { text: 'Object Literal Properties', link: '/rules/object-literal-property' },
           { text: 'Quoted Members', link: '/rules/quoted-members' },
+          { text: 'Abbreviation Restrictions', link: '/rules/abbreviations' },
         ],
       },
       {

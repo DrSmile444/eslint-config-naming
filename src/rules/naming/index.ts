@@ -1,3 +1,4 @@
+import { functionAbbreviationRestriction, parameterAbbreviationRestriction, variableAbbreviationRestriction } from './abbreviations';
 import { functionNamingCamelCase, functionNamingExportedOrGlobal } from './functions';
 import {
   memberLikePrivateNaming,
@@ -51,4 +52,8 @@ export const namingConventionRule = [
   functionNamingExportedOrGlobal,
   quotedMemberNaming, // Requires type information - works when parserOptions.project or projectService is configured
   functionNamingCamelCase,
+  // Abbreviation restrictions applied last (lowest precedence) to catch common anti-patterns
+  variableAbbreviationRestriction,
+  functionAbbreviationRestriction,
+  parameterAbbreviationRestriction,
 ] as const;
