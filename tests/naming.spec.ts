@@ -34,6 +34,8 @@ import memberLikePublicNegative from './snippets/member-like-public/negative/mem
 import memberLikePublicPositive from './snippets/member-like-public/positive/member-like-public-positive.ts?url';
 import memberLikePublicStaticNegative from './snippets/member-like-public-static/negative/member-like-public-static-negative.ts?url';
 import memberLikePublicStaticPositive from './snippets/member-like-public-static/positive/member-like-public-static-positive.ts?url';
+import memberLikeReadonlyNegative from './snippets/member-like-readonly/negative/member-like-readonly-negative.ts?url';
+import memberLikeReadonlyPositive from './snippets/member-like-readonly/positive/member-like-readonly-positive.ts?url';
 import objectLiteralPropertyNegative from './snippets/object-literal-properties/negative/object-literal-property-negative.ts?url';
 import objectLiteralPropertyPositive from './snippets/object-literal-properties/positive/object-literal-property-positive.ts?url';
 import parameterBaseNegative from './snippets/parameters-base/negative/parameter-base-negative.ts?url';
@@ -221,6 +223,24 @@ describe('eslint-config-naming / TypeScript naming', () => {
         const result = await lint(memberLikePrivateReadonlyNegative);
 
         expect(result.errorCount).toBe(2);
+      });
+    });
+  });
+
+  describe('memberLike readonly', () => {
+    describe('positive', () => {
+      it('allows camelCase and UPPER_CASE for readonly members', async () => {
+        const result = await lint(memberLikeReadonlyPositive);
+
+        expect(result.errorCount).toBe(0);
+      });
+    });
+
+    describe('negative', () => {
+      it('disallows invalid readonly member names', async () => {
+        const result = await lint(memberLikeReadonlyNegative);
+
+        expect(result.errorCount).toBe(3);
       });
     });
   });

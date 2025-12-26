@@ -33,6 +33,20 @@ export const memberLikePrivateReadonlyNaming = {
   leadingUnderscore: 'forbid',
 } as const;
 
+export const memberLikeReadonlyNaming = {
+  selector: 'memberLike',
+  modifiers: ['readonly'],
+  format: ['UPPER_CASE', 'camelCase', 'snake_case'],
+  leadingUnderscore: 'allow',
+} as const;
+
+export const typePropertyReadonlyNaming = {
+  selector: 'typeProperty',
+  modifiers: ['readonly'],
+  format: ['UPPER_CASE', 'camelCase', 'snake_case'],
+  leadingUnderscore: 'allow',
+} as const;
+
 export const memberLikeProtectedNaming = {
   selector: 'memberLike',
   modifiers: ['protected'],
