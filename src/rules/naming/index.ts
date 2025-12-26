@@ -6,6 +6,8 @@ import {
   memberLikeProtectedNaming,
   memberLikePublicNaming,
   memberLikePublicStaticNaming,
+  memberLikeReadonlyNaming,
+  typePropertyReadonlyNaming,
 } from './member-like';
 import { objectLiteralPropertyNaming } from './object-literal-property';
 import { parameterNamingBase, parameterNamingDestructured } from './parameters';
@@ -26,9 +28,11 @@ export const namingConventionRule = [
   objectLiteralPropertyNaming,
   memberLikePublicStaticNaming,
   memberLikePrivateStaticNaming,
+  memberLikePrivateReadonlyNaming,
+  memberLikeReadonlyNaming,
+  typePropertyReadonlyNaming,
   memberLikePublicNaming,
   memberLikePrivateNaming,
-  memberLikePrivateReadonlyNaming,
   memberLikeProtectedNaming,
   parameterNamingBase,
   enumMemberNaming,

@@ -9,3 +9,8 @@ enum Direction {
   SOUTH = 'SOUTH',
   WEST = 'WEST',
 }
+
+enum RoomFacilityAccess {
+  PRIVATE = 'private',
+  SHARED = 'shared',
+}
