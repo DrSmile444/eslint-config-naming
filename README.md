@@ -130,11 +130,13 @@ export default [
 
 ::: tip Using typescript-eslint meta-package?
 If you installed `typescript-eslint`, import from there:
+
 ```js
 import tseslint from 'typescript-eslint';
 const tsParser = tseslint.parser;
 const tsPlugin = tseslint.plugin;
 ```
+
 :::
 
 ### Option B: Legacy `.eslintrc.*`

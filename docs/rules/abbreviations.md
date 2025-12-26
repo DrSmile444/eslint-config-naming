@@ -23,6 +23,7 @@ Single-letter names and ambiguous abbreviations are among the most common source
 This rule embodies the principle: **"Write code for humans first, computers second."**
 
 Clear names:
+
 - Reduce onboarding time for new team members
 - Make code self-documenting
 - Prevent bugs from misunderstanding
@@ -133,8 +134,8 @@ delete myDenyList.res;
 
 // Then build your own custom regex using these lists
 const bannedNames = Object.keys(myDenyList)
-  .filter(name => !myAllowList.includes(name))
-  .map(s => s.replaceAll(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+  .filter((name) => !myAllowList.includes(name))
+  .map((s) => s.replaceAll(/[.*+?^${}()|[\]\\]/g, '\\$&'))
   .join('|');
 
 // Use in your custom naming-convention rule
@@ -213,5 +214,5 @@ const jwtToken = auth.getToken(); // ✅ 'jwt' is allowed
 ## Full Lists
 
 For the complete DENY_LIST and ALLOW_LIST, see:
-- [`src/naming-abbreviations.ts`](https://github.com/DrSmile444/eslint-config-naming/blob/main/src/naming-abbreviations.ts) in the repository
 
+- [`src/naming-abbreviations.ts`](https://github.com/DrSmile444/eslint-config-naming/blob/main/src/naming-abbreviations.ts) in the repository

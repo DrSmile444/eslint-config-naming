@@ -3,6 +3,7 @@
 ## "Unexpected top-level property 'default'"
 
 **Error message:**
+
 ```
 ESLint configuration in .eslintrc » eslint-config-naming/legacy is invalid:
 - Unexpected top-level property "default".
@@ -11,6 +12,7 @@ ESLint configuration in .eslintrc » eslint-config-naming/legacy is invalid:
 **Cause:** You're using an older version of `eslint-config-naming` (< 1.4.2) with ESLint 8.
 
 **Solution:** Upgrade to version 1.4.2 or later:
+
 ```bash
 npm install eslint-config-naming@latest
 ```

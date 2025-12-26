@@ -2,16 +2,16 @@
 
 This page maps each enforced selector to the naming format.
 
-| Area            | Selector                                    | What it targets                | Enforced                                            |
-| --------------- | ------------------------------------------- | ------------------------------ | --------------------------------------------------- |
-| Variables       | `variable`                                  | locals/consts/etc              | varies by modifiers/types                           |
-| Types           | `class` / `interface` / `typeLike` / `enum` | type names                     | `PascalCase` (+ extra rules)                        |
-| Functions       | `function`                                  | function declarations          | final `camelCase` enforcement                       |
-| Parameters      | `parameter`                                 | function params                | `camelCase`, `snake_case`, `_` allowed              |
-| Members         | `memberLike`                                | class fields/methods/accessors | varies by modifiers                                 |
-| Enums           | `enumMember`                                | members                        | `UPPER_CASE`                                        |
+| Area            | Selector                                    | What it targets                | Enforced                                              |
+| --------------- | ------------------------------------------- | ------------------------------ | ----------------------------------------------------- |
+| Variables       | `variable`                                  | locals/consts/etc              | varies by modifiers/types                             |
+| Types           | `class` / `interface` / `typeLike` / `enum` | type names                     | `PascalCase` (+ extra rules)                          |
+| Functions       | `function`                                  | function declarations          | final `camelCase` enforcement                         |
+| Parameters      | `parameter`                                 | function params                | `camelCase`, `snake_case`, `_` allowed                |
+| Members         | `memberLike`                                | class fields/methods/accessors | varies by modifiers                                   |
+| Enums           | `enumMember`                                | members                        | `UPPER_CASE`                                          |
 | Object literals | `objectLiteralProperty`                     | `{ fooBar: 1 }`                | `camelCase`, `snake_case`, `PascalCase`, `UPPER_CASE` |
-| Quoted keys     | `requiresQuotes`                            | `"Content-Type"` etc           | ignored (format: null)                              |
+| Quoted keys     | `requiresQuotes`                            | `"Content-Type"` etc           | ignored (format: null)                                |
 | Abbreviations   | `variable` / `function` / `parameter`       | all identifiers                | bans common abbreviations (e.g., `str`, `arr`, `obj`) |
 
 Jump to details:
