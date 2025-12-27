@@ -1,5 +1,9 @@
 import { ALLOW_LIST, DENY_LIST } from '../../naming-abbreviations';
 
+import { functionNamingCamelCase } from './functions';
+import { parameterNamingBase } from './parameters';
+import { variableNamingDefault } from './variables';
+
 /**
  * Escape special regex characters in a string
  */
@@ -24,23 +28,18 @@ const bannedNamesRegex = generateBannedNamesRegex();
  * Rules that ban abbreviations from DENY_LIST (except those in ALLOW_LIST)
  * for variables, functions, and parameters.
  *
- * These rules act as catch-all rules with additional banned name checking.
+ * These rules extend the base catch-all rules with additional banned name checking.
  * They must be placed AFTER all specific rules (destructured, const global, etc.)
  * so that specific rules take precedence.
  *
- * They REPLACE the previous catch-all rules (variableNamingDefault, parameterNamingBase,
- * functionNamingCamelCase) and provide the same format restrictions plus custom regex
- * validation against banned abbreviations.
- *
- * Format restrictions:
- * - variables: camelCase, UPPER_CASE (same as variableNamingDefault)
- * - functions: camelCase only (same as functionNamingCamelCase)
- * - parameters: camelCase with leading underscore allowed (same as parameterNamingBase)
+ * By extending the base rules, we ensure consistency and avoid duplicating configuration:
+ * - variableAbbreviationRestriction extends variableNamingDefault
+ * - functionAbbreviationRestriction extends functionNamingCamelCase
+ * - parameterAbbreviationRestriction extends parameterNamingBase
  */
 
 export const variableAbbreviationRestriction = {
-  selector: 'variable',
-  format: ['camelCase', 'UPPER_CASE'],
+  ...variableNamingDefault,
   custom: {
     regex: bannedNamesRegex,
     match: false,
@@ -48,8 +47,7 @@ export const variableAbbreviationRestriction = {
 } as const;
 
 export const functionAbbreviationRestriction = {
-  selector: 'function',
-  format: ['camelCase'],
+  ...functionNamingCamelCase,
   custom: {
     regex: bannedNamesRegex,
     match: false,
@@ -57,9 +55,7 @@ export const functionAbbreviationRestriction = {
 } as const;
 
 export const parameterAbbreviationRestriction = {
-  selector: 'parameter',
-  format: ['camelCase'],
-  leadingUnderscore: 'allow',
+  ...parameterNamingBase,
   custom: {
     regex: bannedNamesRegex,
     match: false,
