@@ -82,7 +82,7 @@ npm i -D eslint-config-naming
 // eslint.config.js
 import tsParser from '@typescript-eslint/parser';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
-import naming from 'eslint-config-naming';
+import namingConfig from 'eslint-config-naming';
 
 export default [
   // Your TS wiring (BYO parserOptions)
@@ -101,7 +101,7 @@ export default [
   },
 
   // Naming rules
-  ...naming,
+  ...namingConfig,
 ];
 ```
 

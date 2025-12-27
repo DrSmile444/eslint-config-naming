@@ -9,12 +9,12 @@ This config exports an array of Flat Config objects. You spread it into your ESL
 3. Your local overrides
 
 ```js
-import naming from 'eslint-config-naming';
+import namingConfig from 'eslint-config-naming';
 
 export default [
   // 1) your TS wiring
   // 2) naming rules
-  ...naming,
+  ...namingConfig,
   // 3) local overrides
   {
     rules: {
@@ -31,7 +31,7 @@ Prefer path-based overrides:
 
 ```js
 export default [
-  ...naming,
+  ...namingConfig,
   {
     files: ['**/legacy/**'],
     rules: {
