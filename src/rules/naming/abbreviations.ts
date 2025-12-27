@@ -24,16 +24,23 @@ const bannedNamesRegex = generateBannedNamesRegex();
  * Rules that ban abbreviations from DENY_LIST (except those in ALLOW_LIST)
  * for variables, functions, and parameters.
  *
- * These rules are applied LAST (lowest precedence) so that specific rules
- * (like destructured variables, boolean prefixes, etc.) can take precedence.
- * They act as a final safety net to catch common anti-patterns.
+ * These rules act as catch-all rules with additional banned name checking.
+ * They must be placed AFTER all specific rules (destructured, const global, etc.)
+ * so that specific rules take precedence.
  *
- * Note: format: null allows any format, we only check against the custom regex.
+ * They REPLACE the previous catch-all rules (variableNamingDefault, parameterNamingBase,
+ * functionNamingCamelCase) and provide the same format restrictions plus custom regex
+ * validation against banned abbreviations.
+ *
+ * Format restrictions:
+ * - variables: camelCase, UPPER_CASE (same as variableNamingDefault)
+ * - functions: camelCase only (same as functionNamingCamelCase)
+ * - parameters: camelCase with leading underscore allowed (same as parameterNamingBase)
  */
 
 export const variableAbbreviationRestriction = {
   selector: 'variable',
-  format: null,
+  format: ['camelCase', 'UPPER_CASE'],
   custom: {
     regex: bannedNamesRegex,
     match: false,
@@ -42,7 +49,7 @@ export const variableAbbreviationRestriction = {
 
 export const functionAbbreviationRestriction = {
   selector: 'function',
-  format: null,
+  format: ['camelCase'],
   custom: {
     regex: bannedNamesRegex,
     match: false,
@@ -51,7 +58,8 @@ export const functionAbbreviationRestriction = {
 
 export const parameterAbbreviationRestriction = {
   selector: 'parameter',
-  format: null,
+  format: ['camelCase'],
+  leadingUnderscore: 'allow',
   custom: {
     regex: bannedNamesRegex,
     match: false,
