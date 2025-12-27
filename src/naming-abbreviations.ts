@@ -199,6 +199,9 @@ export const ALLOW_LIST: readonly string[] = [
   'md',
   'csv',
   'tsv',
+  'ts', // false positive for TypeScript files
+  'ms',
+  'regex',
 
   // Node / platform conventions
   'fs', // Node.js "fs" module is standard
