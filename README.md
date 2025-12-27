@@ -11,7 +11,6 @@
 <p align="center">
   <a href="https://drsmile444.github.io/eslint-config-naming/">Documentation</a> •
   <a href="#why">Why</a> •
-  <a href="#what-you-get">What you get</a> •
   <a href="#installation">Install</a> •
   <a href="#usage">Usage</a> •
   <a href="#rule-overview">Rule overview</a>
@@ -44,28 +43,6 @@ It is intentionally **BYO parser setup** — it ships rules only and does not as
 Full rule explanations (with good/bad examples) live in the documentation site:
 
 [**Documentation**](https://drsmile444.github.io/eslint-config-naming/)
-
----
-
-## What you get
-
-### ✅ Two supported config formats
-
-This package supports both:
-
-- **Flat Config** (modern): `eslint.config.js`
-- **Legacy `.eslintrc.*`** (older projects): `.eslintrc.js`, `.eslintrc.cjs`, etc.
-
-### ✅ Rules only (BYO parser)
-
-This package **does not** export:
-
-- `files` globs
-- `plugins`
-- `@typescript-eslint/parser` configuration
-
-Because projects differ (monorepos, TS project references, different `tsconfig` paths).  
-You configure the parser on your side and keep full control.
 
 ---
 
