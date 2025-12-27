@@ -123,8 +123,6 @@ export const DENY_LIST: Readonly<Record<string, readonly string[]>> = {
   mgr: ['manager'],
   repo: ['repository'],
   util: ['utility', 'helpers'],
-  helper: ['helper', 'helpers'],
-  dto: ['dataTransferObject'], // if you require expanded naming
   impl: ['implementation'],
 
   // UI / DOM
@@ -196,6 +194,11 @@ export const ALLOW_LIST: readonly string[] = [
   'dns',
   'http',
   'https',
+  'min',
+  'max',
+  'md',
+  'csv',
+  'tsv',
 
   // Node / platform conventions
   'fs', // Node.js "fs" module is standard
