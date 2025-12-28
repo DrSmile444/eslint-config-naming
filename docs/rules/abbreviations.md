@@ -205,11 +205,11 @@ const jsonData = JSON.parse(response); // ✅ 'json' is allowed
 const jwtToken = auth.getToken(); // ✅ 'jwt' is allowed
 ```
 
-## Deny List
+## 🚫 Deny List
 
 <<< ../../src/naming-abbreviations.ts#DENY_LIST{ts}
 
-## Allow List
+## ✅ Allow List
 
 <<< ../../src/naming-abbreviations.ts#ALLOW_LIST{ts}
 
