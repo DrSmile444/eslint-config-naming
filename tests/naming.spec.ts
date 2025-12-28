@@ -8,6 +8,8 @@ import { describe, expect, it } from 'vitest';
 
 import { typescriptNamingConfig } from '@configs/typescript-naming';
 
+import abbreviationsNegative from './snippets/abbreviations/negative/abbreviations-negative.ts?url';
+import abbreviationsPositive from './snippets/abbreviations/positive/abbreviations-positive.ts?url';
 import classNegative from './snippets/classes/negative/class-negative.ts?url';
 import classPositive from './snippets/classes/positive/class-positive.ts?url';
 import enumMemberNegative from './snippets/enum-members/negative/enum-member-negative.ts?url';
@@ -583,6 +585,25 @@ describe('eslint-config-naming / TypeScript naming', () => {
         const result = await lint(functionCamelCaseNegative);
 
         expect(result.errorCount).toBe(2);
+      });
+    });
+  });
+
+  describe('abbreviations', () => {
+    describe('positive', () => {
+      it('allows descriptive names without banned abbreviations', async () => {
+        const result = await lint(abbreviationsPositive);
+
+        expect(result.errorCount).toBe(0);
+      });
+    });
+
+    describe('negative', () => {
+      it('disallows banned abbreviations from DENY_LIST', async () => {
+        const result = await lint(abbreviationsNegative);
+
+        // We expect multiple errors for all the banned abbreviations used
+        expect(result.errorCount).toBe(22);
       });
     });
   });

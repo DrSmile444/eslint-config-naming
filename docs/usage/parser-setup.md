@@ -18,7 +18,7 @@ This design choice is core to our philosophy of composable, conflict-free toolin
 
 ```js
 import tseslint from 'typescript-eslint';
-import naming from 'eslint-config-naming';
+import namingConfig from 'eslint-config-naming';
 
 export default [
   {
@@ -32,7 +32,7 @@ export default [
     },
     plugins: { '@typescript-eslint': tseslint.plugin },
   },
-  ...naming,
+  ...namingConfig,
 ];
 ```
 
@@ -41,7 +41,7 @@ export default [
 ```js
 import tsParser from '@typescript-eslint/parser';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
-import naming from 'eslint-config-naming';
+import namingConfig from 'eslint-config-naming';
 
 export default [
   {
@@ -55,7 +55,7 @@ export default [
     },
     plugins: { '@typescript-eslint': tsPlugin },
   },
-  ...naming,
+  ...namingConfig,
 ];
 ```
 

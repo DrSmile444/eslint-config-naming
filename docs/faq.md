@@ -19,7 +19,7 @@ Use a `files` override:
 
 ```js
 export default [
-  ...naming,
+  ...namingConfig,
   {
     files: ['**/external-dtos/**'],
     rules: {

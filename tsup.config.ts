@@ -5,8 +5,8 @@ export default defineConfig({
   entry: ['src/index.ts', 'src/legacy.ts'],
   format: ['esm', 'cjs'],
   dts: true,
-  sourcemap: true,
+  sourcemap: false,
   clean: true,
   target: 'node18',
-  splitting: false,
+  splitting: true,
 });

@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.6.0] - 2025-12-26
+
+### Added
+
+- **Abbreviation Restrictions**: Added comprehensive banning of common abbreviations and anti-patterns in variables, functions, and parameters:
+  - Bans single-letter names (e.g., `i`, `j`, `k`, `e`) in favor of descriptive names like `index`, `itemIndex`, `error`
+  - Bans vague abbreviations (e.g., `str`, `num`, `arr`, `obj`, `data`, `info`) in favor of full words
+  - Bans ambiguous abbreviations (e.g., `res`, `req`, `dir`, `cfg`) that can have multiple meanings
+  - Includes comprehensive DENY_LIST with ~140+ abbreviations and their recommended replacements
+  - Includes ALLOW_LIST for well-known technical terms (`id`, `url`, `api`, `json`, `html`, `uuid`, etc.)
+  - Exports `DENY_LIST` and `ALLOW_LIST` for user customization
+  - Applied with lowest precedence to act as a safety net without interfering with specific rules
+
+### Documentation
+
+- Added comprehensive [Abbreviation Restrictions](/rules/abbreviations) documentation with examples and customization guide
+- Updated rule matrix and sidebar navigation
+- Added README section explaining the new feature
+
+---
+
 ## [1.5.0] - 2025-12-25
 
 ### Added

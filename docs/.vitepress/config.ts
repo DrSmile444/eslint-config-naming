@@ -70,6 +70,7 @@ export default defineConfig({
         text: 'Rules',
         items: [
           { text: 'Rule Matrix', link: '/rules/' },
+          { text: 'Abbreviation Restrictions', link: '/rules/abbreviations' },
           {
             text: 'Variables',
             items: [

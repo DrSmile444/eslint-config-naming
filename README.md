@@ -10,8 +10,6 @@
 
 <p align="center">
   <a href="https://drsmile444.github.io/eslint-config-naming/">Documentation</a> •
-  <a href="#why">Why</a> •
-  <a href="#what-you-get">What you get</a> •
   <a href="#installation">Install</a> •
   <a href="#usage">Usage</a> •
   <a href="#rule-overview">Rule overview</a>
@@ -43,29 +41,8 @@ It is intentionally **BYO parser setup** — it ships rules only and does not as
 
 Full rule explanations (with good/bad examples) live in the documentation site:
 
-[**Documentation**](https://drsmile444.github.io/eslint-config-naming/)
-
----
-
-## What you get
-
-### ✅ Two supported config formats
-
-This package supports both:
-
-- **Flat Config** (modern): `eslint.config.js`
-- **Legacy `.eslintrc.*`** (older projects): `.eslintrc.js`, `.eslintrc.cjs`, etc.
-
-### ✅ Rules only (BYO parser)
-
-This package **does not** export:
-
-- `files` globs
-- `plugins`
-- `@typescript-eslint/parser` configuration
-
-Because projects differ (monorepos, TS project references, different `tsconfig` paths).  
-You configure the parser on your side and keep full control.
+- [**Documentation**](https://drsmile444.github.io/eslint-config-naming/)
+- [**Changelog**](https://drsmile444.github.io/eslint-config-naming/reference/changelog)
 
 ---
 
@@ -105,7 +82,7 @@ npm i -D eslint-config-naming
 // eslint.config.js
 import tsParser from '@typescript-eslint/parser';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
-import naming from 'eslint-config-naming';
+import namingConfig from 'eslint-config-naming';
 
 export default [
   // Your TS wiring (BYO parserOptions)
@@ -124,17 +101,19 @@ export default [
   },
 
   // Naming rules
-  ...naming,
+  ...namingConfig,
 ];
 ```
 
 ::: tip Using typescript-eslint meta-package?
 If you installed `typescript-eslint`, import from there:
+
 ```js
 import tseslint from 'typescript-eslint';
 const tsParser = tseslint.parser;
 const tsPlugin = tseslint.plugin;
 ```
+
 :::
 
 ### Option B: Legacy `.eslintrc.*`
@@ -214,7 +193,20 @@ For full details (and good/bad examples), see the docs site.
 
 ### Quoted members
 
-If a name **requires quotes** (e.g. HTTP headers, data contracts), it’s ignored.
+If a name **requires quotes** (e.g. HTTP headers, data contracts), it's ignored.
+
+### Abbreviation Restrictions
+
+Automatically bans common abbreviations and anti-patterns:
+
+- Single-letter names: `i`, `j`, `k`, `e` → use `index`, `itemIndex`, `error`
+- Vague abbreviations: `str`, `num`, `arr`, `obj` → use `string`, `number`, `array`, `object`
+- Intent-hiding names: `data`, `info`, `tmp` → use `payload`, `metadata`, `temporary`
+- Ambiguous abbreviations: `res`, `req`, `dir`, `cfg` → use `response`, `request`, `directory`, `config`
+
+Well-known technical terms like `id`, `url`, `api`, `json`, `html`, `uuid` are allowed.
+
+See [Abbreviation Restrictions docs](https://drsmile444.github.io/eslint-config-naming/rules/abbreviations) for the complete list and customization options.
 
 ---
 
