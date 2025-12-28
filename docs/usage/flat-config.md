@@ -25,7 +25,37 @@ export default [
 ];
 ```
 
-## Example with TypeScript wiring
+## Example with typescript-eslint meta-package
+
+This is the recommended way, as it ensures version compatibility.
+
+```js
+// eslint.config.js
+import tseslint from 'typescript-eslint';
+import namingConfig from 'eslint-config-naming';
+
+export default [
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        // your project settings
+        project: ['./tsconfig.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+    plugins: {
+      '@typescript-eslint': tseslint.plugin,
+    },
+  },
+  ...namingConfig,
+];
+```
+
+## Example with native @typescript-eslint packages
+
+This works too, but you must ensure version compatibility yourself.
 
 ```js
 // eslint.config.js
