@@ -94,8 +94,8 @@ import someOtherConfig from 'some-other-eslint-config';
 import anotherConfig from 'another-eslint-config';
 
 export default [
-  ...someOtherConfig,  // spreads many config objects
-  ...anotherConfig,    // more spreads
+  ...someOtherConfig, // spreads many config objects
+  ...anotherConfig, // more spreads
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
