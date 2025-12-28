@@ -25,6 +25,33 @@ export default [
 ];
 ```
 
+## Example with TypeScript wiring
+
+```js
+// eslint.config.js
+import tsParser from '@typescript-eslint/parser';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+import namingConfig from 'eslint-config-naming';
+
+export default [
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        // your project settings
+        project: ['./tsconfig.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+    plugins: {
+      '@typescript-eslint': tsPlugin,
+    },
+  },
+  ...namingConfig,
+];
+```
+
 ## Overriding safely
 
 Prefer path-based overrides:
