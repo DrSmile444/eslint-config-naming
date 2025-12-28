@@ -205,13 +205,19 @@ const jsonData = JSON.parse(response); // ✅ 'json' is allowed
 const jwtToken = auth.getToken(); // ✅ 'jwt' is allowed
 ```
 
+## Deny List
+
+<<< ../../src/naming-abbreviations.ts#DENY_LIST{ts}
+
+## Allow List
+
+<<< ../../src/naming-abbreviations.ts#ALLOW_LIST{ts}
+
+For the complete DENY_LIST and ALLOW_LIST, see:
+
+- [src/naming-abbreviations.ts](https://github.com/DrSmile444/eslint-config-naming/blob/main/src/naming-abbreviations.ts) in the repository
+
 ## References
 
 - [Unicorn Rule - Descriptive Naming](https://github.com/sindresorhus/eslint-plugin-unicorn/issues/169)
 - [Naming Things in TypeScript](https://medium.com/devmap/naming-things-in-typescript-ad3942d81171)
-
-## Full Lists
-
-For the complete DENY_LIST and ALLOW_LIST, see:
-
-- [`src/naming-abbreviations.ts`](https://github.com/DrSmile444/eslint-config-naming/blob/main/src/naming-abbreviations.ts) in the repository

@@ -21,6 +21,7 @@
  * (e.g., Express req/res, Koa ctx), ideally allowed only for *parameters* in your rule.
  */
 
+// #region DENY_LIST
 /**
  * DENY_LIST:
  * key   = abbreviation / anti-pattern identifier you want to forbid
@@ -160,7 +161,9 @@ export const DENY_LIST: Readonly<Record<string, readonly string[]>> = {
   msg: ['message'],
   err: ['error'], // if you want “error” only; remove if you want to allow err
 } as const;
+// #endregion DENY_LIST
 
+// #region ALLOW_LIST
 /**
  * ALLOW_LIST:
  * Identifiers allowed “as-is” because they are widely-recognized initialisms,
@@ -216,3 +219,4 @@ export const ALLOW_LIST: readonly string[] = [
   'x',
   'y',
 ] as const;
+// #endregion ALLOW_LIST
