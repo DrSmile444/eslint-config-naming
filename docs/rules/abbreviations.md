@@ -207,9 +207,8 @@ const jwtToken = auth.getToken(); // ✅ 'jwt' is allowed
 
 ## References
 
-- [Martin Fowler - Meaningful Names](https://martinfowler.com/bliki/TwoHardThings.html)
-- [Clean Code - Naming Conventions](https://www.oreilly.com/library/view/clean-code-a/9780136083238/)
-- [Google TypeScript Style Guide - Descriptive Names](https://google.github.io/styleguide/tsguide.html#identifiers)
+- [Unicorn Rule - Descriptive Naming](https://github.com/sindresorhus/eslint-plugin-unicorn/issues/169)
+- [Naming Things in TypeScript](https://medium.com/devmap/naming-things-in-typescript-ad3942d81171)
 
 ## Full Lists
 
