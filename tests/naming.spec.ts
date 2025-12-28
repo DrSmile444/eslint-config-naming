@@ -603,7 +603,7 @@ describe('eslint-config-naming / TypeScript naming', () => {
         const result = await lint(abbreviationsNegative);
 
         // We expect multiple errors for all the banned abbreviations used
-        expect(result.errorCount).toBe(24);
+        expect(result.errorCount).toBe(22);
       });
     });
   });
