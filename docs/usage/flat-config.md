@@ -82,6 +82,43 @@ export default [
 ];
 ```
 
+## When typing information doesn't work
+
+If your ESLint config is too complicated and typing information doesn't work with the full config array, you can apply the rules directly:
+
+```js
+// eslint.config.js
+import tseslint from 'typescript-eslint';
+import namingConfig from 'eslint-config-naming';
+import someOtherConfig from 'some-other-eslint-config';
+import anotherConfig from 'another-eslint-config';
+
+export default [
+  ...someOtherConfig,  // spreads many config objects
+  ...anotherConfig,    // more spreads
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        // your project settings
+        project: ['./tsconfig.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+    plugins: {
+      '@typescript-eslint': tseslint.plugin,
+    },
+  },
+  // Instead of ...namingConfig, which might cause typing issues with complex configs
+  {
+    files: ['**/*.{ts,tsx}'],
+    plugins: { '@typescript-eslint': tseslint.plugin },
+    rules: namingConfig[0].rules,
+  },
+];
+```
+
 ## Overriding safely
 
 Prefer path-based overrides:
