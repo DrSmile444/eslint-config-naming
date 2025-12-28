@@ -205,6 +205,7 @@ export const ALLOW_LIST: readonly string[] = [
   'ts', // false positive for TypeScript files
   'ms',
   'regex',
+  'data',
 
   // Node / platform conventions
   'fs', // Node.js "fs" module is standard
