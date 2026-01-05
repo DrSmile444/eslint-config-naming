@@ -26,21 +26,14 @@ Jump to details:
 - [Object literal properties](/rules/object-literal-property)
 - [Quoted members](/rules/quoted-members)
 
+## Quick Examples
+
+Here are some quick examples of correct and incorrect naming according to the `eslint-config-naming` rules.
+
 ## ✅ Good
 
-```ts
-const MAX_RETRIES = 3; // WHY: UPPER_CASE for a configuration constant, matches the matrix
-function doWork() {
-  // WHY: camelCase function — final enforced pattern
-  return;
-}
-```
+<<< ./positive-examples.ts
 
 ## ❌ Bad
 
-```ts
-function Do_Work() {
-  // WHY: Mixed case/underscore violates function camelCase enforcement
-  return;
-}
-```
+<<< ./negative-examples.ts
