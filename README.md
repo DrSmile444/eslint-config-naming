@@ -39,11 +39,14 @@ It is intentionally **BYO parser setup** — it ships rules only and does not as
 
 ## Documentation
 
-Full rule explanations (with good/bad examples) live in the documentation site:
+Comprehensive documentation with detailed rule explanations and examples is available at **[drsmile444.github.io/eslint-config-naming](https://drsmile444.github.io/eslint-config-naming/)**.
 
-- [**Documentation**](https://drsmile444.github.io/eslint-config-naming/)
-- [**Rule Matrix**](https://drsmile444.github.io/eslint-config-naming/rules/)
-- [**Changelog**](https://drsmile444.github.io/eslint-config-naming/reference/changelog)
+Key resources:
+- **[Getting Started Guide](https://drsmile444.github.io/eslint-config-naming/getting-started)** — Installation and configuration
+- **[Rule Matrix](https://drsmile444.github.io/eslint-config-naming/rules/)** — Complete rule matrix with examples
+- **[Changelog](https://drsmile444.github.io/eslint-config-naming/reference/changelog)** — Version history and updates
+
+---
 
 ## Quick Examples
 
