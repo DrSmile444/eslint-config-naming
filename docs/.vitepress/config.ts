@@ -28,6 +28,7 @@ export default defineConfig({
   cleanUrls: true,
 
   head: [['link', { rel: 'icon', href: `${resolveBase()}logo.svg` }]],
+  srcExclude: ['**/llm/**'],
 
   themeConfig: {
     logo: '/logo.svg',
