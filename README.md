@@ -39,10 +39,101 @@ It is intentionally **BYO parser setup** — it ships rules only and does not as
 
 ## Documentation
 
-Full rule explanations (with good/bad examples) live in the documentation site:
+Comprehensive documentation with detailed rule explanations and examples is available at **[drsmile444.github.io/eslint-config-naming](https://drsmile444.github.io/eslint-config-naming/)**.
 
-- [**Documentation**](https://drsmile444.github.io/eslint-config-naming/)
-- [**Changelog**](https://drsmile444.github.io/eslint-config-naming/reference/changelog)
+Key resources:
+
+- **[Getting Started Guide](https://drsmile444.github.io/eslint-config-naming/getting-started)** — Installation and configuration
+- **[Rule Matrix](https://drsmile444.github.io/eslint-config-naming/rules/)** — Complete rule matrix with examples
+- **[Changelog](https://drsmile444.github.io/eslint-config-naming/reference/changelog)** — Version history and updates
+
+---
+
+## At a Glance
+
+This configuration enforces consistent naming patterns across TypeScript constructs:
+
+| Category                      | Enforced Style                                  | Example                            |
+| ----------------------------- | ----------------------------------------------- | ---------------------------------- |
+| **Types**                     | PascalCase, no `I`/`T` prefixes                 | `ApiResponse`, `UserData`          |
+| **Classes**                   | PascalCase                                      | `HttpClient`, `DataService`        |
+| **Interfaces**                | PascalCase                                      | `Config`, `Options`                |
+| **Enums**                     | PascalCase (name), UPPER_CASE (members)         | `enum Status { ACTIVE, INACTIVE }` |
+| **Variables**                 | camelCase or UPPER_CASE                         | `userName`, `MAX_RETRIES`          |
+| **Booleans**                  | Prefixed with `is\|should\|has\|can\|did\|will` | `isValid`, `hasAccess`             |
+| **Functions**                 | camelCase                                       | `calculateTotal()`, `fetchData()`  |
+| **Class Members (public)**    | camelCase or snake_case                         | `userCount`, `api_key`             |
+| **Class Members (protected)** | camelCase with `_` prefix                       | `_internalState`                   |
+| **Generic Types**             | Single letter or T-prefixed                     | `T`, `TData`, `TKey`               |
+
+**Abbreviations are restricted** — descriptive names like `errorMessage` are enforced over vague shortcuts like `err` or `str`.
+
+### Code Examples
+
+<table>
+<tr>
+<th>❌ Incorrect</th>
+<th>✅ Correct</th>
+</tr>
+<tr>
+<td>
+
+```ts
+// Type prefixes
+interface IApiResponse {}
+type TUserData = {};
+
+// Wrong casing
+enum status {
+  active,
+  inactive,
+}
+class userService {}
+
+// Variables
+const Myvariable = 'value';
+const my_constant = 'constant';
+const ready = true;
+
+// Abbreviations
+const str = 'message';
+
+// Generics
+type Cache<Key, val> = Map<Key, val>;
+```
+
+</td>
+<td>
+
+```ts
+// Clean type names
+interface ApiResponse {}
+type UserData = {};
+
+// Proper casing
+enum Status {
+  ACTIVE,
+  INACTIVE,
+}
+class UserService {}
+
+// Variables
+const myVariable = 'value';
+const MY_CONSTANT = 'constant';
+const isReady = true;
+
+// Descriptive names
+const message = 'message';
+
+// Proper generics
+type Cache<TKey, TValue> = Map<TKey, TValue>;
+```
+
+</td>
+</tr>
+</table>
+
+> **Note:** This is a high-level overview and most rules have additional conditions and exceptions. See the [Rule Matrix](https://drsmile444.github.io/eslint-config-naming/rules/) for complete details and examples.
 
 ---
 
@@ -50,27 +141,17 @@ Full rule explanations (with good/bad examples) live in the documentation site:
 
 ### 1. Install peer dependencies
 
-**Option A (recommended - modern):**
-
 ```bash
 npm i -D eslint typescript typescript-eslint
 ```
-
-The `typescript-eslint` package is a convenient meta-package that re-exports both the parser and plugin.
-
-**Option B (explicit packages):**
-
-```bash
-npm i -D eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin
-```
-
-Both options work identically — choose whichever fits your project style.
 
 ### 2. Install this config
 
 ```bash
 npm i -D eslint-config-naming
 ```
+
+> For other installation options, see [Flat Config Usage](https://drsmile444.github.io/eslint-config-naming/usage/flat-config).
 
 ---
 
@@ -80,8 +161,7 @@ npm i -D eslint-config-naming
 
 ```js
 // eslint.config.js
-import tsParser from '@typescript-eslint/parser';
-import tsPlugin from '@typescript-eslint/eslint-plugin';
+import tseslint from 'typescript-eslint';
 import namingConfig from 'eslint-config-naming';
 
 export default [
@@ -89,14 +169,14 @@ export default [
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
-      parser: tsParser,
+      parser: tseslint.parser,
       parserOptions: {
         project: ['./tsconfig.json'],
         tsconfigRootDir: import.meta.dirname,
       },
     },
     plugins: {
-      '@typescript-eslint': tsPlugin,
+      '@typescript-eslint': tseslint.plugin,
     },
   },
 
@@ -104,17 +184,6 @@ export default [
   ...namingConfig,
 ];
 ```
-
-::: tip Using typescript-eslint meta-package?
-If you installed `typescript-eslint`, import from there:
-
-```js
-import tseslint from 'typescript-eslint';
-const tsParser = tseslint.parser;
-const tsPlugin = tseslint.plugin;
-```
-
-:::
 
 ### Option B: Legacy `.eslintrc.*`
 
@@ -142,7 +211,7 @@ Internally, the config is built as a set of **small rule fragments** grouped by 
 
 - `memberLike` rules (public/private/protected/static/readonly)
 - `variables` rules (default, const/global, destructured, boolean prefixes, \*Component)
-- `types` rules (class, interface, enum, typeLike, enumMember)
+- `types` rules (class, interface, enum, typeLike, enumMember, generics)
 - `parameters` rules (base, destructured)
 - `functions` rules (including final camelCase enforcement)
 - quoted-key escape hatch (`requiresQuotes` → ignored)
@@ -154,13 +223,14 @@ They are combined in a single `@typescript-eslint/naming-convention` rule entry 
 ## Rule overview
 
 This is a quick “what it enforces” list.
-For full details (and good/bad examples), see the docs site.
+For full details (and good/bad examples), check the [Rule Matrix.](https://drsmile444.github.io/eslint-config-naming/rules/).
 
 ### Types
 
 - `class`: **PascalCase**
 - `interface`: **PascalCase** and forbids `I*` / `T*` prefixes
-- `typeLike`: **PascalCase** and forbids `I*` / `T*` prefixes
+- `typeAlias`: **PascalCase** and forbids `I*` / `T*` prefixes
+- `typeParameter`: Single uppercase letters (`T`, `U`, `V`, `K`) or prefixed descriptive names (`TData`, `KKey`, `VValue`) or numeric subscripts (`T1`, `T2`, `K1`, etc.)
 - `enum`: **PascalCase**, forbids plural-ish names (like `Statuses`) and `I*`/`T*`
 - `enumMember`: **UPPER_CASE**
 

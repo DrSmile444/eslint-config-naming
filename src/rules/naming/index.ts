@@ -13,7 +13,7 @@ import {
 import { objectLiteralPropertyNaming } from './object-literal-property';
 import { parameterNamingDestructured } from './parameters';
 import { quotedMemberNaming } from './quoted';
-import { classNaming, enumMemberNaming, enumNaming, interfaceNaming, typeLikeNaming } from './types';
+import { classNaming, enumMemberNaming, enumNaming, interfaceNaming, typeLikeNaming, typeParameterNaming } from './types';
 import {
   booleanDestructuredVariableNaming,
   booleanVariableWithPrefixNaming,
@@ -38,6 +38,7 @@ export const namingConventionRule = [
   interfaceNaming,
   classNaming,
   enumNaming,
+  typeParameterNaming,
   typeLikeNaming,
   variableNamingDestructured, // Must come before default to properly match destructured variables
   variableNamingConstGlobal,

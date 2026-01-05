@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.7.0] - 2026-01-05
+
+### Added
+
+- **Type Parameter (Generics) Naming**: Added comprehensive naming conventions for generic type parameters:
+  - Single uppercase letters: `T`, `U`, `V`, `K` (the four standard generic type parameters)
+  - Prefixed descriptive names: `TData`, `TItem`, `TElement`, `TError` (T prefix), `KKey` (K prefix), `VValue` (V prefix)
+  - Numeric subscripts: `T0`, `T1`, `K1`, `K2`, `V1` for sequences of related types
+  - Disallows lowercase (`t`, `tItem`), descriptive names without prefix (`Type`, `Data`), redundant suffixes (`TItemType`), and snake_case (`T_Item`)
+
+### Changed
+
+- **Type-like Selector**: Changed `typeLike` selector to `typeAlias` for more precise targeting and to avoid conflicts with the new `typeParameter` rule
+
+### Documentation
+
+- Added comprehensive [Type Parameters (Generics)](/rules/types/type-parameter) documentation with rationale, examples, and references
+- Updated rule matrix and types overview to include type parameters
+- Updated `README` rule overview section with type parameter conventions
+- Clarified "Type-like" label to "Type Aliases" throughout documentation
+- Updated `README` "At a Glance" section with professional table format and side-by-side code examples
+- Restructured `README` documentation section for better organization and clarity
+
+---
+
 ## [1.6.0] - 2025-12-26
 
 ### Added
@@ -24,7 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added comprehensive [Abbreviation Restrictions](/rules/abbreviations) documentation with examples and customization guide
 - Updated rule matrix and sidebar navigation
-- Added README section explaining the new feature
+- Added `README` section explaining the new feature
 
 ---
 

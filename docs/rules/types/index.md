@@ -5,7 +5,8 @@ This section covers naming for:
 - `interface`
 - `class`
 - `enum`
-- `typeLike` (type aliases and similar)
+- `typeAlias` (type aliases)
+- `typeParameter` (generics)
 
 Pages:
 
@@ -13,7 +14,8 @@ Pages:
 - [Enum members](/rules/types/enum-member)
 - [Classes](/rules/types/class)
 - [Interfaces](/rules/types/interface)
-- [Type-like](/rules/types/type-like)
+- [Type aliases](/rules/types/type-like)
+- [Type parameters (generics)](/rules/types/type-parameter)
 
 ## ✅ Good
 

@@ -28,6 +28,7 @@ export default defineConfig({
   cleanUrls: true,
 
   head: [['link', { rel: 'icon', href: `${resolveBase()}logo.svg` }]],
+  srcExclude: ['**/llm/**'],
 
   themeConfig: {
     logo: '/logo.svg',
@@ -92,7 +93,8 @@ export default defineConfig({
               { text: 'Enum Members', link: '/rules/types/enum-member' },
               { text: 'Classes', link: '/rules/types/class' },
               { text: 'Interfaces', link: '/rules/types/interface' },
-              { text: 'Type-like', link: '/rules/types/type-like' },
+              { text: 'Generics (Type Parameters)', link: '/rules/types/type-parameter' },
+              { text: 'Type Aliases', link: '/rules/types/type-like' },
             ],
           },
           {

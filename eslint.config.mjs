@@ -10,7 +10,7 @@ export default defineConfig([
     files: ['**/*.{js,mjs,cjs,ts}'],
   },
   {
-    ignores: ['node_modules', 'function-out.js', 'tests/snippets/**', 'docs/.vitepress/cache/**'],
+    ignores: ['node_modules', 'function-out.js', 'tests/snippets/**', 'docs/.vitepress/cache/**', 'docs/rules/*.ts'],
   },
   // Node config
   ...nodeConfigs,
