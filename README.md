@@ -44,6 +44,75 @@ Full rule explanations (with good/bad examples) live in the documentation site:
 - [**Documentation**](https://drsmile444.github.io/eslint-config-naming/)
 - [**Changelog**](https://drsmile444.github.io/eslint-config-naming/reference/changelog)
 
+## Quick Examples
+
+### Bad Examples
+
+```ts
+// Types - should be PascalCase
+interface IApiResponse {} // should not have I/T prefix
+enum status {
+  active,
+  inactive,
+}
+
+// Members - various violations
+class example { // should be PascalCase
+  public MyProperty: string; // should be camelCase or snake_case
+  // and etc...
+}
+
+// Variables - case and boolean prefix violations
+const Myvariable = 'value'; // should be camelCase or UPPER_CASE
+const my_constant = 'constant'; // should be UPPER_CASE
+const ready = true; // booleans should start with is|should|has|can|did|will
+
+// Functions - case violations
+function MyFunction() {} // should be camelCase
+
+export type Cache<Key, val> = Map<Key, val>; // generics should follow T, U, V, TItem, TValue, etc.
+
+// Abbreviation examples - banned abbreviations
+const str = 'Failed to connect';
+```
+
+### Good Examples
+
+```ts
+// Types
+interface ApiResponse {}
+enum Status {
+  ACTIVE,
+  INACTIVE,
+}
+
+// Members
+class Example {
+  public myProperty: string;
+  // and etc...
+}
+
+// Variables
+const myVariable = 'value';
+const MY_CONSTANT = 'constant';
+const isReady = true;
+
+// Functions
+function myFunction() {}
+
+// Parameters
+function example(param1: string, param2: number, callback: () => void) {}
+
+export type Cache<TKey, TValue> = Map<TKey, TValue>;
+
+// Abbreviation examples - descriptive names
+const errorMessage = 'Failed to connect';
+```
+
+This is not an exhaustive list. This is a quick overview of what the config enforces.
+
+For more details and examples, see the [Rule Matrix](https://drsmile444.github.io/eslint-config-naming/rules/).
+
 ---
 
 ## Installation
