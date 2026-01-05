@@ -49,7 +49,6 @@ const updateAppVersion = (filePath: string, newVersion: string): void => {
 // Main function to prompt the user and update the versions
 const main = () => {
   const packageFilePath = 'package.json';
-  const appVersionFilePath = 'src/version.ts';
 
   const packageData = readJSONFile(packageFilePath);
   const currentVersion = packageData.version;
@@ -63,7 +62,6 @@ const main = () => {
 
   rl.question('Enter the new version: ', (newVersion) => {
     updatePackageJSON(packageFilePath, newVersion);
-    updateAppVersion(appVersionFilePath, newVersion);
     rl.close();
   });
 };
