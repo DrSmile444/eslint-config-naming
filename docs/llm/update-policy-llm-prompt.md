@@ -50,6 +50,7 @@ Update **all** relevant areas:
    const arr = [1, 2, 3]; // ❌ Use: array or items
    const obj = {}; // ❌ Use: object or specific domain name (user, config, etc.)
    ```
+
    Use comments to indicate expected corrections.
    Use `// ❌` for invalid cases and explain preferred alternatives.
 
