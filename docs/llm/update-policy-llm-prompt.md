@@ -64,6 +64,18 @@ Update **all** relevant areas:
    - Update guides if behavior affects recommendations
    - Use snippets from tests via dynamic Vite import, e.g. `<<< ../../src/naming-abbreviations.ts#DENY_LIST{ts}`
 
+   Example of snippet inclusion in docs:
+
+   ```md
+   ## ✅ Good
+
+   <<< ../../tests/snippets/type-parameters/positive/type-parameter-positive.ts{ts}
+
+   ## ❌ Bad
+
+   <<< ../../tests/snippets/type-parameters/negative/type-parameter-negative.ts{ts}
+   ```
+
    Outcome: `npx vitepress build docs` succeeds and rule is discoverable.
 
 4. **README (`README.md`)**:
@@ -77,6 +89,17 @@ Update **all** relevant areas:
    - Bump version (required for published changes)
 
    Outcome: Versioning consistent with releases and CI.
+
+6. **Changelog (`docs/reference/changelog.md`)**:
+   - Add entry summarizing the change
+   - Include version number and date
+
+   Outcome: Changelog reflects latest changes for users.
+
+7. **Run formatting**:
+   - Run `npm run format:md` to ensure docs are formatted.
+
+   Outcome: No formatting issues in documentation.
 
 ## Versioning Policy
 
