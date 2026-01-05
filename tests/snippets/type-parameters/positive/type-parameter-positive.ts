@@ -1,20 +1,20 @@
-// Single letter generic type parameters
+// ✅ Single letter generics - T is most common
 export function identity<T>(arg: T): T {
   return arg;
 }
 
-// Multiple generic type parameters
+// ✅ Multiple generic types - T and U in alphabetical progression
 export function map<T, U>(value: T, transform: (v: T) => U): U {
   return transform(value);
 }
 
-// Key-Value pairs
+// ✅ Key-Value pairs - K and V are standard for dictionaries
 export interface Dictionary<K, V> {
   get(key: K): V | undefined;
   set(key: K, value: V): void;
 }
 
-// Descriptive generic with T prefix
+// ✅ Descriptive generic with T prefix - combines clarity with convention
 export function mapArray<TItem, TResult>(
   items: TItem[],
   transform: (item: TItem) => TResult,
@@ -22,22 +22,13 @@ export function mapArray<TItem, TResult>(
   return items.map(transform);
 }
 
-// Descriptive generic with K/V prefix
-export type Cache<KKey, VValue> = Map<KKey, VValue>;
+// ✅ Descriptive generic with T prefix - makes key/value types explicit
+export type Cache<TKey, TValue> = Map<TKey, TValue>;
 
-// Numeric subscript convention
+// ✅ Numeric subscript convention - useful for tuples
 export type Tuple<T1, T2, T3> = [T1, T2, T3];
 
-// Other common single letters
-export interface Response<R> {
-  data: R;
-}
-
-export interface ErrorWrapper<E> {
-  error: E;
-}
-
-// Complex example with multiple conventions
+// ✅ Complex example combining all conventions
 export class GenericContainer<T, TData, K1, K2> {
   private value: T;
 

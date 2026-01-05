@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **Type Parameter (Generics) Naming**: Added comprehensive naming conventions for generic type parameters:
-  - Single uppercase letters: `T`, `U`, `V`, `K`, `R`, `E`, `P`, `S`, `N`, `A`, `B`, `C`, `D`, `M`, `W`, `X`, `Y`, `Z`
+  - Single uppercase letters: `T`, `U`, `V`, `K` (the four standard generic type parameters)
   - Prefixed descriptive names: `TData`, `TItem`, `TElement`, `TError` (T prefix), `KKey` (K prefix), `VValue` (V prefix)
   - Numeric subscripts: `T1`, `T2`, `T3`, `K1`, `K2`, `V1` for sequences of related types
   - Enforces industry-standard conventions from TypeScript, Java, and C# communities

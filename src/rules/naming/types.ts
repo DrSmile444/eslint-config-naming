@@ -39,7 +39,7 @@ export const typeParameterNaming = {
   selector: 'typeParameter',
   format: ['PascalCase'],
   custom: {
-    regex: '^(T|U|V|K|R|E|P|S|N|A|B|C|D|M|W|X|Y|Z|T[A-Z][a-zA-Z]*|K[A-Z][a-zA-Z]*|V[A-Z][a-zA-Z]*|[TKV][1-9][0-9]*)$',
+    regex: '^(T|U|V|K|T[A-Z][a-zA-Z]*|K[A-Z][a-zA-Z]*|V[A-Z][a-zA-Z]*|[TKV][1-9][0-9]*)$',
     match: true,
   },
 } as const;
