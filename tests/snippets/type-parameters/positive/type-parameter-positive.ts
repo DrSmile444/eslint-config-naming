@@ -26,7 +26,7 @@ export function mapArray<TItem, TResult>(
 export type Cache<TKey, TValue> = Map<TKey, TValue>;
 
 // ✅ Numeric subscript convention - useful for tuples
-export type Tuple<T1, T2, T3> = [T1, T2, T3];
+export type Tuple<T0, T1, T2, T3, T999> = [T0, T1, T2, T3, T999];
 
 // ✅ Complex example combining all conventions
 export class GenericContainer<T, TData, K1, K2> {

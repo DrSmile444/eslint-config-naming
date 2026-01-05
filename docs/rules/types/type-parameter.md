@@ -10,7 +10,7 @@ Generic type parameters in TypeScript use specific conventions that differ from 
 
 - **Single uppercase letters** (T, U, V, K): Most common for general-purpose type parameters
 - **T/K/V prefix + descriptive name**: Combines clarity with convention (TData, KKey, VValue)
-- **Numeric subscripts** (T1, T2, T3): For sequences of related types
+- **Numeric subscripts** (T0, T1, T2, T3): For sequences of related types
 
 These conventions are:
 
@@ -41,7 +41,7 @@ For better clarity, prefix descriptive names with:
 
 Use numeric subscripts for sequences of related types:
 
-- `T1, T2, T3, ...`: Useful for tuples or multiple similar generic parameters
+- `T0, T1 T2, T3, ...`: Useful for tuples or multiple similar generic parameters
 - `K1, K2`: For multiple key types
 - `V1, V2`: For multiple value types
 
