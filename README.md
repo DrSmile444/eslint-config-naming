@@ -50,27 +50,17 @@ Full rule explanations (with good/bad examples) live in the documentation site:
 
 ### 1. Install peer dependencies
 
-**Option A (recommended - modern):**
-
 ```bash
 npm i -D eslint typescript typescript-eslint
 ```
-
-The `typescript-eslint` package is a convenient meta-package that re-exports both the parser and plugin.
-
-**Option B (explicit packages):**
-
-```bash
-npm i -D eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin
-```
-
-Both options work identically — choose whichever fits your project style.
 
 ### 2. Install this config
 
 ```bash
 npm i -D eslint-config-naming
 ```
+
+> For other installation options, see [Flat Config Usage](https://drsmile444.github.io/eslint-config-naming/usage/flat-config).
 
 ---
 
@@ -80,8 +70,7 @@ npm i -D eslint-config-naming
 
 ```js
 // eslint.config.js
-import tsParser from '@typescript-eslint/parser';
-import tsPlugin from '@typescript-eslint/eslint-plugin';
+import tseslint from 'typescript-eslint';
 import namingConfig from 'eslint-config-naming';
 
 export default [
@@ -89,14 +78,14 @@ export default [
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
-      parser: tsParser,
+      parser: tseslint.parser,
       parserOptions: {
         project: ['./tsconfig.json'],
         tsconfigRootDir: import.meta.dirname,
       },
     },
     plugins: {
-      '@typescript-eslint': tsPlugin,
+      '@typescript-eslint': tseslint.plugin,
     },
   },
 
@@ -104,17 +93,6 @@ export default [
   ...namingConfig,
 ];
 ```
-
-::: tip Using typescript-eslint meta-package?
-If you installed `typescript-eslint`, import from there:
-
-```js
-import tseslint from 'typescript-eslint';
-const tsParser = tseslint.parser;
-const tsPlugin = tseslint.plugin;
-```
-
-:::
 
 ### Option B: Legacy `.eslintrc.*`
 
@@ -142,7 +120,7 @@ Internally, the config is built as a set of **small rule fragments** grouped by 
 
 - `memberLike` rules (public/private/protected/static/readonly)
 - `variables` rules (default, const/global, destructured, boolean prefixes, \*Component)
-- `types` rules (class, interface, enum, typeLike, enumMember)
+- `types` rules (class, interface, enum, typeLike, enumMember, generics)
 - `parameters` rules (base, destructured)
 - `functions` rules (including final camelCase enforcement)
 - quoted-key escape hatch (`requiresQuotes` → ignored)
@@ -154,7 +132,7 @@ They are combined in a single `@typescript-eslint/naming-convention` rule entry 
 ## Rule overview
 
 This is a quick “what it enforces” list.
-For full details (and good/bad examples), see the docs site.
+For full details (and good/bad examples), check the [Rule Matrix.](https://drsmile444.github.io/eslint-config-naming/rules/).
 
 ### Types
 
