@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.7.0] - 2026-01-05
+
+### Added
+
+- **Type Parameter (Generics) Naming**: Added comprehensive naming conventions for generic type parameters:
+  - Single uppercase letters: `T`, `U`, `V`, `K`, `R`, `E`, `P`, `S`, `N`, `A`, `B`, `C`, `D`, `M`, `W`, `X`, `Y`, `Z`
+  - Prefixed descriptive names: `TData`, `TItem`, `TElement`, `TError` (T prefix), `KKey` (K prefix), `VValue` (V prefix)
+  - Numeric subscripts: `T1`, `T2`, `T3`, `K1`, `K2`, `V1` for sequences of related types
+  - Enforces industry-standard conventions from TypeScript, Java, and C# communities
+  - Disallows lowercase (`t`, `tItem`), descriptive names without prefix (`Type`, `Data`), redundant suffixes (`TItemType`), and snake_case (`T_Item`)
+
+### Changed
+
+- **Type-like Selector**: Changed `typeLike` selector to `typeAlias` for more precise targeting and to avoid conflicts with the new `typeParameter` rule
+
+### Documentation
+
+- Added comprehensive [Type Parameters (Generics)](/rules/types/type-parameter) documentation with rationale, examples, and references
+- Updated rule matrix and types overview to include type parameters
+- Updated VitePress sidebar navigation with "Type Parameters (Generics)" entry
+- Updated README rule overview section with type parameter conventions
+- Clarified "Type-like" label to "Type Aliases" throughout documentation
+
+---
+
 ## [1.6.0] - 2025-12-26
 
 ### Added

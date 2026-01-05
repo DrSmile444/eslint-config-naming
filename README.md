@@ -160,7 +160,8 @@ For full details (and good/bad examples), see the docs site.
 
 - `class`: **PascalCase**
 - `interface`: **PascalCase** and forbids `I*` / `T*` prefixes
-- `typeLike`: **PascalCase** and forbids `I*` / `T*` prefixes
+- `typeAlias`: **PascalCase** and forbids `I*` / `T*` prefixes
+- `typeParameter`: Single uppercase letters (`T`, `U`, `V`, `K`, etc.) or prefixed descriptive names (`TData`, `KKey`, `VValue`) or numeric subscripts (`T1`, `T2`, `K1`, etc.)
 - `enum`: **PascalCase**, forbids plural-ish names (like `Statuses`) and `I*`/`T*`
 - `enumMember`: **UPPER_CASE**
 

@@ -27,10 +27,19 @@ export const enumNaming = {
 } as const;
 
 export const typeLikeNaming = {
-  selector: 'typeLike',
+  selector: 'typeAlias',
   format: ['PascalCase'],
   custom: {
     regex: '^[IT][A-Z]',
     match: false,
+  },
+} as const;
+
+export const typeParameterNaming = {
+  selector: 'typeParameter',
+  format: ['PascalCase'],
+  custom: {
+    regex: '^(T|U|V|K|R|E|P|S|N|A|B|C|D|M|W|X|Y|Z|T[A-Z][a-zA-Z]*|K[A-Z][a-zA-Z]*|V[A-Z][a-zA-Z]*|[TKV][1-9][0-9]*)$',
+    match: true,
   },
 } as const;

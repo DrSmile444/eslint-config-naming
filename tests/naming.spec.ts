@@ -48,6 +48,8 @@ import quotedMembersNegative from './snippets/quoted-members/negative/quoted-mem
 import quotedMembersPositive from './snippets/quoted-members/positive/quoted-members-positive.ts?url';
 import typeLikeNegative from './snippets/type-like/negative/type-like-negative.ts?url';
 import typeLikePositive from './snippets/type-like/positive/type-like-positive.ts?url';
+import typeParameterNegative from './snippets/type-parameters/negative/type-parameter-negative.ts?url';
+import typeParameterPositive from './snippets/type-parameters/positive/type-parameter-positive.ts?url';
 import variableBooleanDestructuredNegative from './snippets/variables-boolean-destructured/negative/variable-boolean-destructured-negative.ts?url';
 import variableBooleanDestructuredPositive from './snippets/variables-boolean-destructured/positive/variable-boolean-destructured-positive.ts?url';
 import variableBooleanPrefixNegative from './snippets/variables-boolean-prefix/negative/variable-boolean-prefix-negative.ts?url';
@@ -369,6 +371,24 @@ describe('eslint-config-naming / TypeScript naming', () => {
         const result = await lint(typeLikeNegative);
 
         expect(result.errorCount).toBe(2);
+      });
+    });
+  });
+
+  describe('typeParameter (generics)', () => {
+    describe('positive', () => {
+      it('allows single uppercase letters (T, U, V, K, etc.) and T/K/V prefixed descriptive names', async () => {
+        const result = await lint(typeParameterPositive);
+
+        expect(result.errorCount).toBe(0);
+      });
+    });
+
+    describe('negative', () => {
+      it('disallows non-standard generic names (lowercase, descriptive without prefix, redundant suffixes)', async () => {
+        const result = await lint(typeParameterNegative);
+
+        expect(result.errorCount).toBe(7);
       });
     });
   });

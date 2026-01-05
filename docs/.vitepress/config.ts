@@ -93,7 +93,8 @@ export default defineConfig({
               { text: 'Enum Members', link: '/rules/types/enum-member' },
               { text: 'Classes', link: '/rules/types/class' },
               { text: 'Interfaces', link: '/rules/types/interface' },
-              { text: 'Type-like', link: '/rules/types/type-like' },
+              { text: 'Type Aliases', link: '/rules/types/type-like' },
+              { text: 'Type Parameters (Generics)', link: '/rules/types/type-parameter' },
             ],
           },
           {
