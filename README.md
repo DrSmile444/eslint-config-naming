@@ -42,6 +42,7 @@ It is intentionally **BYO parser setup** — it ships rules only and does not as
 Full rule explanations (with good/bad examples) live in the documentation site:
 
 - [**Documentation**](https://drsmile444.github.io/eslint-config-naming/)
+- [**Rule Matrix**](https://drsmile444.github.io/eslint-config-naming/rules/)
 - [**Changelog**](https://drsmile444.github.io/eslint-config-naming/reference/changelog)
 
 ## Quick Examples
