@@ -42,80 +42,98 @@ It is intentionally **BYO parser setup** — it ships rules only and does not as
 Comprehensive documentation with detailed rule explanations and examples is available at **[drsmile444.github.io/eslint-config-naming](https://drsmile444.github.io/eslint-config-naming/)**.
 
 Key resources:
+
 - **[Getting Started Guide](https://drsmile444.github.io/eslint-config-naming/getting-started)** — Installation and configuration
 - **[Rule Matrix](https://drsmile444.github.io/eslint-config-naming/rules/)** — Complete rule matrix with examples
 - **[Changelog](https://drsmile444.github.io/eslint-config-naming/reference/changelog)** — Version history and updates
 
 ---
 
-## Quick Examples
+## At a Glance
 
-### Bad Examples
+This configuration enforces consistent naming patterns across TypeScript constructs:
+
+| Category                      | Enforced Style                                  | Example                            |
+| ----------------------------- | ----------------------------------------------- | ---------------------------------- |
+| **Types**                     | PascalCase, no `I`/`T` prefixes                 | `ApiResponse`, `UserData`          |
+| **Classes**                   | PascalCase                                      | `HttpClient`, `DataService`        |
+| **Interfaces**                | PascalCase                                      | `Config`, `Options`                |
+| **Enums**                     | PascalCase (name), UPPER_CASE (members)         | `enum Status { ACTIVE, INACTIVE }` |
+| **Variables**                 | camelCase or UPPER_CASE                         | `userName`, `MAX_RETRIES`          |
+| **Booleans**                  | Prefixed with `is\|should\|has\|can\|did\|will` | `isValid`, `hasAccess`             |
+| **Functions**                 | camelCase                                       | `calculateTotal()`, `fetchData()`  |
+| **Class Members (public)**    | camelCase or snake_case                         | `userCount`, `api_key`             |
+| **Class Members (protected)** | camelCase with `_` prefix                       | `_internalState`                   |
+| **Generic Types**             | Single letter or T-prefixed                     | `T`, `TData`, `TKey`               |
+
+**Abbreviations are restricted** — descriptive names like `errorMessage` are enforced over vague shortcuts like `err` or `str`.
+
+### Code Examples
+
+<table>
+<tr>
+<th>❌ Incorrect</th>
+<th>✅ Correct</th>
+</tr>
+<tr>
+<td>
 
 ```ts
-// Types - should be PascalCase
-interface IApiResponse {} // should not have I/T prefix
+// Type prefixes
+interface IApiResponse {}
+type TUserData = {};
+
+// Wrong casing
 enum status {
   active,
   inactive,
 }
+class userService {}
 
-// Members - various violations
-class example { // should be PascalCase
-  public MyProperty: string; // should be camelCase or snake_case
-  // and etc...
-}
+// Variables
+const Myvariable = 'value';
+const my_constant = 'constant';
+const ready = true;
 
-// Variables - case and boolean prefix violations
-const Myvariable = 'value'; // should be camelCase or UPPER_CASE
-const my_constant = 'constant'; // should be UPPER_CASE
-const ready = true; // booleans should start with is|should|has|can|did|will
+// Abbreviations
+const str = 'message';
 
-// Functions - case violations
-function MyFunction() {} // should be camelCase
-
-export type Cache<Key, val> = Map<Key, val>; // generics should follow T, U, V, TItem, TValue, etc.
-
-// Abbreviation examples - banned abbreviations
-const str = 'Failed to connect';
+// Generics
+type Cache<Key, val> = Map<Key, val>;
 ```
 
-### Good Examples
+</td>
+<td>
 
 ```ts
-// Types
+// Clean type names
 interface ApiResponse {}
+type UserData = {};
+
+// Proper casing
 enum Status {
   ACTIVE,
   INACTIVE,
 }
-
-// Members
-class Example {
-  public myProperty: string;
-  // and etc...
-}
+class UserService {}
 
 // Variables
 const myVariable = 'value';
 const MY_CONSTANT = 'constant';
 const isReady = true;
 
-// Functions
-function myFunction() {}
+// Descriptive names
+const message = 'message';
 
-// Parameters
-function example(param1: string, param2: number, callback: () => void) {}
-
-export type Cache<TKey, TValue> = Map<TKey, TValue>;
-
-// Abbreviation examples - descriptive names
-const errorMessage = 'Failed to connect';
+// Proper generics
+type Cache<TKey, TValue> = Map<TKey, TValue>;
 ```
 
-This is not an exhaustive list. This is a quick overview of what the config enforces.
+</td>
+</tr>
+</table>
 
-For more details and examples, see the [Rule Matrix](https://drsmile444.github.io/eslint-config-naming/rules/).
+> **Note:** This is a high-level overview and most rules have additional conditions and exceptions. See the [Rule Matrix](https://drsmile444.github.io/eslint-config-naming/rules/) for complete details and examples.
 
 ---
 
