@@ -161,6 +161,10 @@ export default defineConfig({
         icon: 'github',
         link: 'https://github.com/DrSmile444/eslint-config-naming',
       },
+      {
+        icon: 'npm',
+        link: 'https://www.npmjs.com/package/eslint-config-naming',
+      },
     ],
   },
 });
