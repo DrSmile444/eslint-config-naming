@@ -28,14 +28,31 @@
  * value = allowed replacements (full names or clearer alternatives)
  */
 export const DENY_LIST: Readonly<Record<string, readonly string[]>> = {
-  // Single-letter / too short
+  // Single-letter / too short (x, y, z are allowed for coordinates)
+  a: ['array', 'attribute', 'value', 'accumulator'],
+  b: ['boolean', 'buffer', 'byte', 'value'],
+  c: ['character', 'count', 'class', 'component'],
+  d: ['data', 'day', 'distance', 'delta'],
+  e: ['event', 'error', 'exception', 'element'],
+  f: ['function', 'field', 'flag', 'file'],
+  g: ['group', 'global', 'get'],
+  h: ['height', 'handler', 'hash', 'header'],
   i: ['index', 'itemIndex', 'rowIndex', 'columnIndex'],
   j: ['index', 'itemIndex', 'rowIndex', 'columnIndex'],
   k: ['index', 'key', 'keyIndex'],
-  n: ['count', 'length', 'number'],
-  e: ['event', 'error', 'exception'],
-  x: ['xCoordinate', 'xPosition'],
-  y: ['yCoordinate', 'yPosition'],
+  l: ['length', 'list', 'line', 'label'],
+  m: ['map', 'message', 'method', 'model'],
+  n: ['count', 'length', 'number', 'node'],
+  o: ['object', 'option', 'output'],
+  p: ['parameter', 'property', 'position', 'point'],
+  q: ['query', 'queue', 'question'],
+  r: ['result', 'response', 'record', 'row'],
+  s: ['string', 'source', 'state', 'status'],
+  t: ['type', 'time', 'token', 'text'],
+  u: ['user', 'url', 'unit', 'update'],
+  v: ['value', 'variable', 'version'],
+  w: ['width', 'window', 'wrapper'],
+  // x, y, z are allowed in ALLOW_LIST for coordinate systems
 
   // Core types / primitives
   str: ['string', 'text'],
@@ -105,7 +122,6 @@ export const DENY_LIST: Readonly<Record<string, readonly string[]>> = {
   hdr: ['header'],
   hdrs: ['headers'],
   qs: ['queryString'],
-  q: ['query', 'queue'], // too ambiguous
   urlStr: ['url', 'urlString'],
   uriStr: ['uri', 'uriString'],
 
@@ -216,8 +232,9 @@ export const ALLOW_LIST: readonly string[] = [
   // 'ctx',
   'next',
 
-  // Common coordinate vars (consider allowing only in geometry/render contexts)
+  // Single-letter coordinate variables (allowed for geometry/render contexts)
   'x',
   'y',
+  'z',
 ] as const;
 // #endregion ALLOW_LIST
