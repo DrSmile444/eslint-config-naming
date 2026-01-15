@@ -622,8 +622,11 @@ describe('eslint-config-naming / TypeScript naming', () => {
       it('disallows banned abbreviations from DENY_LIST', async () => {
         const result = await lint(abbreviationsNegative);
 
-        // We expect multiple errors for all the banned abbreviations used
-        expect(result.errorCount).toBe(22);
+        // We expect errors for all banned abbreviations used:
+        // - 32 variables (13 single-letter + 19 multi-char abbreviations)
+        // - 3 parameters (req, res, info)
+        // Note: 'data' parameter is in ALLOW_LIST so it doesn't error
+        expect(result.errorCount).toBe(35);
       });
     });
   });

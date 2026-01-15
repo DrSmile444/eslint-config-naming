@@ -21,6 +21,11 @@ function abbreviationsPositiveExample() {
   const itemIndex = 1; // instead of "i"
   const rowIndex = 2; // instead of "j"
 
+  // Single-letter coordinates are allowed (x, y, z)
+  const x = 10; // ✅ allowed for coordinates
+  const y = 20; // ✅ allowed for coordinates
+  const z = 30; // ✅ allowed for 3D coordinates
+
   return {
     userData,
     apiUrl,
@@ -40,6 +45,9 @@ function abbreviationsPositiveExample() {
     index,
     itemIndex,
     rowIndex,
+    x,
+    y,
+    z,
   };
 }
 
