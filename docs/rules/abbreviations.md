@@ -13,10 +13,16 @@ This feature prevents usage of common abbreviations that reduce code readability
 
 Single-letter names and ambiguous abbreviations are among the most common sources of confusion in codebases:
 
-- **`i/j/k`** → What are you iterating over? Use `index`, `rowIndex`, `colIndex`
-- **`data/info/obj`** → What kind of data? Use `responseBody`, `metadata`, `userPayload`
-- **`res/req`** → Acceptable in Express handlers, but ambiguous elsewhere (result? resource? response?)
-- **`err`** → Use `error` - it's only 2 more characters
+- **Single-letter variables** → Banned except for coordinates (`x`, `y`, `z`)
+  - **`i/j/k`** → Use `index`, `rowIndex`, `colIndex` instead
+  - **`e`** → Use `error`, `event`, or `element` depending on context
+  - **`s`** → Use `string`, `source`, or `status` depending on context
+  - **`n`** → Use `count`, `length`, or `number` depending on context
+  - **Only exception:** `x`, `y`, `z` are allowed for coordinate systems and geometry
+- **Ambiguous abbreviations** → Use full descriptive names
+  - **`data/info/obj`** → What kind of data? Use `responseBody`, `metadata`, `userPayload`
+  - **`res/req`** → Acceptable in Express handlers, but ambiguous elsewhere (result? resource? response?)
+  - **`err`** → Use `error` - it's only 2 more characters
 
 ### Philosophy
 
@@ -70,6 +76,11 @@ const configuration = { debug: true };
 const timestamp = Date.now();
 const itemIndex = 0;
 
+// Coordinate variables - x, y, z are allowed
+const x = 10; // ✅ allowed for coordinates
+const y = 20; // ✅ allowed for coordinates
+const z = 30; // ✅ allowed for 3D coordinates
+
 // Functions - clear intent
 function processUserData() {}
 function handleErrorMessage() {}
@@ -89,6 +100,13 @@ function processResponse(responseData: Response, metadata: Metadata) {
 ## ❌ Bad
 
 ```ts
+// Single-letter variables - all banned except x, y, z
+const i = 0; // ❌ Use: index, itemIndex, rowIndex
+const j = 1; // ❌ Use: index, itemIndex, columnIndex
+const e = new Error(); // ❌ Use: error, event, element
+const s = 'text'; // ❌ Use: string, text, source
+const n = 10; // ❌ Use: count, number, length
+
 // Variables - banned abbreviations
 const str = 'text'; // ❌ Use: string or text
 const num = 42; // ❌ Use: number or count
@@ -173,20 +191,25 @@ By default, these are allowed when used as **parameters** due to rule precedence
 
 ### Loop Indices
 
-For simple array iteration, consider using:
+**Single-letter loop variables like `i`, `j`, `k` are banned.** Use descriptive names instead:
 
 ```typescript
-// Instead of: for (let i = 0; i < items.length; i++)
-for (const item of items) {
-  // Clearer intent
+// ❌ Bad - single-letter loop variables
+for (let i = 0; i < items.length; i++) {
+  console.log(items[i]);
 }
 
-// Or with index when needed
+// ✅ Better - use array iteration methods
+for (const item of items) {
+  console.log(item);
+}
+
+// ✅ Good - descriptive name when index is needed
 items.forEach((item, itemIndex) => {
   console.log(itemIndex, item);
 });
 
-// Traditional loop with descriptive names
+// ✅ Good - descriptive names in traditional loops
 for (let rowIndex = 0; rowIndex < rows.length; rowIndex++) {
   for (let colIndex = 0; colIndex < cols.length; colIndex++) {
     // Clear which dimension each index represents

@@ -66,7 +66,7 @@ This configuration enforces consistent naming patterns across TypeScript constru
 | **Class Members (protected)** | camelCase with `_` prefix                       | `_internalState`                   |
 | **Generic Types**             | Single letter or T-prefixed                     | `T`, `TData`, `TKey`               |
 
-**Abbreviations are restricted** — descriptive names like `errorMessage` are enforced over vague shortcuts like `err` or `str`.
+**Abbreviations and single-letter variables are restricted** — only `x`, `y`, `z` are allowed for coordinates. Descriptive names like `errorMessage` and `index` are enforced over vague shortcuts like `err`, `str`, or `i`.
 
 ### Code Examples
 
@@ -96,6 +96,7 @@ const my_constant = 'constant';
 const ready = true;
 
 // Abbreviations
+const i = 0;
 const str = 'message';
 
 // Generics
@@ -123,6 +124,7 @@ const MY_CONSTANT = 'constant';
 const isReady = true;
 
 // Descriptive names
+const index = 0;
 const message = 'message';
 
 // Proper generics
