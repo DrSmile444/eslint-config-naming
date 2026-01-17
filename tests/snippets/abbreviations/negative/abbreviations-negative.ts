@@ -1,5 +1,9 @@
 // Invalid names that use banned abbreviations from DENY_LIST
 
+// Global variables - banned abbreviations
+export const msg = 'Hello'; // ❌ should be: message
+const cfg = {}; // ❌ should be: config or configuration
+
 function abbreviationsNegativeExample() {
   // Single-letter variables (except x, y, z) - all banned
   const a = [1, 2, 3]; // ❌ should be: array, items, values, etc.
@@ -24,8 +28,6 @@ function abbreviationsNegativeExample() {
   const fn = () => {}; // ❌ should be: function or callback
   const cb = () => {}; // ❌ should be: callback or onComplete
   const err = new Error(); // ❌ should be: error
-  const msg = 'Hello'; // ❌ should be: message
-  const cfg = {}; // ❌ should be: config or configuration
   const tmp = 'temp'; // ❌ should be: temporary or tempValue
   // NOTE: 'data', 'min', 'max' are in ALLOW_LIST, so they are not tested here
   const info = {}; // ❌ should be: metadata or details
@@ -59,8 +61,6 @@ function abbreviationsNegativeExample() {
     fn,
     cb,
     err,
-    msg,
-    cfg,
     tmp,
     info,
     val,
