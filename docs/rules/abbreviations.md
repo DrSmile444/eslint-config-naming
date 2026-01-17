@@ -6,17 +6,34 @@ Automatically enforces descriptive naming by banning common abbreviations and an
 
 This feature prevents usage of common abbreviations that reduce code readability. It's based on a comprehensive deny-list of anti-patterns, while allowing well-established technical terms and framework conventions through an allow-list.
 
-**Selector:** `variable`, `function`, `parameter`  
+**Selector:** `variable` (all types including const global), `function`, `parameter`, `memberLike` (class members)  
 **Applied:** Lowest precedence (catch-all safety net)
+
+::: tip
+Abbreviation restrictions apply to **all identifiers**, including:
+
+- Local variables
+- Global const variables (module-level constants)
+- Function parameters
+- Function names
+- Class members (public, private, protected, static, readonly)
+  :::
 
 ## Why This Rule
 
 Single-letter names and ambiguous abbreviations are among the most common sources of confusion in codebases:
 
-- **`i/j/k`** → What are you iterating over? Use `index`, `rowIndex`, `colIndex`
-- **`data/info/obj`** → What kind of data? Use `responseBody`, `metadata`, `userPayload`
-- **`res/req`** → Acceptable in Express handlers, but ambiguous elsewhere (result? resource? response?)
-- **`err`** → Use `error` - it's only 2 more characters
+- **Single-letter variables** → Banned except for coordinates (`x`, `y`, `z`)
+  - **`i/j/k`** → Use `index`, `rowIndex`, `colIndex` instead
+  - **`e`** → Use `error`, `event`, or `element` depending on context
+  - **`s`** → Use `string`, `source`, or `status` depending on context
+  - **`n`** → Use `count`, `length`, or `number` depending on context
+  - **Only exception:** `x`, `y`, `z` are allowed for coordinate systems and geometry
+- **Ambiguous abbreviations** → Use full descriptive names
+  - **`data/info/obj`** → What kind of data? Use `responseBody`, `metadata`, `userPayload`, `payload`
+  - **`res/req`** → Acceptable in Express handlers, but ambiguous elsewhere (result? resource? response?)
+  - **`err`** → Use `error` - it's only 2 more characters
+  - **`data`** → Too vague - use specific terms like `payload`, `result`, `records`, `responseBody`, `input`, `output`
 
 ### Philosophy
 
@@ -58,63 +75,11 @@ Contains widely-recognized technical terms that are acceptable:
 
 ## ✅ Good
 
-```ts
-// Variables - descriptive names
-const userData = { id: 1, name: 'Alice' };
-const responseBody = { status: 'ok' };
-const errorMessage = 'Failed to connect';
-const callback = () => {};
-const element = document.querySelector('.button');
-const directory = '/home/user';
-const configuration = { debug: true };
-const timestamp = Date.now();
-const itemIndex = 0;
-
-// Functions - clear intent
-function processUserData() {}
-function handleErrorMessage() {}
-function formatTimestamp() {}
-function validateDirectory() {}
-
-// Parameters - no guessing needed
-function handleRequest(requestData: Request, onComplete: () => void) {
-  // ...
-}
-
-function processResponse(responseData: Response, metadata: Metadata) {
-  // ...
-}
-```
+<<< ../../tests/snippets/abbreviations/positive/abbreviations-positive.ts{ts}
 
 ## ❌ Bad
 
-```ts
-// Variables - banned abbreviations
-const str = 'text'; // ❌ Use: string or text
-const num = 42; // ❌ Use: number or count
-const arr = [1, 2, 3]; // ❌ Use: array or items
-const obj = {}; // ❌ Use: object or specific domain name (user, config, etc.)
-const data = {}; // ❌ Use: payload, result, records, etc.
-const info = {}; // ❌ Use: metadata, details, summary
-const tmp = 'temp'; // ❌ Use: temporary or tempValue
-const cfg = {}; // ❌ Use: config or configuration
-const msg = 'Hello'; // ❌ Use: message
-const err = new Error(); // ❌ Use: error
-const idx = 0; // ❌ Use: index
-const btn = null; // ❌ Use: button
-const el = null; // ❌ Use: element
-
-// Functions - unclear abbreviations
-function processStr() {} // ❌ Use: processString
-function handleErr() {} // ❌ Use: handleError
-function formatMsg() {} // ❌ Use: formatMessage
-
-// Parameters - ambiguous
-function process(req: Request, res: Response) {
-  // ❌ Outside Express/framework context, use: request, response
-  // ❌ req/res are ambiguous: result? resource?
-}
-```
+<<< ../../tests/snippets/abbreviations/negative/abbreviations-negative.ts{ts}
 
 ## Customization
 
@@ -173,20 +138,25 @@ By default, these are allowed when used as **parameters** due to rule precedence
 
 ### Loop Indices
 
-For simple array iteration, consider using:
+**Single-letter loop variables like `i`, `j`, `k` are banned.** Use descriptive names instead:
 
 ```typescript
-// Instead of: for (let i = 0; i < items.length; i++)
-for (const item of items) {
-  // Clearer intent
+// ❌ Bad - single-letter loop variables
+for (let i = 0; i < items.length; i++) {
+  console.log(items[i]);
 }
 
-// Or with index when needed
+// ✅ Better - use array iteration methods
+for (const item of items) {
+  console.log(item);
+}
+
+// ✅ Good - descriptive name when index is needed
 items.forEach((item, itemIndex) => {
   console.log(itemIndex, item);
 });
 
-// Traditional loop with descriptive names
+// ✅ Good - descriptive names in traditional loops
 for (let rowIndex = 0; rowIndex < rows.length; rowIndex++) {
   for (let colIndex = 0; colIndex < cols.length; colIndex++) {
     // Clear which dimension each index represents

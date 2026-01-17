@@ -1,4 +1,4 @@
-const obj = {
+const example = {
   fooBar: 1,
   foo_bar: 2,
   FooBar: 3,

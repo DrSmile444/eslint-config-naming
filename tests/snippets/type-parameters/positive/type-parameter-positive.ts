@@ -29,16 +29,16 @@ export type Cache<TKey, TValue> = Map<TKey, TValue>;
 export type Tuple<T0, T1, T2, T3, T999> = [T0, T1, T2, T3, T999];
 
 // ✅ Complex example combining all conventions
-export class GenericContainer<T, TData, K1, K2> {
+export class GenericContainer<T, TPayload, K1, K2> {
   private value: T;
 
-  private data: TData;
+  private payload: TPayload;
 
   private keys: [K1, K2];
 
-  constructor(value: T, data: TData, keys: [K1, K2]) {
+  constructor(value: T, payload: TPayload, keys: [K1, K2]) {
     this.value = value;
-    this.data = data;
+    this.payload = payload;
     this.keys = keys;
   }
 }

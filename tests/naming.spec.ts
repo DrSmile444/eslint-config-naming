@@ -24,6 +24,8 @@ import functionExportedGlobalNegative from './snippets/functions-exported-global
 import functionExportedGlobalPositive from './snippets/functions-exported-global/positive/function-exported-global-positive.ts?url';
 import interfaceNegative from './snippets/interfaces/negative/interface-negative.ts?url';
 import interfacePositive from './snippets/interfaces/positive/interface-positive.ts?url';
+import memberLikeAbbreviationsNegative from './snippets/member-like-abbreviations/negative/member-like-abbreviations-negative.ts?url';
+import memberLikeAbbreviationsPositive from './snippets/member-like-abbreviations/positive/member-like-abbreviations-positive.ts?url';
 import memberLikePrivateNegative from './snippets/member-like-private/negative/member-like-private-negative.ts?url';
 import memberLikePrivatePositive from './snippets/member-like-private/positive/member-like-private-positive.ts?url';
 import memberLikePrivateReadonlyNegative from './snippets/member-like-private-readonly/negative/member-like-private-readonly-negative.ts?url';
@@ -622,8 +624,31 @@ describe('eslint-config-naming / TypeScript naming', () => {
       it('disallows banned abbreviations from DENY_LIST', async () => {
         const result = await lint(abbreviationsNegative);
 
-        // We expect multiple errors for all the banned abbreviations used
-        expect(result.errorCount).toBe(22);
+        // We expect errors for all banned abbreviations used:
+        // - 31 variables with abbreviation errors (13 single-letter + 18 multi-char, excluding 'b')
+        // - 1 boolean prefix error ('b' variable requires is/has/can/should/will/did prefix)
+        // - 4 parameters (req, res, data, info) - 'data' now errors after removal from ALLOW_LIST
+        expect(result.errorCount).toBe(36);
+      });
+    });
+  });
+
+  describe('member-like abbreviations', () => {
+    describe('positive', () => {
+      it('allows descriptive member names without banned abbreviations', async () => {
+        const result = await lint(memberLikeAbbreviationsPositive);
+
+        expect(result.errorCount).toBe(0);
+      });
+    });
+
+    describe('negative', () => {
+      it('disallows banned abbreviations in class members', async () => {
+        const result = await lint(memberLikeAbbreviationsNegative);
+
+        // We expect errors for all banned abbreviations used in class members
+        // Based on actual count: 34 errors total
+        expect(result.errorCount).toBe(34);
       });
     });
   });

@@ -7,6 +7,63 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.8.0] - 2026-01-17
+
+### Added
+
+- **Single-Letter Variable Restrictions**: Enhanced abbreviation restrictions to ban all single-letter variables except `x`, `y`, `z`:
+  - Added all single-letter variables (a-w) to DENY_LIST with context-appropriate replacement suggestions
+  - Only `x`, `y`, `z` are allowed for coordinate systems and geometry contexts
+  - Variables like `i`, `j`, `k`, `e`, `s`, `t`, `n` now require descriptive names (`index`, `error`, `string`, `count`, etc.)
+  - Applied to variables, function parameters, and function names
+
+### Fixed
+
+- **Class Member Abbreviation Restrictions**: Fixed abbreviation restrictions not being applied to class members:
+  - Class members (public, private, protected, static, readonly) now correctly validate against the abbreviation DENY_LIST
+  - Member names like `msg`, `cfg`, `err`, `info`, etc. are now properly flagged as violations
+  - Created dedicated abbreviation restriction rules for all member-like modifiers
+  - Updated documentation to clarify that abbreviation restrictions apply to class members
+- **Global Const Abbreviation Restrictions**: Fixed abbreviation restrictions not being applied to global const variables:
+  - Global const variables (module-level `const` declarations) now correctly validate against the abbreviation DENY_LIST
+  - Variables like `msg`, `cfg` at module level are now properly flagged as violations
+  - Created dedicated `variableConstGlobalAbbreviationRestriction` rule that extends `variableNamingConstGlobal` with abbreviation checks
+  - Updated documentation to clarify that abbreviation restrictions apply to all variable types including global consts
+
+### Changed
+
+- **ALLOW_LIST**: Removed `data` from ALLOW_LIST to enforce more descriptive naming:
+  - The identifier `data` is now banned and must be replaced with specific terms like `payload`, `result`, `records`, `responseBody`, `input`, or `output`
+  - This change encourages developers to use domain-specific names that convey actual meaning
+  - Updated to include only `x`, `y`, `z` as allowed single-letter variables (removed `x`, `y` from coordinate-only context)
+- **DENY_LIST**: Expanded with comprehensive single-letter entries including:
+  - `a` → array, attribute, value, accumulator
+  - `b` → boolean, buffer, byte, value
+  - `c` → character, count, class, component
+  - `d` → data, day, distance, delta
+  - `e` → event, error, exception, element
+  - `i`, `j`, `k` → index, itemIndex, rowIndex, columnIndex
+  - And more for all letters a-w
+
+### Documentation
+
+- Updated [Abbreviation Restrictions](/rules/abbreviations) documentation:
+  - Emphasized single-letter variable policy at the top of "Why This Rule" section
+  - Added examples showing `x`, `y`, `z` as allowed coordinate variables
+  - Enhanced "Loop Indices" section to emphasize that `i`, `j`, `k` are banned
+  - Updated code examples to use VitePress snippet imports from test files
+- Updated `README.md` to mention single-letter variable restrictions
+- Updated `docs/policies/update-policy.md` to require using code snippets from tests instead of duplicating in docs
+
+### Tests
+
+- Added 13 single-letter variable test cases to negative examples
+- Added `x`, `y`, `z` coordinate variable examples to positive tests
+- Updated test expectations to validate 35 total errors (32 variables + 3 parameters)
+- Enhanced test snippets with ✅ and ❌ markers for clarity
+
+---
+
 ## [1.7.0] - 2026-01-05
 
 ### Added

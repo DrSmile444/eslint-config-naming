@@ -1,15 +1,18 @@
-import { functionAbbreviationRestriction, parameterAbbreviationRestriction, variableAbbreviationRestriction } from './abbreviations';
-import { functionNamingExportedOrGlobal } from './functions';
 import {
-  memberLikePrivateNaming,
-  memberLikePrivateReadonlyNaming,
-  memberLikePrivateStaticNaming,
-  memberLikeProtectedNaming,
-  memberLikePublicNaming,
-  memberLikePublicStaticNaming,
-  memberLikeReadonlyNaming,
-  typePropertyReadonlyNaming,
-} from './member-like';
+  functionAbbreviationRestriction,
+  memberLikePrivateAbbreviationRestriction,
+  memberLikePrivateReadonlyAbbreviationRestriction,
+  memberLikePrivateStaticAbbreviationRestriction,
+  memberLikeProtectedAbbreviationRestriction,
+  memberLikePublicAbbreviationRestriction,
+  memberLikePublicStaticAbbreviationRestriction,
+  memberLikeReadonlyAbbreviationRestriction,
+  parameterAbbreviationRestriction,
+  variableAbbreviationRestriction,
+  variableConstGlobalAbbreviationRestriction,
+} from './abbreviations';
+import { functionNamingExportedOrGlobal } from './functions';
+import { typePropertyReadonlyNaming } from './member-like';
 import { objectLiteralPropertyNaming } from './object-literal-property';
 import { parameterNamingDestructured } from './parameters';
 import { quotedMemberNaming } from './quoted';
@@ -19,21 +22,20 @@ import {
   booleanVariableWithPrefixNaming,
   componentVariableNaming,
   nodeCommonVariableNaming,
-  variableNamingConstGlobal,
   variableNamingDestructured,
 } from './variables';
 
 export const namingConventionRule = [
   'error',
   objectLiteralPropertyNaming,
-  memberLikePublicStaticNaming,
-  memberLikePrivateStaticNaming,
-  memberLikePrivateReadonlyNaming,
-  memberLikeReadonlyNaming,
+  memberLikePublicStaticAbbreviationRestriction, // Includes abbreviation restrictions
+  memberLikePrivateStaticAbbreviationRestriction, // Includes abbreviation restrictions
+  memberLikePrivateReadonlyAbbreviationRestriction, // Includes abbreviation restrictions
+  memberLikeReadonlyAbbreviationRestriction, // Includes abbreviation restrictions
   typePropertyReadonlyNaming,
-  memberLikePublicNaming,
-  memberLikePrivateNaming,
-  memberLikeProtectedNaming,
+  memberLikePublicAbbreviationRestriction, // Includes abbreviation restrictions
+  memberLikePrivateAbbreviationRestriction, // Includes abbreviation restrictions
+  memberLikeProtectedAbbreviationRestriction, // Includes abbreviation restrictions
   enumMemberNaming,
   interfaceNaming,
   classNaming,
@@ -41,7 +43,7 @@ export const namingConventionRule = [
   typeParameterNaming,
   typeLikeNaming,
   variableNamingDestructured, // Must come before default to properly match destructured variables
-  variableNamingConstGlobal,
+  variableConstGlobalAbbreviationRestriction, // Includes abbreviation restrictions for global const variables
   booleanVariableWithPrefixNaming, // Requires type information - works when parserOptions.project or projectService is configured
   booleanDestructuredVariableNaming, // Requires type information - works when parserOptions.project or projectService is configured
   nodeCommonVariableNaming,
