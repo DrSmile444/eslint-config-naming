@@ -11,11 +11,12 @@ This feature prevents usage of common abbreviations that reduce code readability
 
 ::: tip
 Abbreviation restrictions apply to **all variable types**, including:
+
 - Local variables
 - Global const variables (module-level constants)
 - Function parameters
 - Function names
-:::
+  :::
 
 ## Why This Rule
 
