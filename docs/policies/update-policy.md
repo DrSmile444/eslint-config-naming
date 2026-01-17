@@ -59,6 +59,45 @@ Required updates may include:
 - updating home page summary (`docs/index.md`) if the change is significant
 - updating guides if behavior changes affect recommendations
 
+**Code Examples in Documentation:**
+
+Documentation must use code snippets from test files, not duplicate code. This ensures:
+
+- Single source of truth for examples
+- Examples are always tested and verified
+- Consistency between tests and documentation
+
+Use VitePress snippet imports:
+
+```markdown
+## ✅ Good
+
+<<< ../../tests/snippets/rule-name/positive/example-positive.ts{ts}
+
+## ❌ Bad
+
+<<< ../../tests/snippets/rule-name/negative/example-negative.ts{ts}
+```
+
+**Example Formatting:**
+
+- Use `✅` prefix for positive/valid examples with descriptive comments
+- Use `❌` prefix for negative/invalid examples with correction suggestions
+
+Example of positive snippet:
+
+```ts
+const array = [1, 2, 3]; // ✅ descriptive name
+const x = 10; // ✅ allowed for coordinates
+```
+
+Example of negative snippet:
+
+```ts
+const a = [1, 2, 3]; // ❌ should be: array, items, values, etc.
+const i = 0; // ❌ should be: index, itemIndex, rowIndex
+```
+
 ✅ Outcome: `npx vitepress build docs` succeeds and the rule explanation is discoverable via navigation.
 
 ---
