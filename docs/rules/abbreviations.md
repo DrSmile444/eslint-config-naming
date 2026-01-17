@@ -64,75 +64,11 @@ Contains widely-recognized technical terms that are acceptable:
 
 ## ✅ Good
 
-```ts
-// Variables - descriptive names
-const userData = { id: 1, name: 'Alice' };
-const responseBody = { status: 'ok' };
-const errorMessage = 'Failed to connect';
-const callback = () => {};
-const element = document.querySelector('.button');
-const directory = '/home/user';
-const configuration = { debug: true };
-const timestamp = Date.now();
-const itemIndex = 0;
-
-// Coordinate variables - x, y, z are allowed
-const x = 10; // ✅ allowed for coordinates
-const y = 20; // ✅ allowed for coordinates
-const z = 30; // ✅ allowed for 3D coordinates
-
-// Functions - clear intent
-function processUserData() {}
-function handleErrorMessage() {}
-function formatTimestamp() {}
-function validateDirectory() {}
-
-// Parameters - no guessing needed
-function handleRequest(requestData: Request, onComplete: () => void) {
-  // ...
-}
-
-function processResponse(responseData: Response, metadata: Metadata) {
-  // ...
-}
-```
+<<< ../../tests/snippets/abbreviations/positive/abbreviations-positive.ts{ts}
 
 ## ❌ Bad
 
-```ts
-// Single-letter variables - all banned except x, y, z
-const i = 0; // ❌ Use: index, itemIndex, rowIndex
-const j = 1; // ❌ Use: index, itemIndex, columnIndex
-const e = new Error(); // ❌ Use: error, event, element
-const s = 'text'; // ❌ Use: string, text, source
-const n = 10; // ❌ Use: count, number, length
-
-// Variables - banned abbreviations
-const str = 'text'; // ❌ Use: string or text
-const num = 42; // ❌ Use: number or count
-const arr = [1, 2, 3]; // ❌ Use: array or items
-const obj = {}; // ❌ Use: object or specific domain name (user, config, etc.)
-const data = {}; // ❌ Use: payload, result, records, etc.
-const info = {}; // ❌ Use: metadata, details, summary
-const tmp = 'temp'; // ❌ Use: temporary or tempValue
-const cfg = {}; // ❌ Use: config or configuration
-const msg = 'Hello'; // ❌ Use: message
-const err = new Error(); // ❌ Use: error
-const idx = 0; // ❌ Use: index
-const btn = null; // ❌ Use: button
-const el = null; // ❌ Use: element
-
-// Functions - unclear abbreviations
-function processStr() {} // ❌ Use: processString
-function handleErr() {} // ❌ Use: handleError
-function formatMsg() {} // ❌ Use: formatMessage
-
-// Parameters - ambiguous
-function process(req: Request, res: Response) {
-  // ❌ Outside Express/framework context, use: request, response
-  // ❌ req/res are ambiguous: result? resource?
-}
-```
+<<< ../../tests/snippets/abbreviations/negative/abbreviations-negative.ts{ts}
 
 ## Customization
 
