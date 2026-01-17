@@ -63,7 +63,7 @@ This configuration enforces consistent naming patterns across TypeScript constru
 | **Booleans**                  | Prefixed with `is\|should\|has\|can\|did\|will` | `isValid`, `hasAccess`             |
 | **Functions**                 | camelCase                                       | `calculateTotal()`, `fetchData()`  |
 | **Class Members (public)**    | camelCase or snake_case                         | `userCount`, `api_key`             |
-| **Class Members (protected)** | camelCase with `_` prefix                       | `_internalState`                   |
+| **Class Members (protected)** | camelCase (no underscore)                       | `internalState`                    |
 | **Generic Types**             | Single letter or T-prefixed                     | `T`, `TData`, `TKey`               |
 
 **Abbreviations and single-letter variables are restricted** — only `x`, `y`, `z` are allowed for coordinates. Descriptive names like `errorMessage` and `index` are enforced over vague shortcuts like `err`, `str`, or `i`.
@@ -238,24 +238,30 @@ For full details (and good/bad examples), check the [Rule Matrix.](https://drsmi
 
 - `public static`: **camelCase**, **PascalCase** or **UPPER_CASE**
 - `private static`: **camelCase**, **PascalCase** or **UPPER_CASE**, no leading `_`
+- `readonly`: **UPPER_CASE**, **camelCase**, or **snake_case**
 - `public`: **camelCase** or **snake_case**
 - `private`: **camelCase**, no leading `_`
 - `private readonly`: **camelCase** or **UPPER_CASE**, no leading `_`
-- `protected`: **camelCase** with **required leading `_`**
+- `protected`: **camelCase**, no leading `_`
 
 ### Variables
 
-- default: **camelCase** or **UPPER_CASE**
-- `const` + `global`: allows **PascalCase** (in addition to camelCase/UPPER_CASE)
+- default: **camelCase** or **UPPER_CASE**, abbreviation restrictions apply
+- `const` + `global`: allows **PascalCase** (in addition to camelCase/UPPER_CASE), abbreviation restrictions apply
 - destructured: allows **PascalCase**, **camelCase**, **snake_case**
-- booleans: **PascalCase** and must start with `is|should|has|can|did|will`
+- booleans: **camelCase** with required prefix `is|are|should|has|can|did|will`
 - destructured booleans: no prefix requirement (interop friendly)
 - `*Component`: allows PascalCase if variable name ends with `Component`
 
+### Parameters
+
+- default: **camelCase**, abbreviation restrictions apply
+- destructured: allows **PascalCase**, **camelCase**, **snake_case**
+
 ### Functions
 
-- exported/global: **camelCase** or **PascalCase**
-- final enforcement: functions must be **camelCase**
+- exported/global: **camelCase** or **PascalCase**, abbreviation restrictions apply
+- default (catch-all): **camelCase**, abbreviation restrictions apply
 
 ### Object Literals
 
