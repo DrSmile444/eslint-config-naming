@@ -28,9 +28,10 @@ Single-letter names and ambiguous abbreviations are among the most common source
   - **`n`** → Use `count`, `length`, or `number` depending on context
   - **Only exception:** `x`, `y`, `z` are allowed for coordinate systems and geometry
 - **Ambiguous abbreviations** → Use full descriptive names
-  - **`data/info/obj`** → What kind of data? Use `responseBody`, `metadata`, `userPayload`
+  - **`data/info/obj`** → What kind of data? Use `responseBody`, `metadata`, `userPayload`, `payload`
   - **`res/req`** → Acceptable in Express handlers, but ambiguous elsewhere (result? resource? response?)
   - **`err`** → Use `error` - it's only 2 more characters
+  - **`data`** → Too vague - use specific terms like `payload`, `result`, `records`, `responseBody`, `input`, `output`
 
 ### Philosophy
 

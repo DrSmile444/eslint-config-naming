@@ -27,7 +27,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- **ALLOW_LIST**: Updated to include only `x`, `y`, `z` as allowed single-letter variables (removed `x`, `y` from coordinate-only context)
+- **ALLOW_LIST**: Removed `data` from ALLOW_LIST to enforce more descriptive naming:
+  - The identifier `data` is now banned and must be replaced with specific terms like `payload`, `result`, `records`, `responseBody`, `input`, or `output`
+  - This change encourages developers to use domain-specific names that convey actual meaning
+  - Updated to include only `x`, `y`, `z` as allowed single-letter variables (removed `x`, `y` from coordinate-only context)
 - **DENY_LIST**: Expanded with comprehensive single-letter entries including:
   - `a` → array, attribute, value, accumulator
   - `b` → boolean, buffer, byte, value
