@@ -7,6 +7,47 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.8.0] - 2026-01-17
+
+### Added
+
+- **Single-Letter Variable Restrictions**: Enhanced abbreviation restrictions to ban all single-letter variables except `x`, `y`, `z`:
+  - Added all single-letter variables (a-w) to DENY_LIST with context-appropriate replacement suggestions
+  - Only `x`, `y`, `z` are allowed for coordinate systems and geometry contexts
+  - Variables like `i`, `j`, `k`, `e`, `s`, `t`, `n` now require descriptive names (`index`, `error`, `string`, `count`, etc.)
+  - Applied to variables, function parameters, and function names
+
+### Changed
+
+- **ALLOW_LIST**: Updated to include only `x`, `y`, `z` as allowed single-letter variables (removed `x`, `y` from coordinate-only context)
+- **DENY_LIST**: Expanded with comprehensive single-letter entries including:
+  - `a` → array, attribute, value, accumulator
+  - `b` → boolean, buffer, byte, value
+  - `c` → character, count, class, component
+  - `d` → data, day, distance, delta
+  - `e` → event, error, exception, element
+  - `i`, `j`, `k` → index, itemIndex, rowIndex, columnIndex
+  - And more for all letters a-w
+
+### Documentation
+
+- Updated [Abbreviation Restrictions](/rules/abbreviations) documentation:
+  - Emphasized single-letter variable policy at the top of "Why This Rule" section
+  - Added examples showing `x`, `y`, `z` as allowed coordinate variables
+  - Enhanced "Loop Indices" section to emphasize that `i`, `j`, `k` are banned
+  - Updated code examples to use VitePress snippet imports from test files
+- Updated `README.md` to mention single-letter variable restrictions
+- Updated `docs/policies/update-policy.md` to require using code snippets from tests instead of duplicating in docs
+
+### Tests
+
+- Added 13 single-letter variable test cases to negative examples
+- Added `x`, `y`, `z` coordinate variable examples to positive tests
+- Updated test expectations to validate 35 total errors (32 variables + 3 parameters)
+- Enhanced test snippets with ✅ and ❌ markers for clarity
+
+---
+
 ## [1.7.0] - 2026-01-05
 
 ### Added
