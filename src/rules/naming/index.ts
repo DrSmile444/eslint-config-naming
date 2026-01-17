@@ -1,4 +1,9 @@
-import { functionAbbreviationRestriction, parameterAbbreviationRestriction, variableAbbreviationRestriction } from './abbreviations';
+import {
+  functionAbbreviationRestriction,
+  parameterAbbreviationRestriction,
+  variableAbbreviationRestriction,
+  variableConstGlobalAbbreviationRestriction,
+} from './abbreviations';
 import { functionNamingExportedOrGlobal } from './functions';
 import {
   memberLikePrivateNaming,
@@ -19,7 +24,6 @@ import {
   booleanVariableWithPrefixNaming,
   componentVariableNaming,
   nodeCommonVariableNaming,
-  variableNamingConstGlobal,
   variableNamingDestructured,
 } from './variables';
 
@@ -41,7 +45,7 @@ export const namingConventionRule = [
   typeParameterNaming,
   typeLikeNaming,
   variableNamingDestructured, // Must come before default to properly match destructured variables
-  variableNamingConstGlobal,
+  variableConstGlobalAbbreviationRestriction, // Includes abbreviation restrictions for global const variables
   booleanVariableWithPrefixNaming, // Requires type information - works when parserOptions.project or projectService is configured
   booleanDestructuredVariableNaming, // Requires type information - works when parserOptions.project or projectService is configured
   nodeCommonVariableNaming,

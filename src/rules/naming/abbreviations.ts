@@ -2,7 +2,7 @@ import { ALLOW_LIST, DENY_LIST } from '../../naming-abbreviations';
 
 import { functionNamingCamelCase } from './functions';
 import { parameterNamingBase } from './parameters';
-import { variableNamingDefault } from './variables';
+import { variableNamingConstGlobal, variableNamingDefault } from './variables';
 
 /**
  * Escape special regex characters in a string
@@ -33,10 +33,19 @@ const bannedNamesRegex = generateBannedNamesRegex();
  * so that specific rules take precedence.
  *
  * By extending the base rules, we ensure consistency and avoid duplicating configuration:
+ * - variableConstGlobalAbbreviationRestriction extends variableNamingConstGlobal
  * - variableAbbreviationRestriction extends variableNamingDefault
  * - functionAbbreviationRestriction extends functionNamingCamelCase
  * - parameterAbbreviationRestriction extends parameterNamingBase
  */
+
+export const variableConstGlobalAbbreviationRestriction = {
+  ...variableNamingConstGlobal,
+  custom: {
+    regex: bannedNamesRegex,
+    match: false,
+  },
+} as const;
 
 export const variableAbbreviationRestriction = {
   ...variableNamingDefault,
