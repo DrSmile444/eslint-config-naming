@@ -1,20 +1,18 @@
 import {
   functionAbbreviationRestriction,
+  memberLikePrivateAbbreviationRestriction,
+  memberLikePrivateReadonlyAbbreviationRestriction,
+  memberLikePrivateStaticAbbreviationRestriction,
+  memberLikeProtectedAbbreviationRestriction,
+  memberLikePublicAbbreviationRestriction,
+  memberLikePublicStaticAbbreviationRestriction,
+  memberLikeReadonlyAbbreviationRestriction,
   parameterAbbreviationRestriction,
   variableAbbreviationRestriction,
   variableConstGlobalAbbreviationRestriction,
 } from './abbreviations';
 import { functionNamingExportedOrGlobal } from './functions';
-import {
-  memberLikePrivateNaming,
-  memberLikePrivateReadonlyNaming,
-  memberLikePrivateStaticNaming,
-  memberLikeProtectedNaming,
-  memberLikePublicNaming,
-  memberLikePublicStaticNaming,
-  memberLikeReadonlyNaming,
-  typePropertyReadonlyNaming,
-} from './member-like';
+import { typePropertyReadonlyNaming } from './member-like';
 import { objectLiteralPropertyNaming } from './object-literal-property';
 import { parameterNamingDestructured } from './parameters';
 import { quotedMemberNaming } from './quoted';
@@ -30,14 +28,14 @@ import {
 export const namingConventionRule = [
   'error',
   objectLiteralPropertyNaming,
-  memberLikePublicStaticNaming,
-  memberLikePrivateStaticNaming,
-  memberLikePrivateReadonlyNaming,
-  memberLikeReadonlyNaming,
+  memberLikePublicStaticAbbreviationRestriction, // Includes abbreviation restrictions
+  memberLikePrivateStaticAbbreviationRestriction, // Includes abbreviation restrictions
+  memberLikePrivateReadonlyAbbreviationRestriction, // Includes abbreviation restrictions
+  memberLikeReadonlyAbbreviationRestriction, // Includes abbreviation restrictions
   typePropertyReadonlyNaming,
-  memberLikePublicNaming,
-  memberLikePrivateNaming,
-  memberLikeProtectedNaming,
+  memberLikePublicAbbreviationRestriction, // Includes abbreviation restrictions
+  memberLikePrivateAbbreviationRestriction, // Includes abbreviation restrictions
+  memberLikeProtectedAbbreviationRestriction, // Includes abbreviation restrictions
   enumMemberNaming,
   interfaceNaming,
   classNaming,

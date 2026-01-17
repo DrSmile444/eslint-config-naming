@@ -1,6 +1,15 @@
 import { ALLOW_LIST, DENY_LIST } from '../../naming-abbreviations';
 
 import { functionNamingCamelCase } from './functions';
+import {
+  memberLikePrivateNaming,
+  memberLikePrivateReadonlyNaming,
+  memberLikePrivateStaticNaming,
+  memberLikeProtectedNaming,
+  memberLikePublicNaming,
+  memberLikePublicStaticNaming,
+  memberLikeReadonlyNaming,
+} from './member-like';
 import { parameterNamingBase } from './parameters';
 import { variableNamingConstGlobal, variableNamingDefault } from './variables';
 
@@ -26,7 +35,7 @@ const bannedNamesRegex = generateBannedNamesRegex();
 
 /**
  * Rules that ban abbreviations from DENY_LIST (except those in ALLOW_LIST)
- * for variables, functions, and parameters.
+ * for variables, functions, parameters, and member-like properties.
  *
  * These rules extend the base catch-all rules with additional banned name checking.
  * They must be placed AFTER all specific rules (destructured, const global, etc.)
@@ -37,6 +46,7 @@ const bannedNamesRegex = generateBannedNamesRegex();
  * - variableAbbreviationRestriction extends variableNamingDefault
  * - functionAbbreviationRestriction extends functionNamingCamelCase
  * - parameterAbbreviationRestriction extends parameterNamingBase
+ * - memberLike*AbbreviationRestriction extends corresponding memberLike rules
  */
 
 export const variableConstGlobalAbbreviationRestriction = {
@@ -65,6 +75,63 @@ export const functionAbbreviationRestriction = {
 
 export const parameterAbbreviationRestriction = {
   ...parameterNamingBase,
+  custom: {
+    regex: bannedNamesRegex,
+    match: false,
+  },
+} as const;
+
+// Member-like abbreviation restrictions
+export const memberLikePublicStaticAbbreviationRestriction = {
+  ...memberLikePublicStaticNaming,
+  custom: {
+    regex: bannedNamesRegex,
+    match: false,
+  },
+} as const;
+
+export const memberLikePrivateStaticAbbreviationRestriction = {
+  ...memberLikePrivateStaticNaming,
+  custom: {
+    regex: bannedNamesRegex,
+    match: false,
+  },
+} as const;
+
+export const memberLikePrivateReadonlyAbbreviationRestriction = {
+  ...memberLikePrivateReadonlyNaming,
+  custom: {
+    regex: bannedNamesRegex,
+    match: false,
+  },
+} as const;
+
+export const memberLikeReadonlyAbbreviationRestriction = {
+  ...memberLikeReadonlyNaming,
+  custom: {
+    regex: bannedNamesRegex,
+    match: false,
+  },
+} as const;
+
+export const memberLikePublicAbbreviationRestriction = {
+  ...memberLikePublicNaming,
+  custom: {
+    regex: bannedNamesRegex,
+    match: false,
+  },
+} as const;
+
+export const memberLikePrivateAbbreviationRestriction = {
+  ...memberLikePrivateNaming,
+  custom: {
+    regex: bannedNamesRegex,
+    match: false,
+  },
+} as const;
+
+export const memberLikeProtectedAbbreviationRestriction = {
+  ...memberLikeProtectedNaming,
   custom: {
     regex: bannedNamesRegex,
     match: false,
