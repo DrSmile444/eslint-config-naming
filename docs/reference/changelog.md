@@ -19,6 +19,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **Class Member Abbreviation Restrictions**: Fixed abbreviation restrictions not being applied to class members:
+  - Class members (public, private, protected, static, readonly) now correctly validate against the abbreviation DENY_LIST
+  - Member names like `msg`, `cfg`, `err`, `info`, etc. are now properly flagged as violations
+  - Created dedicated abbreviation restriction rules for all member-like modifiers
+  - Updated documentation to clarify that abbreviation restrictions apply to class members
 - **Global Const Abbreviation Restrictions**: Fixed abbreviation restrictions not being applied to global const variables:
   - Global const variables (module-level `const` declarations) now correctly validate against the abbreviation DENY_LIST
   - Variables like `msg`, `cfg` at module level are now properly flagged as violations
