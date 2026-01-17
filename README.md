@@ -96,7 +96,6 @@ const my_constant = 'constant';
 const ready = true;
 
 // Abbreviations
-const i = 0;
 const str = 'message';
 
 // Generics
@@ -124,7 +123,6 @@ const MY_CONSTANT = 'constant';
 const isReady = true;
 
 // Descriptive names
-const index = 0;
 const message = 'message';
 
 // Proper generics
