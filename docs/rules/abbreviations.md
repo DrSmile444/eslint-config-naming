@@ -6,8 +6,16 @@ Automatically enforces descriptive naming by banning common abbreviations and an
 
 This feature prevents usage of common abbreviations that reduce code readability. It's based on a comprehensive deny-list of anti-patterns, while allowing well-established technical terms and framework conventions through an allow-list.
 
-**Selector:** `variable`, `function`, `parameter`  
+**Selector:** `variable` (all types including const global), `function`, `parameter`  
 **Applied:** Lowest precedence (catch-all safety net)
+
+::: tip
+Abbreviation restrictions apply to **all variable types**, including:
+- Local variables
+- Global const variables (module-level constants)
+- Function parameters
+- Function names
+:::
 
 ## Why This Rule
 

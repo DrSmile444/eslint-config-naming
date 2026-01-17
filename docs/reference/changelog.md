@@ -17,6 +17,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Variables like `i`, `j`, `k`, `e`, `s`, `t`, `n` now require descriptive names (`index`, `error`, `string`, `count`, etc.)
   - Applied to variables, function parameters, and function names
 
+### Fixed
+
+- **Global Const Abbreviation Restrictions**: Fixed abbreviation restrictions not being applied to global const variables:
+  - Global const variables (module-level `const` declarations) now correctly validate against the abbreviation DENY_LIST
+  - Variables like `msg`, `cfg` at module level are now properly flagged as violations
+  - Created dedicated `variableConstGlobalAbbreviationRestriction` rule that extends `variableNamingConstGlobal` with abbreviation checks
+  - Updated documentation to clarify that abbreviation restrictions apply to all variable types including global consts
+
 ### Changed
 
 - **ALLOW_LIST**: Updated to include only `x`, `y`, `z` as allowed single-letter variables (removed `x`, `y` from coordinate-only context)

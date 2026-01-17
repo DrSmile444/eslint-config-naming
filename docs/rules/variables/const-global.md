@@ -3,6 +3,7 @@
 - **Selector:** `variable` with modifiers `const`, `global`
 - Allowed: `camelCase`, `UPPER_CASE`, `PascalCase`
 - Leading underscore: allowed
+- **Abbreviation restrictions:** Applied (see [Abbreviations](../abbreviations.md))
 
 ## Why This Rule
 
@@ -14,6 +15,8 @@ Global constants serve different purposes and benefit from naming flexibility:
 - **Leading underscore**: Internal constants not meant for external use (`_internalCache`)
 
 Global scope often contains objects that aren't simple values - they might be configured instances, singletons, or complex objects that deserve PascalCase treatment. This flexibility prevents forcing awkward names like `LOGGER_INSTANCE` when `Logger` is clearer.
+
+**Abbreviation restrictions** apply to ensure global constants are descriptive and self-documenting. Common abbreviations like `msg`, `cfg`, `obj`, etc. are not allowed.
 
 **Examples:**
 
@@ -37,10 +40,13 @@ export const apiClient = new ApiClient(); // WHY: camelCase for runtime value
 ```ts
 const MAX_RETRIES = 3; // WHY: UPPER_CASE for a true constant
 const ApiBaseUrl = 'https://example.com'; // WHY: PascalCase used for exported namespace-like object
+const AppConfig = {}; // WHY: PascalCase for global object
 ```
 
 ## ❌ Bad
 
 ```ts
 const max_retries = 3; // WHY: snake_case global const is discouraged
+export const msg = 'Hello'; // WHY: Abbreviation 'msg' should be 'message'
+const cfg = {}; // WHY: Abbreviation 'cfg' should be 'config' or 'configuration'
 ```
