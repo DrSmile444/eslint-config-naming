@@ -623,10 +623,10 @@ describe('eslint-config-naming / TypeScript naming', () => {
         const result = await lint(abbreviationsNegative);
 
         // We expect errors for all banned abbreviations used:
-        // - 32 variables (13 single-letter + 19 multi-char abbreviations)
-        // - 3 parameters (req, res, info)
-        // Note: 'data' parameter is in ALLOW_LIST so it doesn't error
-        expect(result.errorCount).toBe(35);
+        // - 31 variables with abbreviation errors (13 single-letter + 18 multi-char, excluding 'b')
+        // - 1 boolean prefix error ('b' variable requires is/has/can/should/will/did prefix)
+        // - 4 parameters (req, res, data, info) - 'data' now errors after removal from ALLOW_LIST
+        expect(result.errorCount).toBe(36);
       });
     });
   });

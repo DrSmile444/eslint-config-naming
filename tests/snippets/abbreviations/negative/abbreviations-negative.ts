@@ -87,8 +87,8 @@ function processReq(req: unknown, res: unknown) {
 }
 
 function handleData(data: unknown, info: unknown) {
+  // ❌ data should be more specific: payload, result, records, etc.
   // ❌ info should be more specific: metadata, details, etc.
-  // Note: 'data' is in ALLOW_LIST
   return { data, info };
 }
 
