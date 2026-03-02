@@ -157,7 +157,7 @@ npm i -D eslint-config-naming
 
 ## Usage
 
-### Option A: Flat Config (ESLint v9+)
+### Option A: Flat Config (ESLint v9/v10+)
 
 ```js
 // eslint.config.js

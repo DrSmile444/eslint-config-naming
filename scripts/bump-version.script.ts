@@ -13,8 +13,8 @@ const readJSONFile = (filePath: string): PackageJSON => {
 };
 
 // Helper function to write JSON file
-const writeJSONFile = (filePath: string, data: unknown): void => {
-  const jsonData = JSON.stringify(data, null, 2);
+const writeJSONFile = (filePath: string, content: unknown): void => {
+  const jsonData = JSON.stringify(content, null, 2);
 
   fs.writeFileSync(filePath, `${jsonData}\n`);
 };

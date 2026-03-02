@@ -9,12 +9,12 @@ import customStyleEslint from './node/custom-style.eslint.mjs';
 import eslintRulesEslint from './node/eslint-rules.eslint.mjs';
 import importAliasEslint from './node/import-alias.eslint.mjs';
 import nConfig from './node/n.eslint.mjs';
+import namingEslint from './node/naming.eslint.mjs';
 import noSecretsEslint from './node/no-secrets.eslint.mjs';
 import orderedImportsEslint from './node/ordered-imports.eslint.mjs';
 import overridesEslint from './node/overrides.eslint.mjs';
 import perfectionistEslint from './node/perfectionist.eslint.mjs';
 import prettierEslint from './node/prettier.eslint.mjs';
-import projectStructureEslint from './node/project-structure.eslint.mjs';
 import securityEslint from './node/security.eslint.mjs';
 import sonarEslint from './node/sonar.eslint.mjs';
 import stylisticEslint from './node/stylistic.eslint.mjs';
@@ -60,10 +60,10 @@ export default [
   // Airbnb base style for Node.js
   ...airbnbBaseEslint,
   // Compatibility helpers for extending configs
-  ...compat.extends(
-    path.join(__dirname, './node/typescript.eslintrc.json'),
-    path.join(__dirname, './node/typescript-naming-convention.eslint.cjs'),
-  ),
+  ...compat.extends(path.join(__dirname, './node/typescript.eslintrc.json')),
+  // Naming convention rules for TypeScript
+  ...namingEslint,
+  // Stylistic rules for JS/TS
   ...stylisticEslint,
   // Node.js best practices (eslint-plugin-n)
   ...nConfig,
@@ -87,8 +87,6 @@ export default [
   ...perfectionistEslint,
   // Unicorn plugin for best practices
   ...unicornEslint,
-  // Project folder/file structure rules
-  ...projectStructureEslint,
   // TypeScript and test file overrides
   ...overridesEslint,
   // Custom style rules for JS/TS

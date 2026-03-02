@@ -22,7 +22,8 @@
         "no-shadow": "off",
         "@typescript-eslint/no-shadow": "error",
         "@typescript-eslint/no-useless-constructor": "error",
-        "@typescript-eslint/switch-exhaustiveness-check": "error"
+        "@typescript-eslint/switch-exhaustiveness-check": "error",
+        "@typescript-eslint/array-type": "error"
       }
     },
     {

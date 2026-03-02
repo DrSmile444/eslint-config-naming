@@ -1,4 +1,4 @@
-# Using with ESLint v9 Flat Config
+# Using with ESLint v9/v10 Flat Config
 
 This config exports an array of Flat Config objects. You spread it into your ESLint config.
 
