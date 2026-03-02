@@ -59,10 +59,10 @@ export default [
   // Airbnb base style for Node.js
   ...airbnbBaseEslint,
   // Compatibility helpers for extending configs
-  ...compat.extends(
-    path.join(__dirname, './node/typescript.eslintrc.json'),
-    path.join(__dirname, './node/typescript-naming-convention.eslint.cjs'),
-  ),
+  ...compat.extends(path.join(__dirname, './node/typescript.eslintrc.json')),
+  // Naming convention rules for TypeScript
+  ...namingEslint,
+  // Stylistic rules for JS/TS
   ...stylisticEslint,
   // Node.js best practices (eslint-plugin-n)
   ...nConfig,
