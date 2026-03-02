@@ -1,4 +1,4 @@
-/* eslint-disable sonarjs/slow-regex,@typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment,no-continue,no-plusplus,no-use-before-define,no-undef,@typescript-eslint/no-require-imports,sonarjs/updated-loop-counter,global-require,@typescript-eslint/no-unsafe-call,unicorn/no-process-exit,sonarjs/no-alphabetical-sort,unicorn/no-array-sort,security/detect-non-literal-fs-filename,security/detect-object-injection,security/detect-unsafe-regex */
+/* eslint-disable sonarjs/slow-regex,@typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment,no-continue,no-plusplus,no-use-before-define,@typescript-eslint/no-require-imports,global-require,@typescript-eslint/no-unsafe-call,unicorn/no-process-exit,sonarjs/no-alphabetical-sort,unicorn/no-array-sort,security/detect-non-literal-fs-filename,security/detect-object-injection,security/detect-unsafe-regex */
 import { spawn } from 'node:child_process';
 import type { Dirent } from 'node:fs';
 import { promises as fs } from 'node:fs';
@@ -8,6 +8,7 @@ import path from 'node:path';
 import { resolveTsconfigPaths } from '../.eslint/tsconfig.utils.mjs';
 
 interface CliOptions {
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   dir: string;
   dryRun: boolean;
   dev: boolean;
@@ -16,7 +17,9 @@ interface CliOptions {
 
 const BUILTIN_SET = new Set([
   ...builtinModules,
-  ...builtinModules.map((m) => `node:${m}`).map((m) => (m.startsWith('node:') ? m.slice(5) : m)),
+  ...builtinModules
+    .map((nodeModule) => `node:${nodeModule}`)
+    .map((nodeModule) => (nodeModule.startsWith('node:') ? nodeModule.slice(5) : nodeModule)),
 ]);
 
 const DEFAULT_INCLUDE_EXT = new Set(['.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs']);
@@ -41,22 +44,22 @@ function extractModuleSpecifiers(code: string): string[] {
   // ESM static imports & re-exports
   const importExportRe = /\b(?:import|export)\s+(?:[^'"]*?\sfrom\s*)?['"]([^'"]+)['"]/g;
 
-  for (const m of code.matchAll(importExportRe)) {
-    specs.add(m[1]);
+  for (const moduleSpecifier of code.matchAll(importExportRe)) {
+    specs.add(moduleSpecifier[1]);
   }
 
   // CommonJS require()
   const requireRe = /\brequire\s*\(\s*['"]([^'"]+)['"]\s*\)/g;
 
-  for (const m of code.matchAll(requireRe)) {
-    specs.add(m[1]);
+  for (const moduleArray of code.matchAll(requireRe)) {
+    specs.add(moduleArray[1]);
   }
 
   // Dynamic import()
   const dynImportRe = /\bimport\s*\(\s*['"]([^'"]+)['"]\s*\)/g;
 
-  for (const m of code.matchAll(dynImportRe)) {
-    specs.add(m[1]);
+  for (const moduleSpecifier of code.matchAll(dynImportRe)) {
+    specs.add(moduleSpecifier[1]);
   }
 
   return [...specs];
@@ -118,7 +121,7 @@ function detectPackageManager(projectDirectory: string, forced?: CliOptions['pac
     return forced;
   }
 
-  const has = (p: string) => safeExists(path.join(projectDirectory, p));
+  const has = (filePath: string) => safeExists(path.join(projectDirectory, filePath));
 
   // lockfile-based detection
   if (has('pnpm-lock.yaml')) {
@@ -163,10 +166,10 @@ function detectPackageManager(projectDirectory: string, forced?: CliOptions['pac
   return 'npm'; // default fallback
 }
 
-function safeExists(p: string): boolean {
+function safeExists(filePath: string): boolean {
   try {
     // Using sync here is fine: tiny calls and avoids race conditions
-    require('node:fs').accessSync(p);
+    require('node:fs').accessSync(filePath);
 
     return true;
   } catch {
@@ -265,21 +268,21 @@ function parseArguments(argv: string[]): CliOptions {
   const out: CliOptions = { dir: '', dryRun: false, dev: false };
 
   for (let index = 2; index < argv.length; index += 1) {
-    const a = argv[index];
+    const option = argv[index];
 
-    if (a === '--dry-run') {
+    if (option === '--dry-run') {
       out.dryRun = true;
-    } else if (a === '--dev' || a === '-D') {
+    } else if (option === '--dev' || option === '-D') {
       out.dev = true;
-    } else if (a.startsWith('--dir=')) {
-      out.dir = a.slice('--dir='.length);
-    } else if (a === '--dir' && index + 1 < argv.length) {
+    } else if (option.startsWith('--dir=')) {
+      out.dir = option.slice('--dir='.length);
+    } else if (option === '--dir' && index + 1 < argv.length) {
       out.dir = argv[++index];
-    } else if (a.startsWith('--package-manager=')) {
-      out.packageManager = a.slice('--package-manager='.length) as CliOptions['packageManager'];
-    } else if (a === '--package-manager' && index + 1 < argv.length) {
+    } else if (option.startsWith('--package-manager=')) {
+      out.packageManager = option.slice('--package-manager='.length) as CliOptions['packageManager'];
+    } else if (option === '--package-manager' && index + 1 < argv.length) {
       out.packageManager = argv[++index] as CliOptions['packageManager'];
-    } else if (a === '-h' || a === '--help') {
+    } else if (option === '-h' || option === '--help') {
       printHelpAndExit();
     } else {
       // ignore unknowns to keep it simple/forwards-compatible
@@ -350,8 +353,8 @@ async function main() {
 
   console.info('\n🚩 Uninstalled dependencies:');
 
-  for (const d of uninstalled) {
-    console.info('  -', d);
+  for (const optionalParameters of uninstalled) {
+    console.info('  -', optionalParameters);
   }
 
   if (options.dryRun) {

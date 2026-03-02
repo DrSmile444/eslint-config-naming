@@ -263,7 +263,7 @@ async function main() {
     byRelativePath.set(section.relativePath, content);
   });
 
-  const writes: Array<Promise<unknown>> = [];
+  const writes: Promise<unknown>[] = [];
 
   [...byRelativePath.entries()].forEach(([relativePath, content]) => {
     // Validate relativePath before using in fs functions
