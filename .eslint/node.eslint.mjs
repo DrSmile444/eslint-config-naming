@@ -9,6 +9,7 @@ import customStyleEslint from './node/custom-style.eslint.mjs';
 import eslintRulesEslint from './node/eslint-rules.eslint.mjs';
 import importAliasEslint from './node/import-alias.eslint.mjs';
 import nConfig from './node/n.eslint.mjs';
+import namingEslint from './node/naming.eslint.mjs';
 import noSecretsEslint from './node/no-secrets.eslint.mjs';
 import orderedImportsEslint from './node/ordered-imports.eslint.mjs';
 import overridesEslint from './node/overrides.eslint.mjs';
