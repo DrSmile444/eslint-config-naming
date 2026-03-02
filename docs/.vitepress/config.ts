@@ -10,6 +10,7 @@ function resolveBase(): string {
     return '/';
   }
 
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   const repo = process.env.GITHUB_REPOSITORY?.split('/')[1];
 
   if (!repo) {
