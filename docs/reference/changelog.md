@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.9.0] - 2026-03-02
+
+### Added
+
+- **ESLint 10 Support**: Added `eslint ^10` to `peerDependencies`, making this config compatible with ESLint 10 projects.
+  - Supports all three major versions: `eslint ^8`, `^9`, and `^10`
+  - No breaking changes — all existing rules and selectors are unchanged
+
+### Changed
+
+- **ALLOW_LIST**: Added `repo` to ALLOW_LIST to accommodate common usage in monorepos and multi-package repositories:
+  - The identifier `repo` is now allowed and can be used for variables representing repositories, such as `repoUrl`, `repoName`, `repoPath`, etc.
+  - This change recognizes the widespread use of "repo" as a clear and concise term in development contexts
+- **Internal tooling**: Import-alias ESLint config now conditionally exports an empty array when no path aliases are configured, preventing errors in projects without `tsconfig` path aliases.
+- **Removed `eslint-plugin-project-structure`** from internal devDependencies (no impact on published package).
+
+---
+
 ## [1.8.0] - 2026-01-17
 
 ### Added

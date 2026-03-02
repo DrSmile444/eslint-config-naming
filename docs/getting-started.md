@@ -96,7 +96,7 @@ module.exports = {
 };
 ```
 
-> If you’re on ESLint v9 and still want `.eslintrc.*`, you may need to run ESLint in legacy mode (depending on your setup).
+> If you're on ESLint v9/v10 and still want `.eslintrc.*`, you may need to run ESLint in legacy mode (depending on your setup).
 > Prefer Flat Config when possible.
 
 ---

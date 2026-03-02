@@ -1,5 +1,15 @@
 # Compatibility
 
+## ESLint version support
+
+This package supports:
+
+| ESLint version | Support |
+| -------------- | ------- |
+| ESLint 8       | ✅      |
+| ESLint 9       | ✅      |
+| ESLint 10      | ✅      |
+
 ## Flat Config vs legacy config
 
 This package supports both:
