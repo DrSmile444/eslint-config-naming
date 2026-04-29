@@ -33,7 +33,7 @@ const logger = eslintLogger('node');
  * @property {string} [rootDir] - Project root for resolving tsconfig. Defaults to process.cwd().
  * @property {string} [tsconfig] - Explicit tsconfig filename (e.g. 'tsconfig.main.json').
  *   When omitted, auto-discovers from: tsconfig.json → tsconfig.base.json → tsconfig.main.json → tsconfig.app.json
- * @property {string} [scriptstsconfig] - Explicit tsconfig for the scripts/ directory.
+ * @property {string} [scriptsTsconfig] - Explicit tsconfig for the scripts/ directory.
  * @property {string} [gitignore] - Explicit path to .gitignore. Defaults to <rootDir>/.gitignore.
  */
 
@@ -54,8 +54,8 @@ const logger = eslintLogger('node');
  * export default createNodeConfig({ tsconfig: 'tsconfig.main.json' });
  */
 export function createNodeConfig(options = {}) {
-  const rootDir = options.rootDir || process.cwd();
-  const gitignorePath = options.gitignore || `${rootDir}/.gitignore`;
+  const rootDir = options.rootDir ?? process.cwd();
+  const gitignorePath = options.gitignore ?? `${rootDir}/.gitignore`;
 
   logger.info('Root directory:', rootDir);
   logger.info('Using .gitignore at:', gitignorePath);
