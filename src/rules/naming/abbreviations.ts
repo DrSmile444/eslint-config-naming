@@ -14,7 +14,9 @@ import { parameterNamingBase } from './parameters';
 import { variableNamingConstGlobal, variableNamingDefault } from './variables';
 
 /**
- * Escape special regex characters in a string
+ * Escape special regex characters in a string.
+ * @param string - Input string to escape.
+ * @returns Escaped string safe for use in a RegExp constructor.
  */
 function escapeRegex(string: string): string {
   return string.replaceAll(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`);
@@ -22,7 +24,8 @@ function escapeRegex(string: string): string {
 
 /**
  * Generate a regex pattern that matches banned abbreviations.
- * We filter out any abbreviations that are in the ALLOW_LIST.
+ * Filters out any abbreviations that are in the ALLOW_LIST.
+ * @returns Regex pattern string matching banned names.
  */
 function generateBannedNamesRegex(): string {
   const denyListKeys = Object.keys(DENY_LIST);

@@ -1,9 +1,8 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import tsPlugin from '@typescript-eslint/eslint-plugin';
-import tsParser from '@typescript-eslint/parser';
 import { ESLint, type Linter } from 'eslint';
+import tseslint from 'typescript-eslint';
 import { describe, expect, it } from 'vitest';
 
 import { typescriptNamingConfig } from '@configs/typescript-naming';
@@ -67,6 +66,9 @@ import variableDestructuredPositive from './snippets/variables-destructured/posi
 import variableNodeCommonNegative from './snippets/variables-node-common/negative/variable-node-common-negative.ts?url';
 import variableNodeCommonPositive from './snippets/variables-node-common/positive/variable-node-common-positive.ts?url';
 
+const tsPlugin = tseslint.plugin;
+const tsParser = tseslint.parser;
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const tsconfigRootDirectory = path.resolve(__dirname, '..');
@@ -104,6 +106,10 @@ const eslint = new ESLint({
   overrideConfig: testConfig as unknown as Linter.Config[],
 });
 
+/**
+ *
+ * @param fileUrl
+ */
 async function lint(fileUrl: string) {
   // Convert Vite's ?url import to an absolute file path
   // Vite's ?url returns paths like "/tests/snippets/..." which are project-relative
