@@ -1,5 +1,15 @@
 # Compatibility
 
+## TypeScript version support
+
+This package supports:
+
+| TypeScript version | Support |
+| ------------------ | ------- |
+| TypeScript 4       | ✅      |
+| TypeScript 5       | ✅      |
+| TypeScript 6       | ✅      |
+
 ## ESLint version support
 
 This package supports:
