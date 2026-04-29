@@ -1,61 +1,30 @@
+import { defineConfig } from 'eslint/config';
+
 /**
- * @description ESLint config for enforcing best practices for code style in JS/TS projects. Applies rules for quotes, spacing, semicolons, and more for consistent code formatting.
+ * ESLint config for logic-level code style rules in JS/TS projects.
+ * Formatting concerns (quotes, semicolons, spacing) are delegated entirely to Prettier.
  * @author Dmytro Vakulenko
- * @version 1.1
  * @see https://eslint.org/docs/latest/rules/
- * */
-export default [
+ */
+export default defineConfig([
   {
     name: 'custom-style',
     rules: {
       'import/extensions': 'off',
       'class-methods-use-this': 'off',
       'import/prefer-default-export': 'off',
-      quotes: ['error', 'single', { avoidEscape: true }],
-      // "operator-linebreak": "error",
       'no-unneeded-ternary': 'error',
       'arrow-body-style': 'error',
-      'arrow-parens': ['error', 'always'],
-      'brace-style': ['error', '1tbs'],
-      'comma-dangle': ['error', 'always-multiline'],
       'constructor-super': 'error',
       curly: ['error', 'all'],
-      'dot-notation': 'off',
-      'eol-last': 'error',
-      eqeqeq: 'off', // was ["off","smart"]
+      'dot-notation': 'error',
+      eqeqeq: ['error', 'always', { null: 'ignore' }],
       'guard-for-in': 'error',
-      // "id-blacklist" was deprecated → use "id-denylist"
       'id-denylist': 'off',
       'id-match': 'off',
-      // "max-len": ["error", { code: 140, ignoreStrings: true }],
       'no-bitwise': 'off',
       'no-caller': 'error',
-      'no-console': [
-        'error',
-        {
-          allow: [
-            'info',
-            'warn',
-            'dir',
-            'timeLog',
-            'assert',
-            'clear',
-            'count',
-            'countReset',
-            'group',
-            'groupEnd',
-            'table',
-            'dirxml',
-            'error',
-            'groupCollapsed',
-            'Console',
-            'profile',
-            'profileEnd',
-            'timeStamp',
-            'context',
-          ],
-        },
-      ],
+      'no-console': 'error',
       'no-debugger': 'error',
       'no-empty': 'off',
       'no-empty-function': 'off',
@@ -63,7 +32,6 @@ export default [
       'no-fallthrough': 'error',
       'no-new-wrappers': 'error',
       'no-throw-literal': 'error',
-      'no-trailing-spaces': 'error',
       'no-undef-init': 'error',
       'no-underscore-dangle': 'off',
       'no-unused-expressions': 'error',
@@ -71,14 +39,10 @@ export default [
       'no-use-before-define': 'error',
       'no-var': 'error',
       'object-shorthand': 'error',
-      // "prefer-arrow-callback": "error",
       'prefer-const': 'error',
-      'quote-props': ['error', 'as-needed'],
       radix: 'error',
-      semi: 'error',
-      'space-before-function-paren': 'off',
       'spaced-comment': ['error', 'always', { markers: ['/'] }],
       'valid-typeof': 'error',
     },
   },
-];
+]);

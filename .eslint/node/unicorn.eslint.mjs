@@ -1,11 +1,12 @@
+import { defineConfig } from 'eslint/config';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 
 /**
- * @description ESLint config for enforcing best practices and code quality using eslint-plugin-unicorn. Applies recommended unicorn rules and customizations.
+ * @description ESLint config for best practices and code quality using eslint-plugin-unicorn.
  * @author Dmytro Vakulenko
  * @see https://github.com/sindresorhus/eslint-plugin-unicorn
  */
-export default [
+export default defineConfig([
   eslintPluginUnicorn.configs.recommended,
   {
     name: 'unicorn/custom',
@@ -24,9 +25,11 @@ export default [
             spec: true,
             param: true,
             Param: true,
+            rootDir: true,
+            RootDir: true,
           },
         },
       ],
     },
   },
-];
+]);
