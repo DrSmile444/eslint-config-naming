@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-/* eslint-disable no-console */
 /**
  * Post-build script to fix the legacy.cjs export format for ESLint compatibility.
  * ESLint's legacy .eslintrc format doesn't recognize "default" as a top-level property,
@@ -40,5 +38,5 @@ try {
   }
 } catch (error) {
   console.error('Error fixing legacy.cjs:', error);
-  process.exit(1);
+  process.exitCode = 1;
 }

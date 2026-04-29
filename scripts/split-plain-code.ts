@@ -1,4 +1,4 @@
-/* eslint-disable unicorn/no-process-exit */
+/* eslint-disable regexp/no-super-linear-backtracking */
 /**
  * Multi-file Plain Code Splitter (TypeScript, Node ≥ 18)
  * ------------------------------------------------------
@@ -27,8 +27,8 @@
  *      -- File: infra/main.tf
  *      <!-- File: public/index.html -->
  *
- *  • The header line itself is NEVER included in the output file’s content.
- *  • A file’s content is everything after its header up to (but NOT including)
+ *  • The header line itself is NEVER included in the output file's content.
+ *  • A file's content is everything after its header up to (but NOT including)
  *    the next header, or end-of-file.
  *  • File paths MUST be relative. Attempts to escape the output root (e.g. "../")
  *    or use absolute paths are rejected for safety.
@@ -43,7 +43,7 @@
  *      ```
  *
  *  Pass --strip-md-fences to remove a single leading and trailing triple-backtick
- *  fence *inside each section only if* the section’s trimmed content clearly starts
+ *  fence *inside each section only if* the section's trimmed content clearly starts
  *  and ends with ``` on its own lines. (Internal fences remain untouched.)
  *
  * WHAT THE SCRIPT DOES
@@ -60,7 +60,7 @@
  *
  *  • <bundlePath>         Path to the input "plain code" bundle file.
  *  • --out <dir>          Output root directory (default: current working dir).
- *  • --dry-run            Don’t write files; just print what would be written.
+ *  • --dry-run            Don't write files; just print what would be written.
  *  • --strip-md-fences    Strip surrounding ``` fences in each section when detected.
  *
  * EXIT CODES
@@ -69,7 +69,7 @@
  *
  * NOTES & TIPS
  *  • Keep headers at the start of a line for best results.
- *  • You can place small descriptive comments between sections; they’ll be
+ *  • You can place small descriptive comments between sections; they'll be
  *    treated as part of the previous section unless they introduce a new header.
  *  • If you need different header syntax, tweak HEADER_RE below.
  *
@@ -78,10 +78,12 @@
  *    path would resolve outside --out is rejected.
  *
  * EXAMPLE
+ *  ```
  *  // File: src/index.css
- *  @tailwind base;
- *  @tailwind components;
- *  @tailwind utilities;
+ *  \@tailwind base;
+ *  \@tailwind components;
+ *  \@tailwind utilities;
+ *  ```
  *
  *  // File: src/main.tsx
  *  import React from "react";
@@ -104,8 +106,13 @@ interface Section {
 
 // Improved regex: avoids super-linear backtracking and empty alternatives
 // eslint-disable-next-line sonarjs/slow-regex
-const HEADER_RE = /^\s*(?:\/\/|#|;|--|<!--)\s*File:\s*([^\s][^\n]*)\s*(?:-->)?\s*$/;
+const HEADER_RE = /^\s*(?:\/\/|#|;|--|<!--)\s*File:\s*(\S[^\n]*)\s*(?:-->\s*)?$/;
 
+/**
+ * Parses CLI arguments into individual options for the splitter.
+ * @param argv - Array of raw argument strings (typically `process.argv.slice(2)`).
+ * @returns Parsed options: bundle path, output directory, dry-run flag, and fence-strip flag.
+ */
 function parseArguments(argv: string[]) {
   let bundlePath: string | undefined;
   let outputDirectory: string | undefined;
@@ -114,12 +121,13 @@ function parseArguments(argv: string[]) {
 
   const argumentList = [...argv];
 
-  while (argumentList.length > 0) {
-    const argument = argumentList.shift()!;
+  for (let index = 0; index < argumentList.length; index += 1) {
+    const argument = argumentList[index];
 
     switch (argument) {
       case '--out': {
-        outputDirectory = argumentList.shift();
+        index += 1;
+        outputDirectory = argumentList[index];
 
         break;
       }
@@ -137,9 +145,7 @@ function parseArguments(argv: string[]) {
       }
 
       default: {
-        if (!bundlePath) {
-          bundlePath = argument;
-        }
+        bundlePath ??= argument;
       }
     }
   }
@@ -147,8 +153,14 @@ function parseArguments(argv: string[]) {
   return { bundlePath, outputDirectory, isDryRun, shouldStripMdFences };
 }
 
+/**
+ * Normalizes a relative path to use forward slashes and strips a leading `./`.
+ * Throws if the path is absolute or looks like a Windows absolute path.
+ * @param relativePath - The raw relative path string from a file header.
+ * @returns Normalized relative path string.
+ */
 function normalizeRelativePath(relativePath: string): string {
-  if (path.isAbsolute(relativePath) || /^[A-Za-z]:[\\/]/.test(relativePath)) {
+  if (path.isAbsolute(relativePath) || /^[A-Z]:[\\/]/i.test(relativePath)) {
     throw new Error(`Absolute paths are not allowed: ${relativePath}`);
   }
 
@@ -157,6 +169,12 @@ function normalizeRelativePath(relativePath: string): string {
   return normalized.replace(/^.\//, '');
 }
 
+/**
+ * Resolves a relative path under the given root and throws if the result escapes the root.
+ * @param root - The output root directory (absolute).
+ * @param relativePath - The relative path to resolve.
+ * @returns Absolute path guaranteed to be inside `root`.
+ */
 function safeResolveUnder(root: string, relativePath: string): string {
   const cleanRelative = relativePath.replaceAll('\0', '');
   const abs = path.resolve(root, cleanRelative);
@@ -169,6 +187,11 @@ function safeResolveUnder(root: string, relativePath: string): string {
   return abs;
 }
 
+/**
+ * Splits a raw bundle string into sections, each identified by a file header comment.
+ * @param raw - Full contents of the bundle file.
+ * @returns Array of sections with normalized relative paths and their content.
+ */
 function parseSections(raw: string): Section[] {
   const lines = raw.split(/\r?\n/);
   const sections: Section[] = [];
@@ -201,6 +224,12 @@ function parseSections(raw: string): Section[] {
   return sections;
 }
 
+/**
+ * Strips a single wrapping Markdown code fence from a section's content when present.
+ * Only removes the outermost fence; inner fences are left intact.
+ * @param text - Raw section content, potentially wrapped in a triple-backtick fence.
+ * @returns Content with the outermost fence removed, or the original text if no fence is found.
+ */
 function maybeStripMdFence(text: string): string {
   const array = text.split(/\r?\n/);
   let start = 0;
@@ -232,13 +261,14 @@ function maybeStripMdFence(text: string): string {
   return text;
 }
 
+/**
+ * Main entry point: reads the bundle, splits it into sections, and writes each file to disk.
+ */
 async function main() {
   const { bundlePath, outputDirectory, isDryRun, shouldStripMdFences } = parseArguments(process.argv.slice(2));
 
   if (!bundlePath) {
-    // Updated usage message to avoid deprecated tags
-    console.info('Usage: split-plain-code.ts <bundlePath> [--out <dir>] [--dry-run] [--strip-md-fences]');
-    process.exit(1);
+    throw new Error('Usage: split-plain-code.ts <bundlePath> [--out <dir>] [--dry-run] [--strip-md-fences]');
   }
 
   const outRoot = path.resolve(outputDirectory ?? process.cwd());
@@ -276,17 +306,16 @@ async function main() {
     if (isDryRun) {
       const size = new TextEncoder().encode(content).length;
 
-      console.info(`[dry-run] write ${path.relative(process.cwd(), abs)} (${size} bytes)`);
+      console.info(`[dry-run] write ${path.relative(process.cwd(), abs)} (${String(size)} bytes)`);
     } else {
       writes.push(
-        fs
-          .mkdir(path.dirname(abs), { recursive: true })
-          .then(() => fs.writeFile(abs, content, 'utf8'))
-          .then(() => {
-            const size = new TextEncoder().encode(content).length;
+        (async () => {
+          await fs.mkdir(path.dirname(abs), { recursive: true });
+          await fs.writeFile(abs, content, 'utf8');
+          const size = new TextEncoder().encode(content).length;
 
-            console.info(`write ${path.relative(process.cwd(), abs)} (${size} bytes)`);
-          }),
+          console.info(`write ${path.relative(process.cwd(), abs)} (${String(size)} bytes)`);
+        })(),
       );
     }
   });
@@ -300,5 +329,5 @@ main().catch((error: unknown) => {
   const errorMessage = error && typeof error === 'object' && 'message' in error ? String(error.message) : String(error);
 
   console.error(errorMessage);
-  process.exit(1);
+  process.exitCode = 1;
 });
