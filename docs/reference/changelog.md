@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.9.1] - 2026-04-28
+
+### Added
+
+- **TypeScript 6 support**: Expanded `peerDependencies` to include `typescript ^6`, resolving peer dependency conflicts when installing with TypeScript 6.0.x projects.
+- **TypeScript compatibility docs**: Added TypeScript version support table to `docs/usage/compatibility.md`.
+
+---
+
 ## [1.9.0] - 2026-03-02
 
 ### Added

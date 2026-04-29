@@ -1,3 +1,4 @@
+/* eslint-disable security/detect-non-literal-fs-filename */
 import * as fs from 'node:fs';
 import path from 'node:path';
 
@@ -7,31 +8,41 @@ import { eslintLogger } from './logger.mjs';
 
 const logger = eslintLogger('tsconfig-utils');
 
+/** Ordered list of tsconfig filenames to try during auto-discovery. */
+const TSCONFIG_CANDIDATES = ['tsconfig.json', 'tsconfig.base.json', 'tsconfig.main.json', 'tsconfig.app.json'];
+
+/**
+ * Resolves the path to a tsconfig file.
+ * If `tsconfig` is provided in options, resolves it relative to `rootDir`.
+ * Otherwise, walks `TSCONFIG_CANDIDATES` in order and returns the first that exists.
+ * Falls back to `tsconfig.json` if none are found.
+ * @param {{ rootDir?: string, tsconfig?: string }} [options]
+ * @returns {string} Absolute path to the tsconfig file.
+ */
+export function resolveTsconfigPath(options = {}) {
+  const rootDir = options.rootDir ?? process.cwd();
+
+  if (options.tsconfig) {
+    return path.resolve(rootDir, options.tsconfig);
+  }
+
+  for (const candidate of TSCONFIG_CANDIDATES) {
+    const fullPath = path.resolve(rootDir, candidate);
+
+    if (fs.existsSync(fullPath)) {
+      logger.info(`Auto-discovered tsconfig at: ${fullPath}`);
+
+      return fullPath;
+    }
+  }
+
+  return path.resolve(rootDir, 'tsconfig.json');
+}
+
 /**
  * Parses a tsconfig file and returns its contents as a typed object.
  * @param {string} tsconfigPath - Path to the tsconfig file
  * @returns {import('type-fest').TsConfigJson | undefined} - Parsed tsconfig object, or undefined if parsing fails
- *
- * @example
- * // Given tsconfig.json:
- * {
- *   "compilerOptions": {
- *     "baseUrl": "src",
- *     "paths": {
- *       "@app/*": ["app/*"]
- *     }
- *   }
- * }
- *
- * // Calling parseTsconfigPaths('path/to/tsconfig.json') returns:
- * {
- *   compilerOptions: {
- *     baseUrl: 'src',
- *     paths: {
- *       '@app/*': ['app/*']
- *     }
- *   }
- * }
  */
 export function parseTsconfig(tsconfigPath) {
   try {
@@ -39,7 +50,6 @@ export function parseTsconfig(tsconfigPath) {
 
     return json5.parse(fileContent);
   } catch (error) {
-    // Silently ignore errors for missing or invalid tsconfig files
     logger.warn(`Warning: Failed to parse ${tsconfigPath}:`, error.message);
     throw error;
   }
@@ -103,9 +113,8 @@ export function resolveTsconfigPaths(tsconfigPath, visited = new Set()) {
         mergedPaths = { ...mergedPaths, ...referencesPaths };
       }
     }
-  } catch (error) {
-    // Silently ignore errors for missing or invalid tsconfig files
-    logger.warn(`Warning: Failed to parse ${tsconfigPath}:`, error.message);
+  } catch {
+    logger.warn(`Warning: Failed to resolve paths from ${tsconfigPath}`);
   }
 
   return mergedPaths;

@@ -16,17 +16,17 @@ const defaultGroups = [
 ];
 
 const sortGroup = {
-  customGroups: {
-    index: '^index$',
-    path: '^path$',
-    element: '^element$',
-    key: '^key$',
-    className: '^className$',
-    classNames: '^classNames$',
-    title: '^title$',
-    message: '^message$',
-    description: '^description$',
-  },
+  customGroups: [
+    { groupName: 'index', elementNamePattern: '^index$' },
+    { groupName: 'path', elementNamePattern: '^path$' },
+    { groupName: 'element', elementNamePattern: '^element$' },
+    { groupName: 'key', elementNamePattern: '^key$' },
+    { groupName: 'className', elementNamePattern: '^className$' },
+    { groupName: 'classNames', elementNamePattern: '^classNames$' },
+    { groupName: 'title', elementNamePattern: '^title$' },
+    { groupName: 'message', elementNamePattern: '^message$' },
+    { groupName: 'description', elementNamePattern: '^description$' },
+  ],
   groups: ['index', 'path', 'element', 'key', 'className', 'classNames', 'title', 'message', 'description'],
 };
 

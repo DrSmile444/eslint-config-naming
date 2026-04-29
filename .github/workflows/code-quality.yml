@@ -30,3 +30,34 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  typescript-compatibility:
+    name: Test (TypeScript ${{ matrix.typescript-version }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        typescript-version: ['4.9', '5', '6']
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Install TypeScript ${{ matrix.typescript-version }}
+        run: npm install --no-save --legacy-peer-deps typescript@${{ matrix.typescript-version }}
+
+      - name: Verify TypeScript version
+        run: npx tsc --version
+
+      - name: Tests
+        run: npm run test

@@ -11,3 +11,7 @@ projectStructure.cache.json
 .idea
 .env
 dist
+
+*.tgz
+.DS_Store
+prompts/

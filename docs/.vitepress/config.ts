@@ -3,6 +3,10 @@ import { defineConfig } from 'vitepress';
 
 import { version } from '../../package.json';
 
+/**
+ * Resolves the VitePress base URL for GitHub Pages deployments.
+ * @returns Base URL string (e.g. `/repo-name/` on CI, `/` locally).
+ */
 function resolveBase(): string {
   // For GitHub Pages, the site is served from /<repo>/ unless you use a custom domain.
   // This keeps local dev as "/" and CI builds as "/<repo>/" automatically.
@@ -10,7 +14,6 @@ function resolveBase(): string {
     return '/';
   }
 
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   const repo = process.env.GITHUB_REPOSITORY?.split('/')[1];
 
   if (!repo) {
